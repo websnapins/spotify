@@ -44,14 +44,13 @@ document.domain = 'websnapins.com';
 	
 window.onbeforeunload = function (){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
+    if(liveagent.chasitor){
     storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
     storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
     storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
     storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
     storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
-    
-    // temp code - removes window session storage data to make sure data is loaded from the iframe 
-    window.sessionStorage.clear();
+    }
 }
 window.onload = function (){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
