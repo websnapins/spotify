@@ -72,7 +72,32 @@ embedded_svc.settings.displayHelpButton = true; //Or false
 //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
 //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
 embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-158932f3e30.blitz02.soma.force.com', '572D0000000022Y', '00DD00000008WZH', '573D000000002Au', '1.0', gslbBaseUrl, '39.0', 'deployment2_different_LAdeployment', 'EmbeddedServiceLiveAgent_Parent04ID00000004CDpMAM_159950718e4'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com'); }</script>
-   </body>
+// SPOTIFY ADDITION
+var iframe;
+iframe = document.createElement('iframe');
+iframe.src = 'http://websnapins.com/storage.html';
+iframe.id = 'storage_iframe';
+iframe.style.display = 'none';
+document.body.appendChild(iframe);
+document.domain = 'websnapins.com';
+window.onbeforeunload = function (){
+    var storageIframe = document.getElementById("storage_iframe").contentWindow;
+    storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
+    storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+    storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+    storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+    storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+}
+window.onload = function (){
+    var storageIframe = document.getElementById("storage_iframe").contentWindow;
+	if (storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY")){
+	keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"]
+    	keys.forEach(function(key){
+       		window.sessionStorage.setItem(key, storageIframe.sessionStorage.getItem(key));
+    	});
+	}
+}
+</body>
 </html>
     <style>
        body {         
