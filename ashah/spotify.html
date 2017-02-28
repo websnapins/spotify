@@ -136,6 +136,8 @@
 
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
+	
+   window.onunload = function(){console.log("Window on unload hack !")};
 
   //load
   window.addEventListener(onloadEvt, function (event) {
