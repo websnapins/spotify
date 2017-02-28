@@ -209,12 +209,12 @@
           });
 
           console.log("[storageHandler] retrieved from previous session");
-          initESW('http://bdrasin-ltm2.internal.salesforce.com:6109');
+          initESW('https://na1-blitz02.soma.salesforce.com');
           waitForLiveAgent();
         }
         else {
           console.log("[storageHandler] no previous session, regular init");
-          initESW('http://bdrasin-ltm2.internal.salesforce.com:6109');
+          initESW('https://na1-blitz02.soma.salesforce.com');
           waitForOnline();
         }
       }
