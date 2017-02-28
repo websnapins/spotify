@@ -181,12 +181,8 @@
       //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
       //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
       console.log("[initESW] initializing");
-      embedded_svc.init('http://bdrasin-ltm2.internal.salesforce.com:6109',
-                      'http://bdrasin-ltm2.internal.salesforce.com:8096/chat',
-                      'http://bdrasin-ltm2.internal.salesforce.com:8095/content',
-                      'http://bdrasin-ltm-comm.localhost.force.com:6109/t3c1',
-                      '572xx0000000001', '00Dxx0000001gEg', '573xx0000000001', '1.0', gslbBaseUrl, '39.0', 'snappy1',
-                      'EmbeddedServiceLiveAgent_Parent04Ixx0000000051EAA_1591ee941fa');
+      embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com');
+
     };
 
     // adding listner, listening for message from storage iFrame
