@@ -55,7 +55,7 @@ console.log (" Event persisted = " + event.persisted);
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
 
-window.addEventListener(onloadEvt, function (event){
+window.addEventListener(unloadEvt, function (event){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
     if(typeof liveagent != "undefined"){
     storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
