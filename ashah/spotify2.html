@@ -130,21 +130,13 @@
 </style>
 <script type="text/javascript">
 window.onpageshow = function(event) {
-console.log (" Event persisted = " + event.persisted);
- if (event.persisted) {
-        window.location.reload() 
+    console.log("Event persisted = " + event.persisted);
+    if (event.persisted) {
+        window.location.reload()  
     }
 };
-  console.log("begin script pg 1");
-  console.log("[storageHandler] Init");   
-    var iframe;
-    iframe = document.createElement('iframe');
-    iframe.src = 'http://websnapins.com/spotify-storage.html';
-    iframe.id = 'storage_iframe';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    document.domain = 'websnapins.com';
 
+  console.log("begin script pg 2");
   // seems water tight to identify Safari on Mobile devices
   var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
                 && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
@@ -152,6 +144,19 @@ console.log (" Event persisted = " + event.persisted);
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
 	
+  //load
+  window.addEventListener(onloadEvt, function (event) {
+  var storageIframe = document.getElementById("storage_iframe").contentWindow;
+  if(!storageIframe){
+    console.log("[storageHandler] Init");
+    var iframe;
+    iframe = document.createElement('iframe');
+    iframe.src = 'http://websnapins.com/spotify-storage.html';
+    iframe.id = 'storage_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    document.domain = 'websnapins.com';
+    }
     //unload
     window.addEventListener(unloadEvt, function (event) {
 
@@ -186,7 +191,6 @@ console.log (" Event persisted = " + event.persisted);
       //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
       console.log("[initESW] initializing");
       embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com');
-
     };
 
     // adding listner, listening for message from storage iFrame
@@ -422,11 +426,11 @@ function initializeWorkaround() {
        }
     }); // postChat
   } // initializeWorkaround
-
+}); // onload
 </script>
 </head>
 <body>
   <p id="snapinplaceholder"/>
-	<a href="http://support.websnapins.com/ashah/spotify2.html" target="_self" >Support</a>
+	<a href="http://websnapins.com/ashah/spotify.html" target="_self" >Main</a>
 </body>
 </html>
