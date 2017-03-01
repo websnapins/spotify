@@ -151,11 +151,7 @@ console.log (" Event persisted = " + event.persisted);
 
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
-  
-  //load
-  window.addEventListener(onloadEvt, function (event) {}); // onload
-
-    
+	
     //unload
     window.addEventListener(unloadEvt, function (event) {
 
