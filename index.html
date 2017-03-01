@@ -54,9 +54,7 @@ console.log (" Event persisted = " + event.persisted);
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
 
-  var storageIframe = document.getElementById("storage_iframe").contentWindow;
-
-storageIframe.addEventListener(unloadEvt, function (event){
+window.addEventListener(unloadEvt, function (event){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
     if(typeof liveagent != "undefined"){
     storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
@@ -67,7 +65,7 @@ storageIframe.addEventListener(unloadEvt, function (event){
     }
 });
 
-storageIframe.addEventListener(onloadEvt, function (event){
+window.addEventListener(onloadEvt, function (event){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
 	if (storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY")){
 	keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"]
