@@ -41,7 +41,21 @@ iframe.id = 'storage_iframe';
 iframe.style.display = 'none';
 document.body.appendChild(iframe);
 document.domain = 'websnapins.com';
-window.onbeforeunload = function (){
+	
+window.onpageshow = function(event) {
+console.log (" Event persisted = " + event.persisted);
+ if (event.persisted) {
+        window.location.reload() 
+    }
+};
+  console.log("begin script pg 1");
+  // seems water tight to identify Safari on Mobile devices
+  var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
+                && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+  var unloadEvt = isSafari ? "pagehide" : "beforeunload";
+  var onloadEvt = isSafari ? "pageshow" : "load";
+
+window.addEventListener(onloadEvt, function (event){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
     if(typeof liveagent != "undefined"){
     storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
@@ -50,8 +64,9 @@ window.onbeforeunload = function (){
     storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
     storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
     }
-}
-window.onload = function (){
+});
+
+window.addEventListener(onloadEvt, function (event){
     var storageIframe = document.getElementById("storage_iframe").contentWindow;
 	if (storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY")){
 	keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"]
@@ -59,7 +74,7 @@ window.onload = function (){
        		window.sessionStorage.setItem(key, storageIframe.sessionStorage.getItem(key));
     	});
 	}
-}
+	});
 </script>
 </div>
 </body>
