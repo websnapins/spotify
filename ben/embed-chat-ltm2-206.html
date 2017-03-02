@@ -131,13 +131,15 @@ window.onpageshow = function(event) {
   //load
   window.addEventListener(onloadEvt, function (event) {
     console.log("[storageHandler] Init");
+    document.domain = 'websnapins.com';
+	  
     var iframe;
     iframe = document.createElement('iframe');
     iframe.src = 'http://websnapins.com/spotify-storage.html';
     iframe.id = 'storage_iframe';
     iframe.style.display = 'none';
     document.body.appendChild(iframe);
-    document.domain = 'websnapins.com';
+
     //unload
     window.addEventListener(unloadEvt, function (event) {
       console.log("[window.onBeforeunload]");
