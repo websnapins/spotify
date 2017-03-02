@@ -246,8 +246,7 @@ console.log (" Event persisted = " + event.persisted);
     function waitForLiveAgent() {
       if (typeof liveagent !== "undefined" && liveagent.isRunning()) {
    	    console.log("[waitForLiveAgent] Liveagent Available");
-	liveagent.chasitor.reinitializeSession();
-        initializeWorkaround();
+	    initializeWorkaround();
       }
       else {
         setTimeout(waitForLiveAgent, 100);
