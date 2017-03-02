@@ -160,7 +160,6 @@ console.log (" Event persisted = " + event.persisted);
     window.addEventListener(unloadEvt, function (event) {
 
       console.log("[window.onBeforeunload]");
-      liveagent.chasitor.abortConnection();
       if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
         liveagent.chasitor.cancelChat();
@@ -169,6 +168,7 @@ console.log (" Event persisted = " + event.persisted);
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
       if(typeof liveagent !== "undefined"){
+	  liveagent.chasitor.abortConnection();
           storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
