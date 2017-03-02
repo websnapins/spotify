@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="https://c.la1-c1cs-frf.salesforceliveagent.com/content/js/core/jslibrary/SfdcCore.js"></script>
-<script type="text/javascript" src="https://spotifycs--devErnst.cs84.my.salesforce.com/embeddedservice/1.0/esw.min.js"></script>
+<script type="text/javascript" src="https://spotifycs--devErnst.cs84.my.salesforce.com/embeddedservice/1.0/esw.js"></script>
 <link href="https://spotifycs--devErnst.cs84.my.salesforce.com/embeddedservice/1.0/esw.css" type="text/css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- embedded CSS for development purposes should be stored as resource -->
@@ -130,13 +130,12 @@
 </style>
 <script type="text/javascript">
 window.onpageshow = function(event) {
-    console.log("Event persisted = " + event.persisted);
-    if (event.persisted) {
-        window.location.reload()  
+console.log (" Event persisted = " + event.persisted);
+ if (event.persisted) {
+        window.location.reload() 
     }
 };
-
-  console.log("begin script pg 2");
+  console.log("begin script pg 1");
   // seems water tight to identify Safari on Mobile devices
   var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
                 && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
@@ -144,10 +143,10 @@ window.onpageshow = function(event) {
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
 	
+   window.onunload = function(){console.log("Window on unload hack !")};
+
   //load
   window.addEventListener(onloadEvt, function (event) {
-  var storageIframe = document.getElementById("storage_iframe").contentWindow;
-  if(!storageIframe){
     console.log("[storageHandler] Init");
     var iframe;
     iframe = document.createElement('iframe');
@@ -156,12 +155,11 @@ window.onpageshow = function(event) {
     iframe.style.display = 'none';
     document.body.appendChild(iframe);
     document.domain = 'websnapins.com';
-    }
+
     //unload
     window.addEventListener(unloadEvt, function (event) {
 
       console.log("[window.onBeforeunload]");
-
       if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
         liveagent.chasitor.cancelChat();
@@ -190,7 +188,8 @@ window.onpageshow = function(event) {
       //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
       //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
       console.log("[initESW] initializing");
-      embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com');
+      embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com');
+
     };
 
     // adding listner, listening for message from storage iFrame
@@ -431,6 +430,6 @@ function initializeWorkaround() {
 </head>
 <body>
   <p id="snapinplaceholder"/>
-	<a href="http://websnapins.com/ashah/spotify.html" target="_self" >Main</a>
+	<a href="http://support.websnapins.com/ashah/spotify.html" target="_self" >Support</a>
 </body>
 </html>
