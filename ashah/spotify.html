@@ -217,6 +217,7 @@ console.log (" Event persisted = " + event.persisted);
           });
 
           console.log("[storageHandler] retrieved from previous session");
+	  liveagent.chasitor.reinitializeSession();
           initESW('https://na1-blitz02.soma.salesforce.com');
           waitForLiveAgent();
         }
