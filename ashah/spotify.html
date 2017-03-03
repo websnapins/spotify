@@ -129,11 +129,9 @@
 }
 </style>
 <script type="text/javascript">
-window.onpageshow = function(event) {
+window.onpopstate = function(event) {
 console.log (" Event persisted = " + event.persisted);
- if (event.persisted) {
-        window.location.reload() 
-    }
+window.location.reload();
 };
   console.log("begin script pg 1");
   // seems water tight to identify Safari on Mobile devices
