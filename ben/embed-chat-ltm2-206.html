@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="https://c.la1-c1cs-frf.salesforceliveagent.com/content/js/core/jslibrary/SfdcCore.js"></script>
-<script type="text/javascript" src="https://spotifycs--devErnst.cs84.my.salesforce.com/embeddedservice/1.0/esw.js"></script>
-<link href="https://spotifycs--devErnst.cs84.my.salesforce.com/embeddedservice/1.0/esw.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="http://bdrasin-ltm2.internal.salesforce.com:6109/embeddedservice/1.0/esw.js"></script>
+<link href="http://bdrasin-ltm2.internal.salesforce.com:6109/embeddedservice/1.0/esw.css" type="text/css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- embedded CSS for development purposes should be stored as resource -->
 <style type="text/css">
@@ -157,6 +157,12 @@ window.onpageshow = function(event) {
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
           storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+	  console.log("Leaving page in root domain. storageIframe data: ");
+	  console.log("CHASITOR_SERIALIZED_KEY " + storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+          console.log("ESW_MINIMIZED_WIDTH " + storageIframe.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+          console.log("LA_ESW_MINIMIZED" " + storageIframe.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+          console.log("LA_ESW_UNREAD_NOTIFS " + storageIframe.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+          console.log("LA_ESW_MINIMIZED_TEXT " + storageIframe.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
       }
     });
     var initESW = function(gslbBaseUrl) {
@@ -193,6 +199,20 @@ window.onpageshow = function(event) {
               window.sessionStorage.setItem(key, storageIframe.localStorage.getItem(key));
           });
           console.log("[storageHandler] retrieved from previous session");
+          console.log("Loading page in root domain. storageIframe data: ");
+	  console.log("CHASITOR_SERIALIZED_KEY " + storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+          console.log("ESW_MINIMIZED_WIDTH " + storageIframe.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+          console.log("LA_ESW_MINIMIZED" " + storageIframe.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+          console.log("LA_ESW_UNREAD_NOTIFS " + storageIframe.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+          console.log("LA_ESW_MINIMIZED_TEXT " + storageIframe.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+          console.log("Loading page in root domain. Local session data: ");
+	  console.log("CHASITOR_SERIALIZED_KEY " + sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+          console.log("ESW_MINIMIZED_WIDTH " + sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+          console.log("LA_ESW_MINIMIZED" " + sessionStorage.getItem('LA_ESW_MINIMIZED'));
+          console.log("LA_ESW_UNREAD_NOTIFS " + sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+          console.log("LA_ESW_MINIMIZED_TEXT " + sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+		
+		
           initESW('http://bdrasin-ltm2.internal.salesforce.com:6109');
           waitForLiveAgent();
         }
