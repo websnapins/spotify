@@ -215,7 +215,7 @@ window.onunload = function(){};
             storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
 
         if (storageAvailable) {
-          console.log("[storageHandler] retrieving keys...");
+          console.log("[storageHandler] retrieving keys... serialized key : " + storageAvailable);
           keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
 
           keys.forEach(function(key) {
@@ -224,7 +224,7 @@ window.onunload = function(){};
               window.sessionStorage.setItem(key, storageIframe.sessionStorage.getItem(key));
             else
               window.sessionStorage.setItem(key, storageIframe.localStorage.getItem(key));
-              console.log("Setting in Window session storage : "+key + ":" + storageIframe.localStorage.getItem(key));
+              console.log("Setting in Window session storage : "+key + ":" + window.sessionStorage.getItem(key));
           });
 
           console.log("[storageHandler] retrieved from previous session");
