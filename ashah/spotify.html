@@ -172,7 +172,9 @@ window.onunload = function(){};
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
       if(typeof liveagent !== "undefined" && stopUnload === false){
+	  console.log("Aborting LA connection");
 	  liveagent.chasitor.abortConnection();
+	  console.log("[storageHandler] setting keys in iFrame...");
           storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
