@@ -15,6 +15,13 @@
           sessionStorage.setItem(key, data);
       }
 
+      function getSessionData(key, data) {
+        if (isSafari)
+          return localStorage.getItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
+        else
+          return sessionStorage.getItem(key);
+      }
+      
       var targetorigin = 'http://' + parent.location.hostname;
       parent.postMessage("storage_iframe_initialized", targetorigin);
     </script>
