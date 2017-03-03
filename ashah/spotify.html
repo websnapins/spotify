@@ -133,6 +133,7 @@
 window.onpageshow = function(event) {
 console.log (" Event persisted = " + event.persisted);
 if (event.persisted) {
+stopUnload = true ; 
 window.location.reload();
 }
 };
@@ -147,7 +148,7 @@ window.onunload = function(){};
 
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
-
+  var stopUnload = false;
   //load
   window.addEventListener(onloadEvt, function (event) {
     console.log("[storageHandler] Init");
@@ -163,14 +164,14 @@ window.onunload = function(){};
     window.addEventListener(unloadEvt, function (event) {
 
       console.log("[window.onBeforeunload]");
-      if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
+      if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished() && stopUnload === false) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
         liveagent.chasitor.cancelChat();
     	};
 
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
-      if(typeof liveagent !== "undefined"){
+      if(typeof liveagent !== "undefined" && stopUnload === false){
 	  liveagent.chasitor.abortConnection();
           storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
