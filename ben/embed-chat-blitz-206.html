@@ -45,7 +45,9 @@ window.addEventListener(unloadEvt, function (event) {
    console.log("[window.onBeforeunload]");
    if (typeof liveagent === "undefined" || !liveagent.chasitor.isChatEstablished()) {
       console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
-      liveagent.chasitor.cancelChat();
+      if( liveagent && !liveagent.chasitor.isChatEstablished()){
+         liveagent.chasitor.cancelChat();
+      }
       //remove this stuff too so it doesn't show up anymore
       sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
       sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
