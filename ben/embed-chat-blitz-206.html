@@ -22,7 +22,7 @@ src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/Salesforc
 url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
 }
 </style>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.min.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/min.js'></script>
 <script type='text/javascript'>
 var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
    && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
@@ -87,7 +87,7 @@ window.addEventListener('message', function (event) {
       //this is the normal init stuff
       if (!window.embedded_svc) { 
          var s = document.createElement('script'); 
-         s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
+         s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/min.js'); 
          s.onload = function() { 
             initESW(null); 
          }; 
