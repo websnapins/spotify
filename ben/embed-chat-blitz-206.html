@@ -24,8 +24,12 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 </style>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
 <script type='text/javascript'>
-var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
-   && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+   
+//got this from stack overflow.  YMMV
+var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
+
+//set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = isSafari ? "pagehide" : "beforeunload";
 var onloadEvt = isSafari ? "pageshow" : "load";   
@@ -40,6 +44,7 @@ var onPageLoad = function (event) {
    document.body.appendChild(iframe);
 };
 window.addEventListener(onloadEvt, onPageLoad);
+//For back-forward cache
 if(isSafari){
    window.addEventListener("popstate", function(event){
       if(event.state === "ESW_STATE_KEY" + document.location){
@@ -50,6 +55,7 @@ if(isSafari){
                         
 //unload
 window.addEventListener(unloadEvt, function (event) {
+   //For back-forward cache
    if(isSafari){
       history.pushState("ESW_STATE_KEY" + document.location);
    }
