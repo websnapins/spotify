@@ -31,14 +31,22 @@ var unloadEvt = isSafari ? "pagehide" : "beforeunload";
 var onloadEvt = isSafari ? "pageshow" : "load";   
 
 //load
-window.addEventListener(onloadEvt, function (event) {
+var onPageLoad = function (event) {
    var iframe;
    iframe = document.createElement('iframe');
    iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
    iframe.id = 'storage_iframe';
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
-});
+};
+window.addEventListener(onloadEvt, onPageLoad);
+if(isSafari){
+   window.addEventListner("popstate", function(event){
+      if(event.state === "ESW_STATE_KEY" + document.location){
+         onPageLoad(event);
+      }
+   }
+}
                         
 //unload
 window.addEventListener(unloadEvt, function (event) {
