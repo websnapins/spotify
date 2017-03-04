@@ -2,9 +2,10 @@
   <body>
     <p id="dummy"></p>
     <script>
-      // seems water tight to identify Safari on Mobile devices
-      var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
-                    && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+      //got this from stack overflow.  YMMV
+      var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
+
 
       document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
 
