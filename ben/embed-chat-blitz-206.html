@@ -43,7 +43,7 @@ window.addEventListener(onloadEvt, function (event) {
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("[window.onBeforeunload]");
-   if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
+   if (typeof liveagent === "undefined" || !liveagent.chasitor.isChatEstablished()) {
       console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
       liveagent.chasitor.cancelChat();
       //remove this stuff too so it doesn't show up anymore
