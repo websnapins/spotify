@@ -82,18 +82,17 @@ window.addEventListener('message', function (event) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
-         
-         //this is the normal init stuff
-         if (!window.embedded_svc) { 
-            var s = document.createElement('script'); 
-            s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
-            s.onload = function() { 
-               initESW(null); 
-            }; 
-            document.body.appendChild(s);
-         } else { 
-            initESW('https://na1-blitz02.soma.salesforce.com');
-         }
+      }
+      //this is the normal init stuff
+      if (!window.embedded_svc) { 
+         var s = document.createElement('script'); 
+         s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
+         s.onload = function() { 
+            initESW(null); 
+         }; 
+         document.body.appendChild(s);
+      } else { 
+         initESW('https://na1-blitz02.soma.salesforce.com');
       }
    }
 });
