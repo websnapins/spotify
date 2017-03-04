@@ -44,6 +44,7 @@ window.addEventListener(unloadEvt, function (event) {
    if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
       console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
       liveagent.chasitor.cancelChat();
+      //remove this stuff too so it doesn't show up anymore
       sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
       sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
       sessionStorage.removeItem("LA_ESW_MINIMIZED");
@@ -77,6 +78,18 @@ window.addEventListener('message', function (event) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
+         
+         //this is the normal init stuff
+         if (!window.embedded_svc) { 
+            var s = document.createElement('script'); 
+            s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
+            s.onload = function() { 
+               initESW(null); 
+            }; 
+            document.body.appendChild(s);
+         } else { 
+            initESW('https://na1-blitz02.soma.salesforce.com');
+         }
       }
    }
 });
@@ -93,16 +106,9 @@ var initESW = function(gslbBaseUrl) {
    //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
    //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
    //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
-   embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); }; 
-   if (!window.embedded_svc) { var s = document.createElement('script'); 
-      s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
-      s.onload = function() { 
-         initESW(null); 
-      }; 
-      document.body.appendChild(s);
-   } else { 
-      initESW('https://na1-blitz02.soma.salesforce.com'); 
-   }
+   embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); 
+}; 
+
 </script>
    
    </body>
