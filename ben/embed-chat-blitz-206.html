@@ -42,6 +42,10 @@ window.addEventListener(onloadEvt, function (event) {
                         
 //unload
 window.addEventListener(unloadEvt, function (event) {
+   if(isSafari){
+      history.pushState("ESW_STATE_KEY" + document.location);
+   }
+   /*
    console.log("[window.onBeforeunload]");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
 
@@ -58,14 +62,14 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.removeSessionData("LA_ESW_MINIMIZED_TEXT");
    }else{  
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
-      if(typeof liveagent !== "undefined"){
+      if(typeof liveagent !== "undefined"){*/
          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
          storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
          storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
          storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
          storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
-      }
-   }
+/*      }
+   }*/
 });
 
 //storage loaded
