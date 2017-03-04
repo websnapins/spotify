@@ -41,7 +41,7 @@ var onPageLoad = function (event) {
 };
 window.addEventListener(onloadEvt, onPageLoad);
 if(isSafari){
-   window.addEventListner("popstate", function(event){
+   window.addEventListener("popstate", function(event){
       if(event.state === "ESW_STATE_KEY" + document.location){
          onPageLoad(event);
       }
