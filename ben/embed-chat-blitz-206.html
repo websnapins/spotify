@@ -31,7 +31,7 @@ var unloadEvt = isSafari ? "pagehide" : "beforeunload";
 var onloadEvt = isSafari ? "pageshow" : "load";   
 
 //load
-window.addEventListener(unloadEvt, function (event) {
+window.addEventListener(onloadEvt, function (event) {
    var iframe;
    iframe = document.createElement('iframe');
    iframe.src = 'http://websnapins.com/storage-iframe-ben.html';
