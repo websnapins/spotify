@@ -24,19 +24,86 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 </style>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.min.js'></script>
 <script type='text/javascript'>
+document.domain = 'websnapins.com';
+var unloadEvt = isSafari ? "pagehide" : "beforeunload";
+var onloadEvt = isSafari ? "pageshow" : "load";   
+
+//load
+window.addEventListener(unloadEvt, function (event) {
+   var iframe;
+   iframe = document.createElement('iframe');
+   iframe.src = 'http://websnapins.com/spotify-storage.html';
+   iframe.id = 'storage_iframe';
+   iframe.style.display = 'none';
+   document.body.appendChild(iframe);
+});
+                        
+//unload
+window.addEventListener(unloadEvt, function (event) {
+   console.log("[window.onBeforeunload]");
+   if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
+      console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
+      liveagent.chasitor.cancelChat();
+      sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
+      sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
+      sessionStorage.removeItem("LA_ESW_MINIMIZED");
+      sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
+      sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");
+   };
+   
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
+   if(typeof liveagent !== "undefined"){
+      storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
+      storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+      storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+      storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+      storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+   }
+});
+
+//storage loaded
+window.addEventListener('message', function (event) {
+   // Check for specific event: 'storage_iframe_initialize'
+   if (event.data == 'storage_iframe_initialized') {
+      console.log("[storage_iframe_initialized] message received from iFrame, done loading");
+      var storageIframe = document.getElementById("storage_iframe").contentWindow;
+      var storageAvailable = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+      if (storageAvailable) {
+         //get data, put into local sessionStorage
+         console.log("[storageHandler] retrieving keys...");
+         keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
+         keys.forEach(function(key) {
+            // for Safari - revert to using localStorage, otherwise sessionStorage            
+            window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
+          });
+      }
+   }
+});
+                        
+                        
 var initESW = function(gslbBaseUrl) {
 
-embedded_svc.settings.avatarImgURL = '';
-embedded_svc.settings.prechatBackgroundImgURL = '';
-embedded_svc.settings.waitingStateBackgroundImgURL = '';
-embedded_svc.settings.smallCompanyLogoImgURL = '';
+   embedded_svc.settings.avatarImgURL = '';
+   embedded_svc.settings.prechatBackgroundImgURL = '';
+   embedded_svc.settings.waitingStateBackgroundImgURL = '';
+   embedded_svc.settings.smallCompanyLogoImgURL = '';
 
-
-embedded_svc.settings.displayHelpButton = true; //Or false
-//embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
-//embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
-//embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
-embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com'); }</script>
+   embedded_svc.settings.displayHelpButton = true; //Or false
+   //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
+   //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
+   //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
+   embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); }; 
+   if (!window.embedded_svc) { var s = document.createElement('script'); 
+      s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
+      s.onload = function() { 
+         initESW(null); 
+      }; 
+      document.body.appendChild(s);
+   } else { 
+      initESW('https://na1-blitz02.soma.salesforce.com'); 
+   }
+</script>
    
    </body>
 </html>
@@ -53,6 +120,3 @@ embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz
             
       }
     </style>
-
-
-
