@@ -43,6 +43,8 @@ window.addEventListener(onloadEvt, function (event) {
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("[window.onBeforeunload]");
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+
    if (typeof liveagent === "undefined" || !liveagent.chasitor.isChatEstablished()) {
       console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
       if(typeof liveagent != "undefined"){
@@ -55,7 +57,6 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
       storageIframe.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");
    }else{  
-      var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
       if(typeof liveagent !== "undefined"){
          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
