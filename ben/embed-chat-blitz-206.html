@@ -53,10 +53,10 @@ window.addEventListener(unloadEvt, function (event) {
    if(isSafari){
       history.pushState("ESW_STATE_KEY" + document.location);
    }
-   /*
    console.log("[window.onBeforeunload]");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
 
+   /*
    if (typeof liveagent === "undefined" || !liveagent.chasitor.isChatEstablished()) {
       console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
       if(typeof liveagent != "undefined"){
