@@ -92,9 +92,9 @@ window.addEventListener(unloadEvt, function (event) {
 
 //storage loaded
 window.addEventListener('message', function (event) {
-   console.log("STORAGE LOADED");
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
+      console.log("STORAGE LOADED");
       console.log("[storage_iframe_initialized] message received from iFrame, done loading");
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       var storageAvailable = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
