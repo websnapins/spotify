@@ -51,11 +51,11 @@ window.addEventListener(unloadEvt, function (event) {
          liveagent.chasitor.cancelChat();
       }
       //remove this stuff too so it doesn't show up anymore
-      storageIframe.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
-      storageIframe.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
-      storageIframe.sessionStorage.removeItem("LA_ESW_MINIMIZED");
-      storageIframe.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
-      storageIframe.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");
+      storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
+      storageIframe.removeSessionData("ESW_MINIMIZED_WIDTH");
+      storageIframe.removeSessionData("LA_ESW_MINIMIZED");
+      storageIframe.removeSessionData("LA_ESW_UNREAD_NOTIFS");
+      storageIframe.removeSessionData("LA_ESW_MINIMIZED_TEXT");
    }else{  
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
       if(typeof liveagent !== "undefined"){
