@@ -36,6 +36,7 @@ var onloadEvt = isSafari ? "pageshow" : "load";
 
 //load
 var onPageLoad = function (event) {
+   console.log("ONPAGELOAD FUNCTION");
    var iframe;
    iframe = document.createElement('iframe');
    iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
@@ -47,7 +48,9 @@ window.addEventListener(onloadEvt, onPageLoad);
 //For back-forward cache
 if(isSafari){
    window.addEventListener("popstate", function(event){
+      console.log("POPSTATE");
       if(event.state === "ESW_STATE_KEY" + document.location){
+         console.log("SAFARI POPSTATE");
          onPageLoad(event);
       }
    });
@@ -55,6 +58,7 @@ if(isSafari){
                         
 //unload
 window.addEventListener(unloadEvt, function (event) {
+   console.log("UNLOAD");
    //For back-forward cache
    if(isSafari){
       history.pushState("ESW_STATE_KEY" + document.location);
@@ -88,6 +92,7 @@ window.addEventListener(unloadEvt, function (event) {
 
 //storage loaded
 window.addEventListener('message', function (event) {
+   console.log("STORAGE LOADED");
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
       console.log("[storage_iframe_initialized] message received from iFrame, done loading");
