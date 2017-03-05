@@ -82,31 +82,16 @@ window.addEventListener(unloadEvt, function (event) {
       history.pushState("ESW_STATE_KEY" + document.location);
    }
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
-
-   /*
-   if (typeof liveagent === "undefined" || !liveagent.chasitor.isChatEstablished()) {
-      console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
-      if(typeof liveagent != "undefined"){
-         liveagent.chasitor.cancelChat();
-      }
-      //remove this stuff too so it doesn't show up anymore
+   // the iFrame decides based on iOSSafari wether to use sessionStorage or localStorage
+   if(typeof liveagent !== "undefined"){
+      storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
+   }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
-      storageIframe.removeSessionData("ESW_MINIMIZED_WIDTH");
-      storageIframe.removeSessionData("LA_ESW_MINIMIZED");
-      storageIframe.removeSessionData("LA_ESW_UNREAD_NOTIFS");
-      storageIframe.removeSessionData("LA_ESW_MINIMIZED_TEXT");
-   }else{  */
-      // the iFrame decides based on iOSSafari wether to use sessionStorage or localStorage
-      if(typeof liveagent !== "undefined"){
-         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
-      }else{
-         storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
-      }
-      storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
-      storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
-      storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
-      storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
-*/   }*/
+   }
+   storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+   storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+   storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+   storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
 });
 
 //storage loaded
