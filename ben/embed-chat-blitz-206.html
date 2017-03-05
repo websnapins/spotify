@@ -37,7 +37,6 @@ var onloadEvt = iOSSafari ? "pageshow" : "load";
 
 //load
 var onPageLoad = function (event) {
-   console.log("ONPAGELOAD FUNCTION");
    var iframe;
    iframe = document.createElement('iframe');
    iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
@@ -49,9 +48,7 @@ window.addEventListener(onloadEvt, onPageLoad);
 //For back-forward cache
 if(iOSSafari){
    window.addEventListener("popstate", function(event){
-      console.log("POPSTATE");
       if(event.state === "ESW_STATE_KEY" + document.location){
-         console.log("SAFARI POPSTATE");
          onPageLoad(event);
       }
    });
@@ -59,12 +56,10 @@ if(iOSSafari){
                         
 //unload
 window.addEventListener(unloadEvt, function (event) {
-   console.log("UNLOAD");
    //For back-forward cache
    if(iOSSafari){
       history.pushState("ESW_STATE_KEY" + document.location);
    }
-   console.log("[window.onBeforeunload]");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
 
    /*
@@ -95,13 +90,10 @@ window.addEventListener(unloadEvt, function (event) {
 window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
-      console.log("STORAGE LOADED");
-      console.log("[storage_iframe_initialized] message received from iFrame, done loading");
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       var storageAvailable = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if (storageAvailable) {
          //get data, put into local sessionStorage
-         console.log("[storageHandler] retrieving keys...");
          keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
          keys.forEach(function(key) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
