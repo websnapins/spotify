@@ -46,6 +46,7 @@ window.addEventListener("popstate", function(event){
 });
    
 //got this from stack overflow.  YMMV
+var ua=navigator.userAgent;
 var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
 var webkit = !!ua.match(/WebKit/i);
 var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
