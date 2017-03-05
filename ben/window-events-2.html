@@ -1,0 +1,31 @@
+<html>
+<head>
+<script language="javascript">
+history.pushState("ESW_STATE_KEY" + document.location);
+
+window.addEventListener("beforeunload", function(event){
+   console.log("WINDOWEVENT: BEFOREUNLOAD");
+});
+
+window.addEventListener("pagehide", function(event){
+   console.log("WINDOWEVENT: PAGEHIDE");
+});
+   
+window.addEventListener("pageshow", function(event){
+   console.log("WINDOWEVENT: PAGESHOW");
+});
+   
+window.addEventListener("load", function(event){
+   console.log("WINDOWEVENT: LOAD");
+});
+   
+window.addEventListener("popstate", function(event){
+   console.log("WINDOWEVENT: POPSTATE");
+});
+</script>
+</head>
+<body>
+<h1>Page 2</h1>
+<a href="window-events-1.html">Page 1</a>
+</body>
+</html>
