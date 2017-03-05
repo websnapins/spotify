@@ -26,23 +26,23 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 <script type='text/javascript'>
    
 window.addEventListener("beforeunload", function(event){
-   console.log("WINDOWEVENT: BEFOREUNLOAD");
+   console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
 });
 
 window.addEventListener("pagehide", function(event){
-   console.log("WINDOWEVENT: PAGEHIDE");
+   console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
    
 window.addEventListener("pageshow", function(event){
-   console.log("WINDOWEVENT: PAGESHOW");
+   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
 });
    
 window.addEventListener("load", function(event){
-   console.log("WINDOWEVENT: LOAD");
+   console.log("SPOTIFY: WINDOWEVENT: LOAD");
 });
    
 window.addEventListener("popstate", function(event){
-   console.log("WINDOWEVENT: POPSTATE");
+   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
 });
    
 //got this from stack overflow.  YMMV
@@ -83,7 +83,7 @@ window.addEventListener(unloadEvt, function (event) {
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
-      console.log("SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -110,7 +110,7 @@ window.addEventListener('message', function (event) {
          var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
-         console.log("LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+         console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
