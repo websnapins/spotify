@@ -1,7 +1,6 @@
 <html>
 <head>
 <script language="javascript">
-history.pushState("ESW_STATE_KEY" + document.location);
 
 window.addEventListener("beforeunload", function(event){
    console.log("PAGE 1: BEFOREUNLOAD");
@@ -9,6 +8,7 @@ window.addEventListener("beforeunload", function(event){
 
 window.addEventListener("pagehide", function(event){
    console.log("PAGE 1: PAGEHIDE");
+   history.pushState("ESW_STATE_KEY" + document.location);
 });
    
 window.addEventListener("pageshow", function(event){
