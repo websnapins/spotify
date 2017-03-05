@@ -127,10 +127,8 @@ window.addEventListener('message', function (event) {
 });   
 
 window.getLocalPollCount = function(){
-  if(typeof liveagent != 'undefined' && liveagent.chasitor){
-    return jSONPollCount(liveagent.chasitor.serialize());
-  }
-  return null;
+   var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+   return chasitorPollCount(chasitorStr);
 }
 
 window.chasitorPollCount = function(chasitorStr){
