@@ -30,19 +30,19 @@ window.addEventListener("beforeunload", function(event){
 });
 
 window.addEventListener("pagehide", function(event){
-   console.log("WINDOWEVENT: PAGEHIDE");
+   console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
    
 window.addEventListener("pageshow", function(event){
-   console.log("WINDOWEVENT: PAGESHOW");
+   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
 });
    
 window.addEventListener("load", function(event){
-   console.log("WINDOWEVENT: LOAD");
+   console.log("SPOTIFY: WINDOWEVENT: LOAD");
 });
    
 window.addEventListener("popstate", function(event){
-   console.log("WINDOWEVENT: POPSTATE");
+   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
 });
    
 //got this from stack overflow.  YMMV
@@ -77,11 +77,13 @@ if(isSafari){
 window.addEventListener(unloadEvt, function (event) {
    //For back-forward cache
    if(isSafari){
-      history.pushState("ESW_STATE_KEY" + document.location);
+      history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
    }
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
+      var localChasitorData = liveagent.chasitor.serialize();
+      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -100,11 +102,15 @@ window.addEventListener('message', function (event) {
       var storageAvailable = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if (storageAvailable) {
          //get data, put into local sessionStorage
-         keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
+         keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
          keys.forEach(function(key) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
+         var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+         var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
+         var localPollCount = window.getLocalPollCount();
+         console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
@@ -119,8 +125,25 @@ window.addEventListener('message', function (event) {
       }
    }
 });
-                        
-                        
+
+window.getLocalPollCount = function(){
+   var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+   return chasitorPollCount(chasitorStr);
+}
+window.chasitorPollCount = function(chasitorStr){
+   if(chasitorStr){
+      var jsonObj=JSON.parse(chasitorStr);
+      return jSONPollCount(jsonObj);
+   }
+   return null;
+}
+window.jSONPollCount = function(jsonObj){
+   if(jsonObj && jsonObj.connectionData){
+      return jsonObj.connectionData.pollCount;
+   }
+   return null;
+}
+   
 var initESW = function(gslbBaseUrl) {
 
    embedded_svc.settings.avatarImgURL = '';
