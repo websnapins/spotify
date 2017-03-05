@@ -9,6 +9,7 @@ window.addEventListener("beforeunload", function(event){
 
 window.addEventListener("pagehide", function(event){
    console.log("PAGE 2: PAGEHIDE");
+   history.pushState("ESW_STATE_KEY" + document.location);
 });
    
 window.addEventListener("pageshow", function(event){
