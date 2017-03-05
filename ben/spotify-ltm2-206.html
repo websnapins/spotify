@@ -133,10 +133,17 @@ var localPollCount = function(){
   return null;
 }
 
-var chasitorPollCount = function(String chasitorStr){
+var chasitorPollCount = function(chasitorStr){
    if(chasitorStr){
-      var jsonStr=JSON.parse(chasitorStr);
-      return jsonStr.connectionData.pollCount;
+      var jsonObj=JSON.parse(chasitorStr);
+      return jSONPollCount(jsonObj);
+   }
+   return null;
+}
+
+var jSONPollCount = function(jsonObj){
+   if(jsonObj && jsonObj.connectionData){
+      return jsonObj.connectionData.pollCount;
    }
    return null;
 }
