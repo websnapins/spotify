@@ -128,7 +128,7 @@ window.addEventListener('message', function (event) {
 
 window.localPollCount = function(){
   if(live agent && liveagent.chasitor){
-    return chasitorPollCount(liveagent.chasitor.serialize());
+    return jSONPollCount(liveagent.chasitor.serialize());
   }
   return null;
 }
