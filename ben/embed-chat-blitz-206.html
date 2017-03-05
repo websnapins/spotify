@@ -46,15 +46,13 @@ window.addEventListener("popstate", function(event){
 });
    
 //got this from stack overflow.  YMMV
-var ua=navigator.userAgent;
-var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-var webkit = !!ua.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
 
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
-var unloadEvt = iOSSafari ? "pagehide" : "beforeunload";
-var onloadEvt = iOSSafari ? "pageshow" : "load";   
+var unloadEvt = isSafari ? "pagehide" : "beforeunload";
+var onloadEvt = isSafari ? "pageshow" : "load";   
 
 //load
 var onPageLoad = function (event) {
@@ -67,7 +65,7 @@ var onPageLoad = function (event) {
 };
 window.addEventListener(onloadEvt, onPageLoad);
 //For back-forward cache
-if(iOSSafari){
+if(isSafari){
    window.addEventListener("popstate", function(event){
       if(event.state === "ESW_STATE_KEY" + document.location){
          onPageLoad(event);
@@ -78,11 +76,11 @@ if(iOSSafari){
 //unload
 window.addEventListener(unloadEvt, function (event) {
    //For back-forward cache
-   if(iOSSafari){
+   if(isSafari){
       history.pushState("ESW_STATE_KEY" + document.location);
    }
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
-   // the iFrame decides based on iOSSafari wether to use sessionStorage or localStorage
+   // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
    }else{
