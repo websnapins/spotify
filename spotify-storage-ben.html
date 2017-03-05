@@ -5,27 +5,25 @@
       document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
 
       //got this from stack overflow.  YMMV
-      var ua=navigator.userAgent;
-      var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-      var webkit = !!ua.match(/WebKit/i);
-      var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+      var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
       
       function storeSessionData(key, data) {
-        if (iOSSafari)
+        if (isSafari)
           localStorage.setItem(key, data); // due to bug with Safari incorrectly handling sessionStorage on iFrames
         else
           sessionStorage.setItem(key, data);
       }
 
       function getSessionData(key, data) {
-        if (iOSSafari)
+        if (isSafari)
           return localStorage.getItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
         else
           return sessionStorage.getItem(key);
       }
       
       function removeSessionData(key) {
-        if (iOSSafari)
+        if (isSafari)
           return localStorage.removeItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
         else
           return sessionStorage.removeItem(key);
