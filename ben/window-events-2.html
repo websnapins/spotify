@@ -4,23 +4,23 @@
 history.pushState("ESW_STATE_KEY" + document.location);
 
 window.addEventListener("beforeunload", function(event){
-   console.log("WINDOWEVENT: BEFOREUNLOAD");
+   console.log("PAGE 2: BEFOREUNLOAD");
 });
 
 window.addEventListener("pagehide", function(event){
-   console.log("WINDOWEVENT: PAGEHIDE");
+   console.log("PAGE 2: PAGEHIDE");
 });
    
 window.addEventListener("pageshow", function(event){
-   console.log("WINDOWEVENT: PAGESHOW");
+   console.log("PAGE 2: PAGESHOW");
 });
    
 window.addEventListener("load", function(event){
-   console.log("WINDOWEVENT: LOAD");
+   console.log("PAGE 2: LOAD");
 });
    
 window.addEventListener("popstate", function(event){
-   console.log("WINDOWEVENT: POPSTATE");
+   console.log("PAGE 2: POPSTATE");
 });
 </script>
 </head>
