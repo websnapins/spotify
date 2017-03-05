@@ -127,7 +127,7 @@ window.addEventListener('message', function (event) {
 });   
 
 window.getLocalPollCount = function(){
-  if(liveagent && liveagent.chasitor){
+  if(typeof liveagent != 'undefined' && liveagent.chasitor){
     return jSONPollCount(liveagent.chasitor.serialize());
   }
   return null;
