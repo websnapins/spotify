@@ -2,15 +2,14 @@
   <body>
     <p id="dummy"></p>
     <script>
+      document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
+
       //got this from stack overflow.  YMMV
       var ua=navigator.userAgent;
       var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
       var webkit = !!ua.match(/WebKit/i);
       var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-
-
-      document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
-
+      
       function storeSessionData(key, data) {
         if (iOSSafari)
           localStorage.setItem(key, data); // due to bug with Safari incorrectly handling sessionStorage on iFrames
