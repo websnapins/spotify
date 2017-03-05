@@ -107,7 +107,7 @@ window.addEventListener('message', function (event) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
-         var iFrameChasitorStr = storageIframe.getSessionData(CHASITOR_SERIALIZED_KEY);
+         var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
          console.log("LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
