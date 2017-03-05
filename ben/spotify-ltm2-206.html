@@ -82,6 +82,8 @@ window.addEventListener(unloadEvt, function (event) {
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
+      var localChasitorData = liveagent.chasitor.serialize();
+      console.log("STORING POLLING DATA W/POLLCOUNT: " + chasitorPollCount(localChasitorData));
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -100,11 +102,15 @@ window.addEventListener('message', function (event) {
       var storageAvailable = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if (storageAvailable) {
          //get data, put into local sessionStorage
-         keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
+         keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
          keys.forEach(function(key) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
+         var iFrameChasitorStr = storageIframe.getSessionData(CHASITOR_SERIALIZED_KEY);
+         var iFramePollCount = chasitorPollCount(iFrameChasitorStr);
+         var localPollCount = getLocalPollCount();
+         console.log("LOCAL POLL COUNT: " + localPollCount + ", SETTING TO POLL COUNT: " +  iFramePollCount);
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
@@ -120,9 +126,19 @@ window.addEventListener('message', function (event) {
    }
 });   
 
-var pollCountForChasitorStr = function(String chasitorStr){
-   var jsonStr=JSON.parse(chasitorStr);
-   return jsonStr.connectionData.pollCount;
+var localPollCount = function(){
+  if(live agent && liveagent.chasitor){
+    return chasitorPollCount(liveagent.chasitor.serialize());
+  }
+  return null;
+}
+
+var chasitorPollCount = function(String chasitorStr){
+   if(chasitorStr){
+      var jsonStr=JSON.parse(chasitorStr);
+      return jsonStr.connectionData.pollCount;
+   }
+   return null;
 }
                         
 var initESW = function(gslbBaseUrl) {
