@@ -118,8 +118,12 @@ window.addEventListener('message', function (event) {
          initESW('http://bdrasin-ltm2.internal.salesforce.com:6109');
       }
    }
-});
-                        
+});   
+
+var pollCountForChasitorStr = function(String chasitorStr){
+   var jsonStr=JSON.parse(chasitorStr);
+   return jsonStr.connectionData.pollCount;
+}
                         
 var initESW = function(gslbBaseUrl) {
 
