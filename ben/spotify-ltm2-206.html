@@ -83,7 +83,7 @@ window.addEventListener(unloadEvt, function (event) {
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
-      console.log("STORING POLLING DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      console.log("SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -110,7 +110,7 @@ window.addEventListener('message', function (event) {
          var iFrameChasitorStr = storageIframe.getSessionData(CHASITOR_SERIALIZED_KEY);
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
-         console.log("LOCAL POLL COUNT: " + localPollCount + ", SETTING TO POLL COUNT: " +  iFramePollCount);
+         console.log("LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
