@@ -126,14 +126,14 @@ window.addEventListener('message', function (event) {
    }
 });   
 
-var localPollCount = function(){
+window.localPollCount = function(){
   if(live agent && liveagent.chasitor){
     return chasitorPollCount(liveagent.chasitor.serialize());
   }
   return null;
 }
 
-var chasitorPollCount = function(chasitorStr){
+window.chasitorPollCount = function(chasitorStr){
    if(chasitorStr){
       var jsonObj=JSON.parse(chasitorStr);
       return jSONPollCount(jsonObj);
@@ -141,7 +141,7 @@ var chasitorPollCount = function(chasitorStr){
    return null;
 }
 
-var jSONPollCount = function(jsonObj){
+window.jSONPollCount = function(jsonObj){
    if(jsonObj && jsonObj.connectionData){
       return jsonObj.connectionData.pollCount;
    }
