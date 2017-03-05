@@ -25,6 +25,26 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
 <script type='text/javascript'>
    
+window.addEventListener("beforeunload", function(event){
+   console.log("WINDOWEVENT: BEFOREUNLOAD");
+});
+
+window.addEventListener("pagehide", function(event){
+   console.log("WINDOWEVENT: PAGEHIDE");
+});
+   
+window.addEventListener("pageshow", function(event){
+   console.log("WINDOWEVENT: PAGESHOW");
+});
+   
+window.addEventListener("load", function(event){
+   console.log("WINDOWEVENT: LOAD");
+});
+   
+window.addEventListener("popstate", function(event){
+   console.log("WINDOWEVENT: POPSTATE");
+});
+   
 //got this from stack overflow.  YMMV
 var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
 var webkit = !!ua.match(/WebKit/i);
