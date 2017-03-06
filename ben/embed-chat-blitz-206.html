@@ -72,7 +72,12 @@ if(isSafari){
       }
    });
 }
-                        
+
+//popstate reload fix
+window.addEventListener("popstate", function() {
+        if(internalApi.getSafariType() === "mobile") document.location.reload();
+    }, false);
+
 //unload
 window.addEventListener(unloadEvt, function (event) {
    //For back-forward cache
