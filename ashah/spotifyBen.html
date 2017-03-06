@@ -124,6 +124,11 @@ window.addEventListener('message', function (event) {
    }
 });
 
+// popstate reload for mobile fix
+window.addEventListener("popstate", function() {
+        if(internalApi.getSafariType() === "mobile") document.location.reload();
+    }, false);
+
 window.getLocalPollCount = function(){
    var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
    return chasitorPollCount(chasitorStr);
