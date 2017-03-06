@@ -130,17 +130,6 @@
 </style>
 <script type="text/javascript">
 
-window.onpageshow = function(event) {
-console.log (" Event persisted = " + event.persisted);
-if (event.persisted) {
-stopUnload = true ; 
-window.location.reload();
-}
-};
-
-// Does nothing but break the bfcache
-window.onunload = function(){}; 
-
   console.log("begin script pg 1");
   // seems water tight to identify Safari on Mobile devices
   var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
@@ -148,30 +137,42 @@ window.onunload = function(){};
 
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
-  var stopUnload = false;
-  //load
-  window.addEventListener(onloadEvt, function (event) {
-    console.log("[storageHandler] Init");
-    var iframe;
-    iframe = document.createElement('iframe');
-    iframe.src = 'http://websnapins.com/spotify-storage.html';
-    iframe.id = 'storage_iframe';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    document.domain = 'websnapins.com';
 
+var onPageLoad = function (event) {
+   var iframe;
+   iframe = document.createElement('iframe');
+   iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
+   iframe.id = 'storage_iframe';
+   iframe.style.display = 'none';
+   document.body.appendChild(iframe);
+};
+
+//load
+  window.addEventListener(onloadEvt, onPageLoad);
+	
+//For back-forward cache
+   if(isSafari){
+      window.addEventListener("popstate", function(event){
+      if(event.state === "ESW_STATE_KEY" + document.location){
+         onPageLoad(event);
+      }
+     });
+   }
     //unload
     window.addEventListener(unloadEvt, function (event) {
-
-      console.log("[window.onBeforeunload] , stop unload : " + stopUnload);
-      if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished() && stopUnload === false) {
+      //For back-forward cache
+   	if(isSafari){
+      	    history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
+         }
+	   
+       if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
         liveagent.chasitor.cancelChat();
     	};
 
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
-      if(typeof liveagent !== "undefined" && stopUnload === false){
+      if(typeof liveagent !== "undefined"){
 	  console.log("Aborting LA connection");
 	  liveagent.chasitor.abortConnection();
 	  console.log("[storageHandler] setting keys in iFrame...");
@@ -437,7 +438,6 @@ function initializeWorkaround() {
        }
     }); // postChat
   } // initializeWorkaround
-}); // onload
 </script>
 </head>
 <body>
