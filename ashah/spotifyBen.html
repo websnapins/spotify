@@ -75,6 +75,7 @@ window.addEventListener(unloadEvt, function (event) {
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    if(typeof liveagent !== "undefined"){
+      liveagent.chasitor.abortConnection();
       var localChasitorData = liveagent.chasitor.serialize();
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
