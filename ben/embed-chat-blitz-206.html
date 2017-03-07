@@ -116,6 +116,7 @@ window.addEventListener('message', function (event) {
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
          console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+         window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
