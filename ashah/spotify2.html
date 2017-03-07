@@ -129,22 +129,28 @@
 }
 </style>
 <script type="text/javascript">
+
 window.onpageshow = function(event) {
 console.log (" Event persisted = " + event.persisted);
- if (event.persisted) {
-        window.location.reload() 
-    }
+if (event.persisted) {
+stopUnload = true;
+window.location.reload();
+}
 };
-  console.log("begin script pg 1");
+	
+window.addEventListener("popstate", function() {
+        if(internalApi.getSafariType() === "mobile") document.location.reload();
+    }, false);
+
+  console.log("begin script pg 2");
   // seems water tight to identify Safari on Mobile devices
   var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
                 && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
 
   var unloadEvt = isSafari ? "pagehide" : "beforeunload";
   var onloadEvt = isSafari ? "pageshow" : "load";
+  var stopUnload = false;
 	
-   window.onunload = function(){console.log("Window on unload hack !")};
-
   //load
   window.addEventListener(onloadEvt, function (event) {
     console.log("[storageHandler] Init");
@@ -159,20 +165,29 @@ console.log (" Event persisted = " + event.persisted);
     //unload
     window.addEventListener(unloadEvt, function (event) {
 
-      console.log("[window.onBeforeunload]");
-      if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished()) {
+      console.log("[window.onBeforeunload] , stop unload : " + stopUnload );
+
+      if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished() && stopUnload === false) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
         liveagent.chasitor.cancelChat();
     	};
 
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
-      if(typeof liveagent !== "undefined"){
+      
+      if(typeof liveagent !== "undefined" && stopUnload === false){
+	  console.log("Aborting LA connection ..");
+	  liveagent.chasitor.abortConnection();
+	  console.log("[storageHandler] setting keys in iFrame...");
           storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
           storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+	  var storageAvailable = isSafari ?
+            storageIframe.localStorage.getItem("CHASITOR_SERIALIZED_KEY") :
+            storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+	  console.log("Iframe serialized key : " + storageAvailable);
       }
     });
 
@@ -189,7 +204,6 @@ console.log (" Event persisted = " + event.persisted);
       //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
       console.log("[initESW] initializing");
       embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://na1-blitz02.soma.salesforce.com');
-
     };
 
     // adding listner, listening for message from storage iFrame
@@ -204,7 +218,7 @@ console.log (" Event persisted = " + event.persisted);
             storageIframe.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
 
         if (storageAvailable) {
-          console.log("[storageHandler] retrieving keys...");
+          console.log("[storageHandler] retrieving keys... serialized key :" + storageAvailable);
           keys = ["CHASITOR_SERIALIZED_KEY", "ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
 
           keys.forEach(function(key) {
@@ -213,6 +227,7 @@ console.log (" Event persisted = " + event.persisted);
               window.sessionStorage.setItem(key, storageIframe.sessionStorage.getItem(key));
             else
               window.sessionStorage.setItem(key, storageIframe.localStorage.getItem(key));
+	      console.log("Setting in Window session storage : "+key + ":" + window.sessionStorage.getItem(key));
           });
 
           console.log("[storageHandler] retrieved from previous session");
@@ -430,6 +445,6 @@ function initializeWorkaround() {
 </head>
 <body>
   <p id="snapinplaceholder"/>
-	<a href="http://support.websnapins.com/ashah/spotify2.html" target="_self" >Support2</a>
+	<a href="http://support.websnapins.com/ashah/spotifyIos.html" target="_self" >Support</a>
 </body>
 </html>
