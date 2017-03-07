@@ -74,6 +74,24 @@ if(isSafari){
 }
 
 //popstate reload fix
+internalApi['getSafariType'] = function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+
+        if(userAgent.indexOf("chrome") === -1 && userAgent.indexOf("safari") !== -1) {
+            if(userAgent.indexOf("mobile") === -1) {
+                return "desktop";
+            } else {
+                return "mobile";
+            }
+        }
+        
+        return "none";
+    };
+
+    // Account for Safari cache quirks.
+    window.addEventListener("pageshow", function() {
+        if(internalApi.getSafariType() === "desktop" && event.persisted) window.location.reload();
+    }, false);
 window.addEventListener("popstate", function() {
         if(internalApi.getSafariType() === "mobile") document.location.reload();
     }, false);
