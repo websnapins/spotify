@@ -105,8 +105,10 @@ window.addEventListener('message', function (event) {
             // for Safari - revert to using localStorage, otherwise sessionStorage   
 	    if(isSafari){
 	    window.localStorage.setItem(key,storageIframe.getSessionData(key));
+            console.log("Set item in Safari localStorage : " + key);
 	    }else{
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
+	    console.log("Set item in sessionStorage : " + key);
 	    }
           });
          var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
