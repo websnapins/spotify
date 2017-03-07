@@ -138,6 +138,10 @@ window.location.reload();
 }
 };
 
+window.addEventListener("popstate", function() {
+        if(internalApi.getSafariType() === "mobile") document.location.reload();
+    }, false);
+
 // Does nothing but break the bfcache
 window.onunload = function(){}; 
 
