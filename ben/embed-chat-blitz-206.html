@@ -98,7 +98,7 @@ window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
    //For back-forward cache
    if(isSafari){
-      history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
+   //   history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
    }
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
