@@ -105,7 +105,7 @@ window.addEventListener(unloadEvt, function (event) {
       var isChatEstablished = document.querySelector(".embeddedServiceLiveAgentChatWindow") !== undefined
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
       localChasitorData = JSON.stringify(localChasitorJSON);
-      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorJSON));
+      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       if(isSafari){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
