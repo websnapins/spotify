@@ -167,6 +167,7 @@ window.addEventListener("popstate", function() {
 	  serializedData['chasitorData']['isChatEstablished'] = document.querySelector('.embeddedServiceLiveAgentChatWindow') !== undefined;
 
 	  localChasitorData = JSON.stringify(serializedData);
+	  console.log("CHASITOR_SERIALIZED_KEY in iFrame : " + localChasitorData );
 	  storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
