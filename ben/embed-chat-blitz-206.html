@@ -163,7 +163,11 @@ window.safariIphoneStore = function(chasitorStr){
    
    //store chasitorData w/o messages and connection separately
    var chasitorObj = JSON.parse(chasitorStr);
-   var connectionStr = JSON.stringify(chasitorObj.connectionData);
+
+   //remove all messages for now
+   chasitorObj.chasitorData.chatMessages = [];
+
+   var connectionStr = JSON.stringify(chasitorObj.connectionData);   
    var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
    console.log("SPOTIFY: connectionStr: " + connectionStr);
    console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
