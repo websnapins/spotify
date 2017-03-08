@@ -168,20 +168,33 @@ window.safariIphoneStore = function(chasitorObj){
    
    //store chasitorData w/o messages and connection separately
    //store last 3 messages in separate cookie
-   var chatMessages = chasitorObj.chasitorData.chatMessages.length;
+   var chatMessages = chasitorObj.chasitorData.chatMessages;
    if(chatMessages.length > 3){
-      chasitorObj.chasitordata.chatMessages = chatMessages.slice(chatMessages.length - 3);
+      chatMessages = chatMessages.slice(chatMessages.length - 3);
    }
+   //remove these now - we will replace when we de-serialize
+   chasitorObj.chasitorData.chatMessages=[];
+   
+   //we don't need this for an ongoing chat
+   chasitorObj.detailsInfo={};
+   
    var connectionStr = JSON.stringify(chasitorObj.connectionData);   
    var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
+   var chasitorMsgStr = JSON.stringify(chatMessages);
+   
+   //have to encode to store as cookie
+   chasitorMsgStr = btoa(messageStr);
+   
    console.log("SPOTIFY: connectionStr: " + connectionStr);
    console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
    
    storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
    storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
+   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgStr, 1);
    
    console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
-   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));               
+   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));      
+   console.log("SPOTIFY: ESW_CHASITOR_MESSAGES COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
 }
    
 window.safariIphoneRead = function(){
@@ -190,9 +203,12 @@ window.safariIphoneRead = function(){
    //get chasitordata and connection from cookies and rebuild
    var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
    var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
+   var chasitorMsgStr = storageIframe.readCookie("ESW_CHASITOR_MESSAGES");
+   var chasitorMsgDec = atob(chasitorMsgStr);
    
    console.log("SPOTIFY: READ ESW_CHASITOR_CONNECTION " + connectionStr);
    console.log("SPOTIFY: READ ESW_CHASITOR_DATA " + chasitorDataStr);
+   console.log("SPOTIFY: READ ESW_CHASITOR_MESSAGES " + chasitorMsgDec);
    
    if(!connectionStr || !chasitorDataStr){
       console.log("SPOTIFY: NO CHASITOR DATA - RETURNING NULL");
@@ -201,6 +217,8 @@ window.safariIphoneRead = function(){
    
    var connectionObj = JSON.parse(connectionStr);
    var chasitorDataObj = JSON.parse(chasitorDataStr);
+   var messagesObj = JSON.parse(chasitorMsgDec);
+   chasitorDataObj.chatMessages = messagesObj;
    
    console.log("SPOTIFY: GOT CHASITOR CONNECTION AND DATA OBJECTS");
    
