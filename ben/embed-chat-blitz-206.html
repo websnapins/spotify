@@ -95,20 +95,21 @@ window.addEventListener("popstate", function() {
 
 //unload
 window.addEventListener(unloadEvt, function (event) {
+   console.log("SPOTIFY: UNLOAD EVENT");
    //For back-forward cache
    if(isSafari){
       history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
    }
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
+   console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-      var chasitorStr = liveagent.chasitor.serialize();
       if(isSafari){
-         safariIphoneStore(chasitorStr);
+         safariIphoneStore(localChasitorData);
       }else{
-         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", chasitorStr);
+         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
       }
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -156,15 +157,21 @@ window.addEventListener('message', function (event) {
 });
    
 window.safariIphoneStore = function(chasitorStr){
+   console.log("SPOTIFY: safariIphoneStore");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
-
+   
    //store chasitorData w/o messages and connection separately
    var chasitorObj = JSON.parse(chasitorStr);
    var connectionStr = JSON.stringify(chasitorObj.connectionData);
    var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
+   console.log("SPOTIFY: connectionStr: " + connectionStr);
+   console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
    
    storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
    storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
+   
+   console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
+   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA");               
 }
    
 window.safariIphoneRead = function(){
