@@ -159,6 +159,7 @@ window.addEventListener("popstate", function() {
       
       if(typeof liveagent !== "undefined" && stopUnload === false){
 	  console.log("Aborting LA connection ..");
+	  liveagent.chasitor.abortConnection();
 	  var localChasitorData = liveagent.chasitor.serialize();
 	  console.log("[storageHandler] setting keys in iFrame...");
           console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
