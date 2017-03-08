@@ -87,7 +87,7 @@ eswSafariFix['getSafariType'] = function() {
     };
     // Account for Safari cache quirks.
     window.addEventListener("pageshow", function() {
-        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) window.location.reload();
+        if(eswSafariFix.getSafariType() !== "none" && event.persisted) window.location.reload();
     }, false);
 window.addEventListener("popstate", function() {
         if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
