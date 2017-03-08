@@ -105,9 +105,10 @@ window.addEventListener(unloadEvt, function (event) {
       var localChasitorData = liveagent.chasitor.serialize();
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       var chasitorStr = liveagent.chasitor.serialize();
-      storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", chasitorStr);
       if(isSafari){
          safariIphoneStore(chasitorStr);
+      }else{
+         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", chasitorStr);
       }
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
@@ -159,8 +160,8 @@ window.safariIphoneStore = function(chasitorStr){
 
    //store chasitorData w/o messages and connection separately
    var chasitorObj = JSON.parse(chasitorStr);
-   var connectionStr = JSON.parse(chasitorObj.connectionData);
-   var chasitorDataStr = JSON.parse(chasitorObj.chasitorData);
+   var connectionStr = JSON.stringify(chasitorObj.connectionData);
+   var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
    
    storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
    storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
