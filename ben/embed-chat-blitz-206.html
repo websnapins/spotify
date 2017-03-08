@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <head>
@@ -106,7 +104,11 @@ window.addEventListener(unloadEvt, function (event) {
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-      storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
+      var chasitorStr = liveagent.chasitor.serialize();
+      storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", chasitorStr);
+      if(isSafari){
+         safariIphoneStore(chasitorStr);
+      }
    }else{
       storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
    }
@@ -130,6 +132,9 @@ window.addEventListener('message', function (event) {
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
          var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+         if(isSafari){
+            iFrameChasitorStr = safariIphoneRead();
+         }
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
          console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
@@ -148,6 +153,33 @@ window.addEventListener('message', function (event) {
       }
    }
 });
+   
+window.safariIphoneStore(chasitorStr){
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+
+   //store chasitorData w/o messages and connection separately
+   var chasitorObj = JSON.parse(chasitorStr);
+   var connectionStr = JSON.parse(chasitorObj.connectionData);
+   var chasitorDataStr = JSON.parse(chasitorObj.chasitorData);
+   
+   storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
+   storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
+}
+   
+window.safariIphoneRead(){
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+
+   //get chasitordata and connection from cookies and rebuild
+   var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
+   var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
+   
+   //TODO: erase these cookies now
+   
+   return JSON.parse({
+      connctionData : JSON.parse(connectionStr),
+      chasitordata : JSON.parse(chasitorDataStr)
+   }); 
+}
 
 window.getLocalPollCount = function(){
    var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
