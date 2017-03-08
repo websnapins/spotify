@@ -183,7 +183,7 @@ window.safariIphoneRead = function(){
    storageIframe.eraseCookie("ESW_CHASITOR_DATA");
 
    
-   return JSON.parse({
+   return JSON.stringify({
       connctionData : JSON.parse(connectionStr),
       chasitordata : JSON.parse(chasitorDataStr)
    }); 
