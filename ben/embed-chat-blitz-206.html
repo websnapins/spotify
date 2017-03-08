@@ -22,6 +22,8 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 </style>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
 <script type='text/javascript'>
+
+window.ESW_LOADED_FROM_IFRAME=false;
    
 window.addEventListener("beforeunload", function(event){
    console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
@@ -144,6 +146,7 @@ window.addEventListener('message', function (event) {
          var localPollCount = window.getLocalPollCount();
          console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
          window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
+         window.ESW_LOADED_FROM_IFRAME = true;
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
@@ -239,6 +242,7 @@ var initESW = function(gslbBaseUrl) {
    //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
    //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
    //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
+   console.log("SPOTIFY: ABOUT TO CREATE WIDGET.  LODADED DATA FROM IFRAME: " + window.ESW_LOADED_FROM_IFRAME
    embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); 
 }; 
 </script>
