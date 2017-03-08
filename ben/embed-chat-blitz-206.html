@@ -183,14 +183,15 @@ window.safariIphoneStore = function(chasitorObj){
    var chasitorMsgStr = JSON.stringify(chatMessages);
    
    //have to encode to store as cookie
-   chasitorMsgStr = btoa(messageStr);
+   var chasitorMsgEnc = btoa(chasitorMsgStr);
    
    console.log("SPOTIFY: connectionStr: " + connectionStr);
    console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
+   console.log("SPOTIFY: chasitorMsgEnc: " + chasitorMsgEnc);
    
    storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
    storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
-   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgStr, 1);
+   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 1);
    
    console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
    console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));      
