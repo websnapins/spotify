@@ -173,6 +173,10 @@ window.safariIphoneRead(){
    var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
    var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
    
+   if(!connectionStr || !chasitorDataStr){
+      return null;
+   }
+   
    //done with these now
    storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
    storageIframe.eraseCookie("ESW_CHASITOR_DATA");
