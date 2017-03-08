@@ -178,8 +178,10 @@ window.addEventListener("popstate", function() {
       if(typeof liveagent !== "undefined" && stopUnload === false){
 	  console.log("Aborting LA connection ..");
 	  liveagent.chasitor.abortConnection();
+	  var localChasitorData = liveagent.chasitor.serialize();
 	  console.log("[storageHandler] setting keys in iFrame...");
-          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", liveagent.chasitor.serialize());
+          console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+	  storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
           storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
           storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
           storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
@@ -191,6 +193,23 @@ window.addEventListener("popstate", function() {
       }
     });
 
+window.getLocalPollCount = function(){
+   var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+   return chasitorPollCount(chasitorStr);
+}
+window.chasitorPollCount = function(chasitorStr){
+   if(chasitorStr){
+      var jsonObj=JSON.parse(chasitorStr);
+      return jSONPollCount(jsonObj);
+   }
+   return null;
+}
+window.jSONPollCount = function(jsonObj){
+   if(jsonObj && jsonObj.connectionData){
+      return jsonObj.connectionData.pollCount;
+   }
+   return null;
+}
     var initESW = function(gslbBaseUrl) {
       embedded_svc.settings.avatarImgURL = '';
       embedded_svc.settings.prechatBackgroundImgURL = '';
@@ -231,6 +250,10 @@ window.addEventListener("popstate", function() {
           });
 
           console.log("[storageHandler] retrieved from previous session");
+	 var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+         var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
+         var localPollCount = window.getLocalPollCount();
+         console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
           initESW('https://na1-blitz02.soma.salesforce.com');
           waitForLiveAgent();
         }
