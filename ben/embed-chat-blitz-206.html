@@ -113,7 +113,9 @@ window.addEventListener(unloadEvt, function (event) {
          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
       }
    }else{
-      storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
+      if(storageIframe && storageIframe.removeSessionData){
+         storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
+      }
    }
    storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
    storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
