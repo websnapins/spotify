@@ -101,12 +101,14 @@ window.addEventListener(unloadEvt, function (event) {
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
+      var localChasitorJSON = JSON.parse(localChasitorData);
       var isChatEstablished = document.querySelector(“.embeddedServiceLiveAgentChatWindow”) !== undefined
-      localChasitorData['chasitorData']['isChatEstablished'] = isChatEstablished;
-      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
+      localChasitorData = JSON.stringify(localChasitorJSON);
+      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorJSON));
       if(isSafari){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
-         safariIphoneStore(localChasitorData);
+         safariIphoneStore(localChasitorJSON);
       }else{
          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
       }
@@ -157,12 +159,11 @@ window.addEventListener('message', function (event) {
    }
 });
    
-window.safariIphoneStore = function(chasitorStr){
+window.safariIphoneStore = function(chasitorObj){
    console.log("SPOTIFY: safariIphoneStore");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    
    //store chasitorData w/o messages and connection separately
-   var chasitorObj = JSON.parse(chasitorStr);
    //remove all messages for now
    chasitorObj.chasitorData.chatMessages = [];
    var connectionStr = JSON.stringify(chasitorObj.connectionData);   
