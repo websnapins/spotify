@@ -152,7 +152,7 @@ window.addEventListener("popstate", function() {
       console.log("[window.onBeforeunload] , stop unload : " + stopUnload );
       if (typeof liveagent !== "undefined" && !liveagent.chasitor.isChatEstablished() && stopUnload === false) {
         console.log("[window.onBeforeunload] isChatEstablished? No, cancelling chat");
-        liveagent.chasitor.cancelChat();
+        // liveagent.chasitor.cancelChat();
       };
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
