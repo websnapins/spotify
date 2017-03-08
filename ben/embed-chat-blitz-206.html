@@ -167,8 +167,11 @@ window.safariIphoneStore = function(chasitorObj){
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    
    //store chasitorData w/o messages and connection separately
-   //remove all messages for now
-   chasitorObj.chasitorData.chatMessages = [];
+   //store last 3 messages in separate cookie
+   var chatMessages = chasitorObj.chasitorData.chatMessages.length;
+   if(chatMessages.length > 3){
+      chasitorObj.chasitordata.chatMessages = chatMessages.slice(chatMessages.length - 3);
+   }
    var connectionStr = JSON.stringify(chasitorObj.connectionData);   
    var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
    console.log("SPOTIFY: connectionStr: " + connectionStr);
