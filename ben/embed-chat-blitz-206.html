@@ -173,7 +173,10 @@ window.safariIphoneRead(){
    var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
    var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
    
-   //TODO: erase these cookies now
+   //done with these now
+   storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
+   storageIframe.eraseCookie("ESW_CHASITOR_DATA");
+
    
    return JSON.parse({
       connctionData : JSON.parse(connectionStr),
