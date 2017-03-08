@@ -107,6 +107,7 @@ window.addEventListener(unloadEvt, function (event) {
       var localChasitorData = liveagent.chasitor.serialize();
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       if(isSafari){
+         console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorData);
       }else{
          storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
