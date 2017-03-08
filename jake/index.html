@@ -100,7 +100,8 @@ window.addEventListener(unloadEvt, function (event) {
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
       var localChasitorJSON = JSON.parse(localChasitorData);
-      var isChatEstablished = document.querySelector(".embeddedServiceLiveAgentChatWindow .messageArea") !== undefined
+      var isChatEstablished = document.querySelector(".embeddedServiceLiveAgentChatWindow .messageArea") !== undefined;
+      console.log("Serializing chat established as", isChatEstablished);
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
