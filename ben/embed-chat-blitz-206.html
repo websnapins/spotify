@@ -180,25 +180,38 @@ window.safariIphoneStore = function(chasitorStr){
 }
    
 window.safariIphoneRead = function(){
+   console.log("IN SAFARI IPHONE COOKIE READ FUNCTION");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
 
    //get chasitordata and connection from cookies and rebuild
    var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
    var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
    
+   console.log("SPOTIFY: READ ESW_CHASITOR_CONNECTION " + connectionStr);
+   console.log("SPOTIFY: READ ESW_CHASITOR_DATA " + chasitorDataStr);
+   
    if(!connectionStr || !chasitorDataStr){
+      console.log("SPOTIFY: NO CHASITOR DATA - RETURNING NULL");
       return null;
+   }
+   
+   var connectionObj = JSON.parse(connectionStr);
+   var chasitorDataObj = JSON.parse(chasitorDataStr);
+   
+   console.log("GOT CHASITOR CONNECTION AND DATA OBJECTS");
+   
+   var chasitorObj = {
+      connctionData : connectionObj,
+      chasitordata chasitorDataObj: 
    }
    
    //done with these now
    storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
    storageIframe.eraseCookie("ESW_CHASITOR_DATA");
 
-   
-   return JSON.stringify({
-      connctionData : JSON.parse(connectionStr),
-      chasitordata : JSON.parse(chasitorDataStr)
-   }); 
+   console.log("ERASED COOKIE DATA.  NOW RETURNING: ");
+   console.log(chasitorObj);
+   return JSON.stringify(chasitorObj); 
 }
 
 window.getLocalPollCount = function(){
