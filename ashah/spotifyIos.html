@@ -163,7 +163,7 @@ window.addEventListener("popstate", function() {
 	  var localChasitorData = liveagent.chasitor.serialize();
 	  console.log("[storageHandler] setting keys in iFrame...");
           console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-	  var serializedData = JSON.parse(serializedDataJSON);
+	  var serializedData = JSON.parse(localChasitorData);
 	  serializedData['chasitorData']['isChatEstablished'] = document.querySelector(“.embeddedServiceLiveAgentChatWindow”) !== undefined;
 
 	  localChasitorData = JSON.stringify(serializedData);
