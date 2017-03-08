@@ -129,6 +129,10 @@ window.location.reload();
 window.addEventListener("popstate", function() {
         if(internalApi.getSafariType() === "mobile") document.location.reload();
     }, false);
+
+// Does nothing but break the bfcache
+window.onunload = function(){}; 
+
   console.log("begin script pg 2");
   // seems water tight to identify Safari on Mobile devices
   var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
