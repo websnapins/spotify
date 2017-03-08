@@ -200,20 +200,22 @@ window.safariIphoneRead = function(){
    var connectionObj = JSON.parse(connectionStr);
    var chasitorDataObj = JSON.parse(chasitorDataStr);
    
-   console.log("GOT CHASITOR CONNECTION AND DATA OBJECTS");
+   console.log("SPOTIFY: GOT CHASITOR CONNECTION AND DATA OBJECTS");
    
    var chasitorObj = {
       connctionData : connectionObj,
-      chasitordata : chasitorDataObj
+      chasitorData : chasitorDataObj
    }
+   console.log("SPOTIFY: chasitorObj");
+   console.log(chasitorObj);
    
    //done with these now
    storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
    storageIframe.eraseCookie("ESW_CHASITOR_DATA");
 
-   console.log("ERASED COOKIE DATA.  NOW RETURNING: ");
-   console.log(chasitorObj);
-   return JSON.stringify(chasitorObj); 
+   var returnStr=JSON.stringify(chasitorObj);
+   console.log("SPOTIFY: RETURNING DATA: " + returnStr);
+   return returnStr; 
 }
 
 window.getLocalPollCount = function(){
