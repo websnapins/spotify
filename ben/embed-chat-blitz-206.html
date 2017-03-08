@@ -26,7 +26,6 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 window.addEventListener("beforeunload", function(event){
    console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
 });
-
 window.addEventListener("pagehide", function(event){
    console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
@@ -46,12 +45,10 @@ window.addEventListener("popstate", function(event){
 //got this from stack overflow.  YMMV
 var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
                navigator.userAgent && !navigator.userAgent.match('CriOS');
-
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = isSafari ? "pagehide" : "beforeunload";
 var onloadEvt = isSafari ? "pageshow" : "load";   
-
 //load
 var onPageLoad = function (event) {
    var iframe;
@@ -70,7 +67,6 @@ if(isSafari){
       }
    });
 }
-
 //popstate reload fix
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
@@ -92,7 +88,6 @@ eswSafariFix['getSafariType'] = function() {
 window.addEventListener("popstate", function() {
         if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
     }, false);
-
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
@@ -105,6 +100,9 @@ window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
    if(typeof liveagent !== "undefined"){
       var localChasitorData = liveagent.chasitor.serialize();
+      //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
+      var isChatEstablished = document.querySelector(“.embeddedServiceLiveAgentChatWindow”) !== undefined
+      localChasitorData['chasitorData']['isChatEstablished'] = isChatEstablished;
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       if(isSafari){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
@@ -124,7 +122,6 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
    }
 });
-
 //storage loaded
 window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
@@ -141,7 +138,6 @@ window.addEventListener('message', function (event) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
             window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
           });
-
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
          console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
@@ -167,10 +163,8 @@ window.safariIphoneStore = function(chasitorStr){
    
    //store chasitorData w/o messages and connection separately
    var chasitorObj = JSON.parse(chasitorStr);
-
    //remove all messages for now
    chasitorObj.chasitorData.chatMessages = [];
-
    var connectionStr = JSON.stringify(chasitorObj.connectionData);   
    var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
    console.log("SPOTIFY: connectionStr: " + connectionStr);
@@ -186,7 +180,6 @@ window.safariIphoneStore = function(chasitorStr){
 window.safariIphoneRead = function(){
    console.log("IN SAFARI IPHONE COOKIE READ FUNCTION");
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
-
    //get chasitordata and connection from cookies and rebuild
    var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
    var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
@@ -214,12 +207,10 @@ window.safariIphoneRead = function(){
    //done with these now
    storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
    storageIframe.eraseCookie("ESW_CHASITOR_DATA");
-
    var returnStr=JSON.stringify(chasitorObj);
    console.log("SPOTIFY: RETURNING DATA: " + returnStr);
    return returnStr; 
 }
-
 window.getLocalPollCount = function(){
    var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
    return chasitorPollCount(chasitorStr);
@@ -239,19 +230,16 @@ window.jSONPollCount = function(jsonObj){
 }
    
 var initESW = function(gslbBaseUrl) {
-
    embedded_svc.settings.avatarImgURL = '';
    embedded_svc.settings.prechatBackgroundImgURL = '';
    embedded_svc.settings.waitingStateBackgroundImgURL = '';
    embedded_svc.settings.smallCompanyLogoImgURL = '';
-
    embedded_svc.settings.displayHelpButton = true; //Or false
    //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
    //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
    //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
    embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709'); 
 }; 
-
 </script>
    
    </body>
