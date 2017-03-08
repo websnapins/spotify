@@ -189,9 +189,9 @@ window.safariIphoneStore = function(chasitorObj){
    console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
    console.log("SPOTIFY: chasitorMsgEnc: " + chasitorMsgEnc);
    
-   storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 1);
-   storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 1);
-   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 1);
+   storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 5);
+   storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 5);
+   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 5);
    
    console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
    console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));      
