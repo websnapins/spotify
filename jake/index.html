@@ -18,14 +18,6 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
 console.log("    ### Reload complete ");
-  
-console.log('Clearing old data...');
-// Clear session storage in this frame.
-window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
-window.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
-window.sessionStorage.removeItem("LA_ESW_MINIMIZED");
-window.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
-window.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");   
 
 console.log("Final session storage status:", Object.keys(window.sessionStorage));
   
