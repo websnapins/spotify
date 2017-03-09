@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
   <title>Widget Main</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
@@ -86,6 +86,13 @@ eswSafariFix['getSafariType'] = function() {
 window.addEventListener("popstate", function() {
         if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
     }, false);
+  
+  eswSafariFix.isHelpButtonState = function isHelpButtonState() {
+    var elem = document.querySelector(".embeddedServiceLiveAgentHelpButton");
+
+    return elem !== null && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+  };
+  
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
@@ -96,7 +103,8 @@ window.addEventListener(unloadEvt, function (event) {
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
-   if(typeof liveagent !== "undefined"){
+   console.log("HELP BUTTON STATE", eswSafariFix.isHelpButtonState());
+   if(typeof liveagent !== "undefined" && !eswSafariFix.isHelpButtonState()){
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
       var localChasitorJSON = JSON.parse(localChasitorData);
@@ -117,10 +125,17 @@ window.addEventListener(unloadEvt, function (event) {
       }
    }
    if(storageIframe && storageIframe.removeSessionData){
+      console.log('Clearing old data...');
       storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
       storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+      // Clear session storage in this frame.
+      window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
+      window.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
+      window.sessionStorage.removeItem("LA_ESW_MINIMIZED");
+      window.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
+      window.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");   
    }
 });
 //storage loaded
@@ -132,6 +147,7 @@ window.addEventListener('message', function (event) {
       if(isSafari){
             iFrameChasitorStr = safariIphoneRead();
       }
+      console.log("IFrame Initialized", iFrameChasitorStr);
       if (iFrameChasitorStr) {
          //get data, put into local sessionStorage
          keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
