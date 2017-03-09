@@ -17,6 +17,7 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
 </style>
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
+console.log("    ### Reload complete ");
 window.onerror = function() {};
   
 window.ESW_LOADED_FROM_IFRAME=false;
@@ -47,7 +48,10 @@ var onPageLoad = function (event) {
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
 };
-if(onloadEvt) window.addEventListener(onloadEvt, onPageLoad);
+if(onloadEvt) {
+  console.log("Attaching onload event listener");
+  window.addEventListener(onloadEvt, onPageLoad);
+}
 //popstate reload fix
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
