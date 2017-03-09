@@ -1,0 +1,26 @@
+<html>
+  <head>
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-store">
+  </head>
+  <body>
+    <p id="dummy"></p>
+    <script>
+      // seems water tight to identify Safari on Mobile devices
+      var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
+                    && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+
+      document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
+
+      function storeSessionData(key, data) {
+        if (isSafari)
+          localStorage.setItem(key, data); // due to bug with Safari incorrectly handling sessionStorage on iFrames
+        else
+          sessionStorage.setItem(key, data);
+      }
+
+      var targetorigin = 'http://' + parent.location.hostname;
+      parent.postMessage("storage_iframe_initialized", targetorigin);
+    </script>
+  </body>
+</html>
