@@ -17,8 +17,6 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
 </style>
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
-console.log("    ### Reload complete ", document.location.href.indexOf("support") > 0 ? "SUPPORT" : "MAIN");
-  
 window.ESW_LOADED_FROM_IFRAME=false;
    
 window.addEventListener("beforeunload", function(event){
@@ -28,10 +26,17 @@ window.addEventListener("pagehide", function(event){
    console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
    
+window.addEventListener("pageshow", function(event){
+   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
+});
+   
 window.addEventListener("load", function(event){
    console.log("SPOTIFY: WINDOWEVENT: LOAD");
 });
    
+window.addEventListener("popstate", function(event){
+   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
+});
 //browser detection
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
@@ -46,12 +51,19 @@ eswSafariFix['getSafariType'] = function() {
         
         return "none";
     };
+    // Account for Safari cache quirks.
+    window.addEventListener("pageshow", function() {
+        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) window.location.reload();
+    }, false);
+window.addEventListener("popstate", function() {
+        if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
+    }, false);
    
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pagehide" : "beforeunload";
-
-  //load
+var onloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pageshow" : "load";   
+//load
 var onPageLoad = function (event) {
    var iframe;
    iframe = document.createElement('iframe');
@@ -60,29 +72,14 @@ var onPageLoad = function (event) {
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
 };
-
-if(eswSafariFix.getSafariType() === "none") {
-    window.addEventListener("load", onPageLoad);
-} else {
-  window.addEventListener("pageshow", function(event) {
-     console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
-     if(event.persisted) {
-       if(eswSafariFix.getSafariType() === "desktop") {
-         console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
-         window.location.reload();
-       }
-     } else if(eswSafariFix.getSafariType() !== "none") {
-       console.log("Triggering onPageLoad");
-       onPageLoad();
-     }
-   }, false);
-
-  window.addEventListener("popstate", function() {
-     if(eswSafariFix.getSafariType() === "mobile") {
-       console.log(" - - - - - Pop State - Triggering refresh... - - - - - ");
-       document.location.reload();
-     }
-   }, false);
+window.addEventListener(onloadEvt, onPageLoad);
+//For back-forward cache
+if(eswSafariFix.getSafariType() !== 'none'){
+   window.addEventListener("popstate", function(event){
+      if(event.state === "ESW_STATE_KEY" + document.location){
+         onPageLoad(event);
+      }
+   });
 }
 //unload
 window.addEventListener(unloadEvt, function (event) {
@@ -102,7 +99,6 @@ window.addEventListener(unloadEvt, function (event) {
       
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-      console.log("Full chasitor data:", localChasitorData);
       if(eswSafariFix.getSafariType() === "mobile"){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
@@ -125,13 +121,11 @@ window.addEventListener(unloadEvt, function (event) {
 window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
-      console.log("Before the iframe, CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if(eswSafariFix.getSafariType() === "mobile"){
             iFrameChasitorStr = safariIphoneRead();
       }
-      console.log("IFrame Initialized", iFrameChasitorStr);
       if (iFrameChasitorStr) {
          //get data, put into local sessionStorage
          keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
@@ -147,7 +141,6 @@ window.addEventListener('message', function (event) {
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
-         console.log("Right before initialization, CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));        
          var s = document.createElement('script'); 
          s.setAttribute('src', 'http://jakerouss-wsm1.internal.salesforce.com:57983/embeddedservice/1.0/esw.js'); 
          s.onload = function() { 
@@ -155,7 +148,6 @@ window.addEventListener('message', function (event) {
          }; 
          document.body.appendChild(s);
       } else { 
-         console.log("Right before initialization (path 2), CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));
          initESW('https://na1-blitz02.soma.salesforce.com');
       }
    }
