@@ -17,7 +17,7 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
 </style>
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
-console.log("    ### Reload complete ");
+console.log("    ### Reload complete ", document.location.href.indexOf("support") > 0 ? "SUPPORT" : "MAIN");
   
 window.ESW_LOADED_FROM_IFRAME=false;
    
