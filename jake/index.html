@@ -103,6 +103,7 @@ window.addEventListener(unloadEvt, function (event) {
       
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      console.log("Full chasitor data:", localChasitorData);
       if(eswSafariFix.getSafariType() === "mobile"){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
