@@ -67,8 +67,8 @@ eswSafariFix['getSafariType'] = function() {
         return "none";
     };
     // Account for Safari cache quirks.
-    window.addEventListener("pageshow", function() {
-      console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
+    window.addEventListener("pageshow", function(event) {
+      console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
       if(eswSafariFix.getSafariType() === "desktop" && event.persisted) {
         console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
         window.location.reload();
