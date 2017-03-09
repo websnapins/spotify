@@ -70,7 +70,7 @@ eswSafariFix['getSafariType'] = function() {
     window.addEventListener("pageshow", function() {
       console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
       if(eswSafariFix.getSafariType() === "desktop" && event.persisted) {
-        console.log(" - - - - - Triggering refresh... - - - - - ");
+        console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
         window.location.reload();
       } else {
         console.log("Triggering onPageLoad");
@@ -79,7 +79,7 @@ eswSafariFix['getSafariType'] = function() {
     }, false);
    window.addEventListener("popstate", function() {
       if(eswSafariFix.getSafariType() === "mobile") {
-        console.log(" - - - - - Triggering refresh... - - - - - ");
+        console.log(" - - - - - Pop State - Triggering refresh... - - - - - ");
         document.location.reload();
       }
     }, false);
