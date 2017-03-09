@@ -244,15 +244,18 @@ window.safariIphoneRead = function(){
 //find Aura component and get chat state
 window.getESWChatState = function(){
    try{
-      var chatWindowHtml = document.querySelector(".embeddedServiceLiveAgentChatWindow");
-      var chatWindowHtmlCmp = $A.getComponent(chatWindowHtml);
-      var chatWindowCmp = $A.getComponentValueProvider();
-      if(chatWindowCmp){
-         return $A.get("v.chatWindowState");
+      if(typeof $A !== "undefined"){
+         var chatWindowHtml = document.querySelector(".embeddedServiceLiveAgentChatWindow");
+         var chatWindowHtmlCmp = $A.getComponent(chatWindowHtml);
+         var chatWindowCmp = $A.getComponentValueProvider();
+         if(chatWindowCmp){
+            return $A.get("v.chatWindowState");
+         }
       }
    }catch(err){
-      return null;
+      console.log("SPOTIFY: ERROR FINDING CHAT STATE: " + err);
    }
+   return null;
 }
 
 window.getLocalPollCount = function(){
