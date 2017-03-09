@@ -18,6 +18,17 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
 console.log("    ### Reload complete ");
+  
+console.log('Clearing old data...');
+// Clear session storage in this frame.
+window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
+window.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED");
+window.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");   
+
+console.log("Final session storage status:", Object.keys(window.sessionStorage));
+  
 window.onerror = function() {};
   
 window.ESW_LOADED_FROM_IFRAME=false;
@@ -129,7 +140,7 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
       
-     console.log("Clear check", eswSafariFix.getSafariType(), "clearing:", eswSafariFix.getSafariType() !== "none");
+    /* console.log("Clear check", eswSafariFix.getSafariType(), "clearing:", eswSafariFix.getSafariType() !== "none");
      if(eswSafariFix.getSafariType() !== "none") {
       console.log('Clearing old data...');
       // Clear session storage in this frame.
@@ -143,7 +154,7 @@ window.addEventListener(unloadEvt, function (event) {
      
       //Prevent any future session stores
       window.sessionStorage.setItem = function() {};     
-     }
+     }*/
    }
 });
 //storage loaded
