@@ -99,8 +99,11 @@ window.addEventListener(unloadEvt, function (event) {
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
       var localChasitorJSON = JSON.parse(localChasitorData);
-      var isChatEstablished = document.querySelector(".embeddedServiceLiveAgentChatWindow") !== undefined
+      
+      //magic to get chat state from aura component
+      var isChatEstablished = getESWChatState() === 'CHAT';             
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
+      
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       if(eswSafariFix.getSafariType() === "mobile"){
@@ -237,10 +240,26 @@ window.safariIphoneRead = function(){
    console.log("SPOTIFY: RETURNING DATA: " + returnStr);
    return returnStr; 
 }
+
+//find Aura component and get chat state
+window.getESWChatState = function(){
+   try{
+      var chatWindowHtml = document.querySelector(".embeddedServiceLiveAgentChatWindow");
+      var chatWindowHtmlCmp = $A.getComponent(chatWindowHtml);
+      var chatWindowCmp = $A.getComponentValueProvider();
+      if(chatWindowCmp){
+         return $A.get("v.chatWindowState");
+      }
+   }catch(err){
+      return null;
+   }
+}
+
 window.getLocalPollCount = function(){
    var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
    return chasitorPollCount(chasitorStr);
 }
+
 window.chasitorPollCount = function(chasitorStr){
    if(chasitorStr){
       var jsonObj=JSON.parse(chasitorStr);
@@ -248,6 +267,7 @@ window.chasitorPollCount = function(chasitorStr){
    }
    return null;
 }
+
 window.jSONPollCount = function(jsonObj){
    if(jsonObj && jsonObj.connectionData){
       return jsonObj.connectionData.pollCount;
