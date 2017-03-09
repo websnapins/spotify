@@ -42,33 +42,8 @@ window.addEventListener("load", function(event){
 window.addEventListener("popstate", function(event){
    console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
 });
-   
-//got this from stack overflow.  YMMV
-var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
-               navigator.userAgent && !navigator.userAgent.match('CriOS');
-//set browser-specific handlers   
-document.domain = 'websnapins.com';
-var unloadEvt = isSafari ? "pagehide" : "beforeunload";
-var onloadEvt = isSafari ? "pageshow" : "load";   
-//load
-var onPageLoad = function (event) {
-   var iframe;
-   iframe = document.createElement('iframe');
-   iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
-   iframe.id = 'storage_iframe';
-   iframe.style.display = 'none';
-   document.body.appendChild(iframe);
-};
-window.addEventListener(onloadEvt, onPageLoad);
-//For back-forward cache
-if(isSafari){
-   window.addEventListener("popstate", function(event){
-      if(event.state === "ESW_STATE_KEY" + document.location){
-         onPageLoad(event);
-      }
-   });
-}
-//popstate reload fix
+
+//browser detection
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
         var userAgent = navigator.userAgent.toLowerCase();
@@ -89,13 +64,34 @@ eswSafariFix['getSafariType'] = function() {
 window.addEventListener("popstate", function() {
         if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
     }, false);
+   
+//set browser-specific handlers   
+document.domain = 'websnapins.com';
+var unloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pagehide" : "beforeunload";
+var onloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pageshow" : "load";   
+//load
+var onPageLoad = function (event) {
+   var iframe;
+   iframe = document.createElement('iframe');
+   iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
+   iframe.id = 'storage_iframe';
+   iframe.style.display = 'none';
+   document.body.appendChild(iframe);
+};
+window.addEventListener(onloadEvt, onPageLoad);
+//For back-forward cache
+if(eswSafariFix.getSafariType() !== 'none'){
+   window.addEventListener("popstate", function(event){
+      if(event.state === "ESW_STATE_KEY" + document.location){
+         onPageLoad(event);
+      }
+   });
+}
+
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
-   //For back-forward cache
-   if(isSafari){
-   //   history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
-   }
+
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
@@ -107,7 +103,7 @@ window.addEventListener(unloadEvt, function (event) {
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-      if(isSafari){
+      if(eswSafariFix.getSafariType() === "mobile"){
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
       }else{
@@ -131,7 +127,7 @@ window.addEventListener('message', function (event) {
    if (event.data == 'storage_iframe_initialized') {
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
-      if(isSafari){
+      if(eswSafariFix.getSafariType() === "mobile"){
             iFrameChasitorStr = safariIphoneRead();
       }
       if (iFrameChasitorStr) {
