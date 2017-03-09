@@ -27,17 +27,8 @@ window.addEventListener("beforeunload", function(event){
 window.addEventListener("pagehide", function(event){
    console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
-   
-window.addEventListener("pageshow", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
-});
-   
 window.addEventListener("load", function(event){
    console.log("SPOTIFY: WINDOWEVENT: LOAD");
-});
-   
-window.addEventListener("popstate", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
 });
    
 //got this from stack overflow.  YMMV
@@ -46,7 +37,7 @@ var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = isSafari ? "pagehide" : "beforeunload";
-var onloadEvt = isSafari ? "pageshow" : "load";   
+var onloadEvt = isSafari ? undefined : "load";   
 //load
 var onPageLoad = function (event) {
    var iframe;
@@ -56,15 +47,7 @@ var onPageLoad = function (event) {
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
 };
-window.addEventListener(onloadEvt, onPageLoad);
-//For back-forward cache
-if(isSafari){
-   window.addEventListener("popstate", function(event){
-      if(event.state === "ESW_STATE_KEY" + document.location){
-         onPageLoad(event);
-      }
-   });
-}
+if(onloadEvt) window.addEventListener(onloadEvt, onPageLoad);
 //popstate reload fix
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
@@ -81,16 +64,20 @@ eswSafariFix['getSafariType'] = function() {
     };
     // Account for Safari cache quirks.
     window.addEventListener("pageshow", function() {
-        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) {
-          console.log(" - - - - - Triggering refresh... - - - - - ");
-          window.location.reload();
-        }
+      console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
+      if(eswSafariFix.getSafariType() === "desktop" && event.persisted) {
+        console.log(" - - - - - Triggering refresh... - - - - - ");
+        window.location.reload();
+      } else {
+        console.log("Triggering onPageLoad");
+        onPageLoad();
+      }
     }, false);
-window.addEventListener("popstate", function() {
-        if(eswSafariFix.getSafariType() === "mobile") {
-          console.log(" - - - - - Triggering refresh... - - - - - ");
-          document.location.reload();
-        }
+   window.addEventListener("popstate", function() {
+      if(eswSafariFix.getSafariType() === "mobile") {
+        console.log(" - - - - - Triggering refresh... - - - - - ");
+        document.location.reload();
+      }
     }, false);
   
   eswSafariFix.isHelpButtonState = function isHelpButtonState() {
@@ -135,7 +122,7 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
       storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
-          
+      
       console.log('Clearing old data...');
       // Clear session storage in this frame.
       window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
@@ -147,7 +134,7 @@ window.addEventListener(unloadEvt, function (event) {
       console.log("Final session storage status:", Object.keys(window.sessionStorage));
      
       //Prevent any future session stores
-      window.sessionStorage.setItem = function() {};
+      window.sessionStorage.setItem = function() {};     
    }
 });
 //storage loaded
