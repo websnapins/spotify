@@ -247,9 +247,9 @@ window.getESWChatState = function(){
       if(typeof $A !== "undefined"){
          var chatWindowHtml = document.querySelector(".embeddedServiceLiveAgentChatWindow");
          var chatWindowHtmlCmp = $A.getComponent(chatWindowHtml);
-         var chatWindowCmp = $A.getComponentValueProvider();
+         var chatWindowCmp = chatWindowHtmlCmp.getComponentValueProvider();
          if(chatWindowCmp){
-            return $A.get("v.chatWindowState");
+            return chatWindowCmp.get("v.chatWindowState");
          }
       }
    }catch(err){
