@@ -129,7 +129,7 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
       
-     if(eswSafariFix.getSafariType() === "mobile") {
+     if(eswSafariFix.getSafariType() !== "none") {
       console.log('Clearing old data...');
       // Clear session storage in this frame.
       window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
