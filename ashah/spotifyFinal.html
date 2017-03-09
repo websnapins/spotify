@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    </head>
+<body>
+<a href="http://support.websnapins.com/ashah/spotifyFinal.html">Support</a>
+<div id="button_goes_here">
+<style type='text/css'>
+.embeddedServiceLiveAgentChatButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
+.embeddedServiceLiveAgentChatButton .helpButton .uiButton:focus {outline: 2px solid #005290}
+@font-face {
+font-family: 'Salesforce Sans';
+src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
+<script type='text/javascript'>
+window.ESW_LOADED_FROM_IFRAME=false;
+	
+console.log('Clearing old data...');
+// Clear session storage in this frame.
+window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
+window.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED");
+window.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");   
+   
+window.addEventListener("beforeunload", function(event){
+   console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
+});
+window.addEventListener("pagehide", function(event){
+   console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
+});
+	
+window.addEventListener("load", function(event){
+   console.log("SPOTIFY: WINDOWEVENT: LOAD");
+});
+   
+   
+//got this from stack overflow.  YMMV
+var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
+//set browser-specific handlers   
+document.domain = 'websnapins.com';
+var unloadEvt = isSafari ? "pagehide" : "beforeunload";
+var onloadEvt = isSafari ? undefined : "load";   
+//load
+var onPageLoad = function (event) {
+   var iframe;
+   iframe = document.createElement('iframe');
+   iframe.src = 'http://websnapins.com/spotify-storage.html';
+   iframe.id = 'storage_iframe';
+   iframe.style.display = 'none';
+   document.body.appendChild(iframe);
+};
+if(onloadEvt) window.addEventListener(onloadEvt, onPageLoad);
+	
+//popstate reload fix
+var eswSafariFix = {}
+eswSafariFix['getSafariType'] = function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if(userAgent.indexOf("chrome") === -1 && userAgent.indexOf("safari") !== -1) {
+            if(userAgent.indexOf("mobile") === -1) {
+                return "desktop";
+            } else {
+                return "mobile";
+            }
+        }
+        
+        return "none";
+    };
+    // Account for Safari cache quirks.
+    window.addEventListener("pageshow", function(event) {
+      console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
+      if(event.persisted) {
+        if(eswSafariFix.getSafariType() === "desktop") {
+          console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
+          window.location.reload();
+        }
+      } else if(eswSafariFix.getSafariType() !== "none") {
+        console.log("Triggering onPageLoad");
+        onPageLoad();
+      }
+    }, false);
+   window.addEventListener("popstate", function() {
+      if(eswSafariFix.getSafariType() === "mobile") {
+        console.log(" - - - - - Pop State - Triggering refresh... - - - - - ");
+        document.location.reload();
+      }
+    }, false);
+  
+  eswSafariFix.isHelpButtonState = function isHelpButtonState() {
+    var elem = document.querySelector(".embeddedServiceLiveAgentHelpButton");
+
+    return elem !== null && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+  };
+//unload
+window.addEventListener(unloadEvt, function (event) {
+   console.log("SPOTIFY: UNLOAD EVENT");
+   //For back-forward cache
+   if(isSafari){
+   //   history.pushState("SPOTIFY: ESW_STATE_KEY" + document.location);
+   }
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
+   console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
+   if(typeof liveagent !== "undefined" && !eswSafariFix.isHelpButtonState()){
+      liveAgent.chasitor.abortConnection();
+      var localChasitorData = liveagent.chasitor.serialize();
+      //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
+      var localChasitorJSON = JSON.parse(localChasitorData);
+      var isChatEstablished = !!document.querySelector(".embeddedServiceLiveAgentChatWindow .messageArea");
+      localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
+      localChasitorData = JSON.stringify(localChasitorJSON);
+      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      if(isSafari){
+         console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
+         safariIphoneStore(localChasitorJSON);
+      }else{
+         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
+      }
+   }else{
+      if(storageIframe && storageIframe.removeSessionData){
+         storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
+      }
+   }
+   if(storageIframe && storageIframe.removeSessionData){
+      storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+      storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+      storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+      storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+   }
+});
+//storage loaded
+window.addEventListener('message', function (event) {
+   // Check for specific event: 'storage_iframe_initialize'
+   if (event.data == 'storage_iframe_initialized') {
+      var storageIframe = document.getElementById("storage_iframe").contentWindow;
+      var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+      if(isSafari){
+            iFrameChasitorStr = safariIphoneRead();
+      }
+      if (iFrameChasitorStr) {
+         //get data, put into local sessionStorage
+         keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
+         keys.forEach(function(key) {
+            // for Safari - revert to using localStorage, otherwise sessionStorage            
+            window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
+          });
+         var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
+         var localPollCount = window.getLocalPollCount();
+         console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+         window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
+         window.ESW_LOADED_FROM_IFRAME = true;
+      }
+      //this is the normal init stuff
+      if (!window.embedded_svc) { 
+         var s = document.createElement('script'); 
+         s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.js'); 
+         s.onload = function() { 
+            initESW(null); 
+         }; 
+         document.body.appendChild(s);
+      } else { 
+         initESW('https://na1-blitz02.soma.salesforce.com');
+      }
+   }
+});
+   
+window.safariIphoneStore = function(chasitorObj){
+   console.log("SPOTIFY: safariIphoneStore");
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   
+   //store chasitorData w/o messages and connection separately
+   //store last 3 messages in separate cookie
+   var chatMessages = chasitorObj.chasitorData.chatMessages;
+   if(chatMessages.length > 3){
+      chatMessages = chatMessages.slice(chatMessages.length - 3);
+   }
+   //remove these now - we will replace when we de-serialize
+   chasitorObj.chasitorData.chatMessages=[];
+   
+   //we don't need this for an ongoing chat
+   chasitorObj.detailsInfo={};
+   
+   var connectionStr = JSON.stringify(chasitorObj.connectionData);   
+   var chasitorDataStr = JSON.stringify(chasitorObj.chasitorData);
+   var chasitorMsgStr = JSON.stringify(chatMessages);
+   
+   //have to encode to store as cookie
+   var chasitorMsgEnc = btoa(chasitorMsgStr);
+   
+   console.log("SPOTIFY: connectionStr: " + connectionStr);
+   console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
+   console.log("SPOTIFY: chasitorMsgEnc: " + chasitorMsgEnc);
+   
+   storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 5);
+   storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 5);
+   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 5);
+   
+   console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
+   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));      
+   console.log("SPOTIFY: ESW_CHASITOR_MESSAGES COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
+}
+   
+window.safariIphoneRead = function(){
+   console.log("IN SAFARI IPHONE COOKIE READ FUNCTION");
+   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   //get chasitordata and connection from cookies and rebuild
+   var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
+   var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
+   var chasitorMsgStr = storageIframe.readCookie("ESW_CHASITOR_MESSAGES");
+   
+   console.log("SPOTIFY: READ ESW_CHASITOR_CONNECTION " + connectionStr);
+   console.log("SPOTIFY: READ ESW_CHASITOR_DATA " + chasitorDataStr);
+   
+   if(!connectionStr || !chasitorDataStr){
+      console.log("SPOTIFY: NO CHASITOR DATA - RETURNING NULL");
+      return null;
+   }
+   
+   var connectionObj = JSON.parse(connectionStr);
+   var chasitorDataObj = JSON.parse(chasitorDataStr);
+   //if we ran out of cookie space storing the messages they may not be here
+   try{
+      var chasitorMsgDec = atob(chasitorMsgStr);
+      console.log("SPOTIFY: READ ESW_CHASITOR_MESSAGES " + chasitorMsgDec);
+      var messagesObj = JSON.parse(chasitorMsgDec);
+      chasitorDataObj.chatMessages = messagesObj;
+   }catch(err) {
+      console.log("UNABLE TO RETRIEVE MESSAGES FROM COOKIE STRING: " + chasitorMsgDec);
+   }
+   
+   console.log("SPOTIFY: GOT CHASITOR CONNECTION AND DATA OBJECTS");
+   
+   var chasitorObj = {
+      connectionData : connectionObj,
+      chasitorData : chasitorDataObj
+   }
+   console.log("SPOTIFY: chasitorObj");
+   console.log(chasitorObj);
+   
+   //done with these now
+   storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
+   storageIframe.eraseCookie("ESW_CHASITOR_DATA");
+   var returnStr=JSON.stringify(chasitorObj);
+   console.log("SPOTIFY: RETURNING DATA: " + returnStr);
+   return returnStr; 
+}
+window.getLocalPollCount = function(){
+   var chasitorStr = window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY");
+   return chasitorPollCount(chasitorStr);
+}
+window.chasitorPollCount = function(chasitorStr){
+   if(chasitorStr){
+      var jsonObj=JSON.parse(chasitorStr);
+      return jSONPollCount(jsonObj);
+   }
+   return null;
+}
+window.jSONPollCount = function(jsonObj){
+   if(jsonObj && jsonObj.connectionData){
+      return jsonObj.connectionData.pollCount;
+   }
+   return null;
+}
+   
+var initESW = function(gslbBaseUrl) {
+   embedded_svc.settings.avatarImgURL = '';
+   embedded_svc.settings.prechatBackgroundImgURL = '';
+   embedded_svc.settings.waitingStateBackgroundImgURL = '';
+   embedded_svc.settings.smallCompanyLogoImgURL = '';
+   embedded_svc.settings.displayHelpButton = true; //Or false
+   //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
+   //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
+   //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
+   console.log("SPOTIFY: ABOUT TO CREATE WIDGET.  LODADED DATA FROM IFRAME: " + window.ESW_LOADED_FROM_IFRAME);
+   embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://eswcomm-1598a5bbd91.blitz02.soma.force.com/napiliAura', '572D00000004Dq3', '00DD00000008Xh7', '573D00000004E35', '1.0', gslbBaseUrl, '39.0', 'a', 'EmbeddedServiceLiveAgent_Parent04ID000000000AGMAY_1598a61d030'); };
+
+}; 
+</script>
+	
+</div>
+</body>
+</html>
