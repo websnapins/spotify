@@ -121,11 +121,13 @@ window.addEventListener(unloadEvt, function (event) {
 window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
+      console.log("Before the iframe, CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));
       var storageIframe = document.getElementById("storage_iframe").contentWindow;
       var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if(eswSafariFix.getSafariType() === "mobile"){
             iFrameChasitorStr = safariIphoneRead();
       }
+      console.log("IFrame Initialized", iFrameChasitorStr);
       if (iFrameChasitorStr) {
          //get data, put into local sessionStorage
          keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
@@ -141,6 +143,7 @@ window.addEventListener('message', function (event) {
       }
       //this is the normal init stuff
       if (!window.embedded_svc) { 
+         console.log("Right before initialization, CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));        
          var s = document.createElement('script'); 
          s.setAttribute('src', 'http://jakerouss-wsm1.internal.salesforce.com:57983/embeddedservice/1.0/esw.js'); 
          s.onload = function() { 
@@ -148,6 +151,7 @@ window.addEventListener('message', function (event) {
          }; 
          document.body.appendChild(s);
       } else { 
+         console.log("Right before initialization (path 2), CHASITOR_SERIALIZED_KEY is", window.sessionStorage.getItem("CHASITOR_SERIALIZED_KEY"));
          initESW('https://na1-blitz02.soma.salesforce.com');
       }
    }
