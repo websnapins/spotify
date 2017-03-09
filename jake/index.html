@@ -74,7 +74,7 @@ eswSafariFix['getSafariType'] = function() {
           console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
           window.location.reload();
         }
-      } else if(eswSafariFix.getSafariType() === "mobile") {
+      } else if(eswSafariFix.getSafariType() !== "none") {
         console.log("Triggering onPageLoad");
         onPageLoad();
       }
@@ -128,9 +128,8 @@ window.addEventListener(unloadEvt, function (event) {
       storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
       storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
       storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
-     
+      
      console.log("Clear check", eswSafariFix.getSafariType(), "clearing:", eswSafariFix.getSafariType() !== "none");
-
      if(eswSafariFix.getSafariType() !== "none") {
       console.log('Clearing old data...');
       // Clear session storage in this frame.
