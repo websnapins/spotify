@@ -67,14 +67,14 @@ eswSafariFix['getSafariType'] = function() {
         return "none";
     };
     // Account for Safari cache quirks.
- window.addEventListener("pageshow", function(event) {
+    window.addEventListener("pageshow", function(event) {
       console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
       if(event.persisted) {
         if(eswSafariFix.getSafariType() === "desktop") {
           console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
           window.location.reload();
         }
-      } else {
+      } else if(eswSafariFix.getSafariType() === "mobile") {
         console.log("Triggering onPageLoad");
         onPageLoad();
       }
