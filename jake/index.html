@@ -67,11 +67,13 @@ eswSafariFix['getSafariType'] = function() {
         return "none";
     };
     // Account for Safari cache quirks.
-    window.addEventListener("pageshow", function(event) {
+ window.addEventListener("pageshow", function(event) {
       console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
-      if(eswSafariFix.getSafariType() === "desktop" && event.persisted) {
-        console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
-        window.location.reload();
+      if(event.persisted) {
+        if(eswSafariFix.getSafariType() === "desktop") {
+          console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
+          window.location.reload();
+        }
       } else {
         console.log("Triggering onPageLoad");
         onPageLoad();
