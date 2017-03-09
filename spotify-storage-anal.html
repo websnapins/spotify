@@ -3,15 +3,15 @@
   <meta http-equiv="Cache-control" content="no-cache">
   <meta http-equiv="Cache-control" content="no-store">
   </head>
-  <body>
+<body>
     <p id="dummy"></p>
     <script>
-      // seems water tight to identify Safari on Mobile devices
-      var isSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent)
-                    && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
-
       document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
 
+      //got this from stack overflow.  YMMV
+      var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
+      
       function storeSessionData(key, data) {
         if (isSafari)
           localStorage.setItem(key, data); // due to bug with Safari incorrectly handling sessionStorage on iFrames
@@ -19,6 +19,45 @@
           sessionStorage.setItem(key, data);
       }
 
+      function getSessionData(key, data) {
+        if (isSafari)
+          return localStorage.getItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
+        else
+          return sessionStorage.getItem(key);
+      }
+      
+      function removeSessionData(key) {
+        if (isSafari)
+          return localStorage.removeItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
+        else
+          return sessionStorage.removeItem(key);
+      }
+      
+      function createCookie(name,value,minutes) {
+        var expires = "";
+        if (minutes) {
+          var date = new Date();
+          date.setTime(date.getTime() + (minutes*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+      }
+      
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+      }
+      
+      function eraseCookie(name) {
+        createCookie(name,"",-1);
+      }
+      
       var targetorigin = 'http://' + parent.location.hostname;
       parent.postMessage("storage_iframe_initialized", targetorigin);
     </script>
