@@ -3,30 +3,20 @@
     <p id="dummy"></p>
     <script>
       document.domain = 'websnapins.com'; // should be top-level domain e.g. spotify.com
-
-      //got this from stack overflow.  YMMV
-      var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
-               navigator.userAgent && !navigator.userAgent.match('CriOS');
       
       function storeSessionData(key, data) {
-        if (isSafari)
-          localStorage.setItem(key, data); // due to bug with Safari incorrectly handling sessionStorage on iFrames
-        else
-          sessionStorage.setItem(key, data);
+        if(data){
+            sessionStorage.setItem(key, data);
+        }else{
+            removeSessionData(key);
+        }
       }
-
       function getSessionData(key, data) {
-        if (isSafari)
-          return localStorage.getItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
-        else
-          return sessionStorage.getItem(key);
+        return sessionStorage.getItem(key);
       }
       
       function removeSessionData(key) {
-        if (isSafari)
-          return localStorage.removeItem(key); // due to bug with Safari incorrectly handling sessionStorage on iFrames
-        else
-          return sessionStorage.removeItem(key);
+        return sessionStorage.removeItem(key);
       }
       
       function createCookie(name,value,minutes) {
