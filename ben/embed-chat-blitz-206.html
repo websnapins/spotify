@@ -96,6 +96,7 @@ window.addEventListener(unloadEvt, function (event) {
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
    if(typeof liveagent !== "undefined"){
+      this.liveAgentChasitor.abortConnection();
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
       var localChasitorJSON = JSON.parse(localChasitorData);
