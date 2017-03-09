@@ -19,6 +19,8 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
  <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
 <script type='text/javascript'>
 window.ESW_LOADED_FROM_IFRAME=false;
+window.eswStorageIframe = null;
+
    
 window.addEventListener("beforeunload", function(event){
    console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
@@ -85,7 +87,7 @@ if(eswSafariFix.getSafariType() !== 'none'){
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
-   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
    if(typeof liveagent !== "undefined"){
@@ -104,26 +106,26 @@ window.addEventListener(unloadEvt, function (event) {
          console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
       }else{
-         storageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
+         eswStorageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
       }
    }else{
-      if(storageIframe && storageIframe.removeSessionData){
-         storageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
+      if(eswStorageIframe && eswStorageIframe.removeSessionData){
+         eswStorageIframe.removeSessionData("CHASITOR_SERIALIZED_KEY");
       }
    }
-   if(storageIframe && storageIframe.removeSessionData){
-      storageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
-      storageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
-      storageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
-      storageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
+   if(eswStorageIframe && eswStorageIframe.removeSessionData){
+      eswStorageIframe.storeSessionData("ESW_MINIMIZED_WIDTH", window.sessionStorage.getItem("ESW_MINIMIZED_WIDTH"));
+      eswStorageIframe.storeSessionData("LA_ESW_MINIMIZED", window.sessionStorage.getItem('LA_ESW_MINIMIZED'));
+      eswStorageIframe.storeSessionData("LA_ESW_UNREAD_NOTIFS", window.sessionStorage.getItem('LA_ESW_UNREAD_NOTIFS'));
+      eswStorageIframe.storeSessionData("LA_ESW_MINIMIZED_TEXT", window.sessionStorage.getItem('LA_ESW_MINIMIZED_TEXT'));
    }
 });
 //storage loaded
 window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
-      var storageIframe = document.getElementById("storage_iframe").contentWindow;
-      var iFrameChasitorStr = storageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+      var eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
+      var iFrameChasitorStr = eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
       if(eswSafariFix.getSafariType() === "mobile"){
             iFrameChasitorStr = safariIphoneRead();
       }
@@ -132,7 +134,7 @@ window.addEventListener('message', function (event) {
          keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
          keys.forEach(function(key) {
             // for Safari - revert to using localStorage, otherwise sessionStorage            
-            window.sessionStorage.setItem(key, storageIframe.getSessionData(key));
+            window.sessionStorage.setItem(key, eswStorageIframe.getSessionData(key));
           });
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
@@ -156,7 +158,7 @@ window.addEventListener('message', function (event) {
    
 window.safariIphoneStore = function(chasitorObj){
    console.log("SPOTIFY: safariIphoneStore");
-   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   var eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
    
    //store chasitorData w/o messages and connection separately
    //store last 3 messages in separate cookie
@@ -181,22 +183,22 @@ window.safariIphoneStore = function(chasitorObj){
    console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
    console.log("SPOTIFY: chasitorMsgEnc: " + chasitorMsgEnc);
    
-   storageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 5);
-   storageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 5);
-   storageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 5);
+   eswStorageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 5);
+   eswStorageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 5);
+   eswStorageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 5);
    
-   console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
-   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_DATA"));      
-   console.log("SPOTIFY: ESW_CHASITOR_MESSAGES COOKIE: " + storageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
+   console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
+   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_DATA"));      
+   console.log("SPOTIFY: ESW_CHASITOR_MESSAGES COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
 }
    
 window.safariIphoneRead = function(){
    console.log("IN SAFARI IPHONE COOKIE READ FUNCTION");
-   var storageIframe = document.getElementById("storage_iframe").contentWindow;
+   var eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
    //get chasitordata and connection from cookies and rebuild
-   var connectionStr = storageIframe.readCookie("ESW_CHASITOR_CONNECTION");
-   var chasitorDataStr = storageIframe.readCookie("ESW_CHASITOR_DATA");
-   var chasitorMsgStr = storageIframe.readCookie("ESW_CHASITOR_MESSAGES");
+   var connectionStr = eswStorageIframe.readCookie("ESW_CHASITOR_CONNECTION");
+   var chasitorDataStr = eswStorageIframe.readCookie("ESW_CHASITOR_DATA");
+   var chasitorMsgStr = eswStorageIframe.readCookie("ESW_CHASITOR_MESSAGES");
    
    console.log("SPOTIFY: READ ESW_CHASITOR_CONNECTION " + connectionStr);
    console.log("SPOTIFY: READ ESW_CHASITOR_DATA " + chasitorDataStr);
@@ -228,8 +230,8 @@ window.safariIphoneRead = function(){
    console.log(chasitorObj);
    
    //done with these now
-   storageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
-   storageIframe.eraseCookie("ESW_CHASITOR_DATA");
+   eswStorageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
+   eswStorageIframe.eraseCookie("ESW_CHASITOR_DATA");
    var returnStr=JSON.stringify(chasitorObj);
    console.log("SPOTIFY: RETURNING DATA: " + returnStr);
    return returnStr; 
@@ -278,7 +280,7 @@ var initESW = function(gslbBaseUrl) {
    //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
    //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
    console.log("SPOTIFY: ABOUT TO CREATE WIDGET.  LODADED DATA FROM IFRAME: " + window.ESW_LOADED_FROM_IFRAME);
-    embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15ab0857300.blitz02.soma.force.com', '572D00000004EBQ', '00DD00000008amL', '573D00000004EPs', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AuMAI_15ab097ee8f');}; 
+   embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15ab0857300.blitz02.soma.force.com', '572D00000004EBQ', '00DD00000008amL', '573D00000004EPs', '1.0', gslbBaseUrl, '39.0', 'Snappy1', 'EmbeddedServiceLiveAgent_Parent04ID000000000AuMAI_15ab097ee8f');
 </script>
 	
 </div>
