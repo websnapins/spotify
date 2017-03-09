@@ -18,8 +18,6 @@ url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/
   <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
 <script type='text/javascript'>
 console.log("    ### Reload complete ");
-
-console.log("Final session storage status:", Object.keys(window.sessionStorage));
   
 window.ESW_LOADED_FROM_IFRAME=false;
    
@@ -30,17 +28,10 @@ window.addEventListener("pagehide", function(event){
    console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
    
-window.addEventListener("pageshow", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
-});
-   
 window.addEventListener("load", function(event){
    console.log("SPOTIFY: WINDOWEVENT: LOAD");
 });
    
-window.addEventListener("popstate", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
-});
 //browser detection
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
@@ -55,19 +46,12 @@ eswSafariFix['getSafariType'] = function() {
         
         return "none";
     };
-    // Account for Safari cache quirks.
-    window.addEventListener("pageshow", function() {
-        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) window.location.reload();
-    }, false);
-window.addEventListener("popstate", function() {
-        if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
-    }, false);
    
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pagehide" : "beforeunload";
-var onloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pageshow" : "load";   
-//load
+
+  //load
 var onPageLoad = function (event) {
    var iframe;
    iframe = document.createElement('iframe');
@@ -76,14 +60,29 @@ var onPageLoad = function (event) {
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
 };
-window.addEventListener(onloadEvt, onPageLoad);
-//For back-forward cache
-if(eswSafariFix.getSafariType() !== 'none'){
-   window.addEventListener("popstate", function(event){
-      if(event.state === "ESW_STATE_KEY" + document.location){
-         onPageLoad(event);
-      }
-   });
+
+if(eswSafariFix.getSafariType() === "none") {
+    window.addEventListener("load", onPageLoad);
+} else {
+  window.addEventListener("pageshow", function(event) {
+     console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
+     if(event.persisted) {
+       if(eswSafariFix.getSafariType() === "desktop") {
+         console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
+         window.location.reload();
+       }
+     } else if(eswSafariFix.getSafariType() !== "none") {
+       console.log("Triggering onPageLoad");
+       onPageLoad();
+     }
+   }, false);
+
+  window.addEventListener("popstate", function() {
+     if(eswSafariFix.getSafariType() === "mobile") {
+       console.log(" - - - - - Pop State - Triggering refresh... - - - - - ");
+       document.location.reload();
+     }
+   }, false);
 }
 //unload
 window.addEventListener(unloadEvt, function (event) {
