@@ -19,6 +19,14 @@ url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans
 <script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.js'></script>
 <script type='text/javascript'>
 window.ESW_LOADED_FROM_IFRAME=false;
+	
+console.log('Clearing old data...');
+// Clear session storage in this frame.
+window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
+window.sessionStorage.removeItem("ESW_MINIMIZED_WIDTH");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED");
+window.sessionStorage.removeItem("LA_ESW_UNREAD_NOTIFS");
+window.sessionStorage.removeItem("LA_ESW_MINIMIZED_TEXT");   
    
 window.addEventListener("beforeunload", function(event){
    console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
@@ -26,18 +34,11 @@ window.addEventListener("beforeunload", function(event){
 window.addEventListener("pagehide", function(event){
    console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
 });
-   
-window.addEventListener("pageshow", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
-});
-   
+	
 window.addEventListener("load", function(event){
    console.log("SPOTIFY: WINDOWEVENT: LOAD");
 });
    
-window.addEventListener("popstate", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
-});
    
 //got this from stack overflow.  YMMV
 var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
@@ -45,7 +46,7 @@ var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
 //set browser-specific handlers   
 document.domain = 'websnapins.com';
 var unloadEvt = isSafari ? "pagehide" : "beforeunload";
-var onloadEvt = isSafari ? "pageshow" : "load";   
+var onloadEvt = isSafari ? undefined : "load";   
 //load
 var onPageLoad = function (event) {
    var iframe;
@@ -55,15 +56,8 @@ var onPageLoad = function (event) {
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
 };
-window.addEventListener(onloadEvt, onPageLoad);
-//For back-forward cache
-if(isSafari){
-   window.addEventListener("popstate", function(event){
-      if(event.state === "ESW_STATE_KEY" + document.location){
-         onPageLoad(event);
-      }
-   });
-}
+if(onloadEvt) window.addEventListener(onloadEvt, onPageLoad);
+	
 //popstate reload fix
 var eswSafariFix = {}
 eswSafariFix['getSafariType'] = function() {
@@ -79,12 +73,30 @@ eswSafariFix['getSafariType'] = function() {
         return "none";
     };
     // Account for Safari cache quirks.
-    window.addEventListener("pageshow", function() {
-        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) window.location.reload();
+    window.addEventListener("pageshow", function(event) {
+      console.log("SPOTIFY: WINDOWEVENT: PAGESHOW", "Persisted:", event.persisted);
+      if(event.persisted) {
+        if(eswSafariFix.getSafariType() === "desktop") {
+          console.log(" - - - - - Page Show - Triggering refresh... - - - - - ");
+          window.location.reload();
+        }
+      } else if(eswSafariFix.getSafariType() !== "none") {
+        console.log("Triggering onPageLoad");
+        onPageLoad();
+      }
     }, false);
-window.addEventListener("popstate", function() {
-        if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
+   window.addEventListener("popstate", function() {
+      if(eswSafariFix.getSafariType() === "mobile") {
+        console.log(" - - - - - Pop State - Triggering refresh... - - - - - ");
+        document.location.reload();
+      }
     }, false);
+  
+  eswSafariFix.isHelpButtonState = function isHelpButtonState() {
+    var elem = document.querySelector(".embeddedServiceLiveAgentHelpButton");
+
+    return elem !== null && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+  };
 //unload
 window.addEventListener(unloadEvt, function (event) {
    console.log("SPOTIFY: UNLOAD EVENT");
@@ -95,11 +107,11 @@ window.addEventListener(unloadEvt, function (event) {
    var storageIframe = document.getElementById("storage_iframe").contentWindow;
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
    console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
-   if(typeof liveagent !== "undefined"){
+   if(typeof liveagent !== "undefined" && !eswSafariFix.isHelpButtonState()){
       var localChasitorData = liveagent.chasitor.serialize();
       //not sure exactly why we need this, but its in liveAgentChatWindow.cmp...
       var localChasitorJSON = JSON.parse(localChasitorData);
-      var isChatEstablished = document.querySelector(".embeddedServiceLiveAgentChatWindow") !== undefined
+      var isChatEstablished = !!document.querySelector(".embeddedServiceLiveAgentChatWindow .messageArea");
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
