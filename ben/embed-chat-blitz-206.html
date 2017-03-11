@@ -125,7 +125,8 @@ window.addEventListener(unloadEvt, function (event) {
    }
 });
 //storage loaded
-window.addEventListener('message', function (event) {
+window.eswStorageLoaded = function(){
+    function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
       eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
@@ -161,7 +162,9 @@ window.addEventListener('message', function (event) {
          initESW('https://na1-blitz02.soma.salesforce.com');
       }
    }
-});
+}
+}
+window.addEventListener('message', eswStorageLoaded);
    
 window.safariIphoneStore = function(chasitorObj){
    console.log("ROOT: safariIphoneStore");
