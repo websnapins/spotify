@@ -22,22 +22,22 @@ window.ESW_LOADED_FROM_IFRAME=false;
 window.eswStorageIframe = null;
 	
 window.addEventListener("beforeunload", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: BEFOREUNLOAD");
+   console.log("ROOT: WINDOWEVENT: BEFOREUNLOAD");
 });
 window.addEventListener("pagehide", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: PAGEHIDE");
+   console.log("ROOT: WINDOWEVENT: PAGEHIDE");
 });
    
 window.addEventListener("pageshow", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: PAGESHOW");
+   console.log("ROOT: WINDOWEVENT: PAGESHOW");
 });
    
 window.addEventListener("load", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: LOAD");
+   console.log("ROOT: WINDOWEVENT: LOAD");
 });
    
 window.addEventListener("popstate", function(event){
-   console.log("SPOTIFY: WINDOWEVENT: POPSTATE");
+   console.log("ROOT: WINDOWEVENT: POPSTATE");
 });
 //browser detection
 var eswSafariFix = {}
@@ -85,9 +85,9 @@ if(eswSafariFix.getSafariType() !== 'none'){
 }
 //unload
 window.addEventListener(unloadEvt, function (event) {
-   console.log("SPOTIFY: UNLOAD EVENT");
+   console.log("ROOT: UNLOAD EVENT");
    // the iFrame decides based on isSafari wether to use sessionStorage or localStorage
-   console.log("SPOTIFY: liveagent type: " + typeof liveagent); 
+   console.log("ROOT: liveagent type: " + typeof liveagent); 
    if(typeof liveagent !== "undefined"){
       liveagent.chasitor.abortConnection();
       var localChasitorData = liveagent.chasitor.serialize();
@@ -99,9 +99,9 @@ window.addEventListener(unloadEvt, function (event) {
       localChasitorJSON['chasitorData']['isChatEstablished'] = isChatEstablished;
       
       localChasitorData = JSON.stringify(localChasitorJSON);
-      console.log("SPOTIFY: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
+      console.log("ROOT: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
       if(eswSafariFix.getSafariType() === "mobile"){
-         console.log("SPOTIFY: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
+         console.log("ROOT: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
       }else{
          eswStorageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
@@ -136,7 +136,7 @@ window.addEventListener('message', function (event) {
           });
          var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
          var localPollCount = window.getLocalPollCount();
-         console.log("SPOTIFY: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+         console.log("ROOT: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
          window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
          window.ESW_LOADED_FROM_IFRAME = true;
       }
@@ -155,7 +155,7 @@ window.addEventListener('message', function (event) {
 });
    
 window.safariIphoneStore = function(chasitorObj){
-   console.log("SPOTIFY: safariIphoneStore");
+   console.log("ROOT: safariIphoneStore");
    
    //store chasitorData w/o messages and connection separately
    //store last 3 messages in separate cookie
@@ -176,17 +176,17 @@ window.safariIphoneStore = function(chasitorObj){
    //have to encode to store as cookie
    var chasitorMsgEnc = btoa(chasitorMsgStr);
    
-   console.log("SPOTIFY: connectionStr: " + connectionStr);
-   console.log("SPOTIFY: chasitorDataStr: " + chasitorDataStr);
-   console.log("SPOTIFY: chasitorMsgEnc: " + chasitorMsgEnc);
+   console.log("ROOT: connectionStr: " + connectionStr);
+   console.log("ROOT: chasitorDataStr: " + chasitorDataStr);
+   console.log("ROOT: chasitorMsgEnc: " + chasitorMsgEnc);
    
    eswStorageIframe.createCookie("ESW_CHASITOR_CONNECTION", connectionStr, 5);
    eswStorageIframe.createCookie("ESW_CHASITOR_DATA", chasitorDataStr, 5);
    eswStorageIframe.createCookie("ESW_CHASITOR_MESSAGES", chasitorMsgEnc, 5);
    
-   console.log("SPOTIFY: ESW_CHASITOR_CONNECTION COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
-   console.log("SPOTIFY: ESW_CHASITOR_DATA COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_DATA"));      
-   console.log("SPOTIFY: ESW_CHASITOR_MESSAGES COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
+   console.log("ROOT: ESW_CHASITOR_CONNECTION COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_CONNECTION"));
+   console.log("ROOT: ESW_CHASITOR_DATA COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_DATA"));      
+   console.log("ROOT: ESW_CHASITOR_MESSAGES COOKIE: " + eswStorageIframe.readCookie("ESW_CHASITOR_MESSAGES"));               
 }
    
 window.safariIphoneRead = function(){
@@ -196,11 +196,11 @@ window.safariIphoneRead = function(){
    var chasitorDataStr = eswStorageIframe.readCookie("ESW_CHASITOR_DATA");
    var chasitorMsgStr = eswStorageIframe.readCookie("ESW_CHASITOR_MESSAGES");
    
-   console.log("SPOTIFY: READ ESW_CHASITOR_CONNECTION " + connectionStr);
-   console.log("SPOTIFY: READ ESW_CHASITOR_DATA " + chasitorDataStr);
+   console.log("ROOT: READ ESW_CHASITOR_CONNECTION " + connectionStr);
+   console.log("ROOT: READ ESW_CHASITOR_DATA " + chasitorDataStr);
    
    if(!connectionStr || !chasitorDataStr){
-      console.log("SPOTIFY: NO CHASITOR DATA - RETURNING NULL");
+      console.log("ROOT: NO CHASITOR DATA - RETURNING NULL");
       return null;
    }
    
@@ -209,27 +209,27 @@ window.safariIphoneRead = function(){
    //if we ran out of cookie space storing the messages they may not be here
    try{
       var chasitorMsgDec = atob(chasitorMsgStr);
-      console.log("SPOTIFY: READ ESW_CHASITOR_MESSAGES " + chasitorMsgDec);
+      console.log("ROOT: READ ESW_CHASITOR_MESSAGES " + chasitorMsgDec);
       var messagesObj = JSON.parse(chasitorMsgDec);
       chasitorDataObj.chatMessages = messagesObj;
    }catch(err) {
       console.log("UNABLE TO RETRIEVE MESSAGES FROM COOKIE STRING: " + chasitorMsgDec);
    }
    
-   console.log("SPOTIFY: GOT CHASITOR CONNECTION AND DATA OBJECTS");
+   console.log("ROOT: GOT CHASITOR CONNECTION AND DATA OBJECTS");
    
    var chasitorObj = {
       connectionData : connectionObj,
       chasitorData : chasitorDataObj
    }
-   console.log("SPOTIFY: chasitorObj");
+   console.log("ROOT: chasitorObj");
    console.log(chasitorObj);
    
    //done with these now
    eswStorageIframe.eraseCookie("ESW_CHASITOR_CONNECTION");
    eswStorageIframe.eraseCookie("ESW_CHASITOR_DATA");
    var returnStr=JSON.stringify(chasitorObj);
-   console.log("SPOTIFY: RETURNING DATA: " + returnStr);
+   console.log("ROOT: RETURNING DATA: " + returnStr);
    return returnStr; 
 }
 //find Aura component and get chat state
@@ -244,7 +244,7 @@ window.getESWChatState = function(){
          }
       }
    }catch(err){
-      console.log("SPOTIFY: ERROR FINDING CHAT STATE: " + err);
+      console.log("ROOT: ERROR FINDING CHAT STATE: " + err);
    }
    return null;
 }
@@ -275,7 +275,7 @@ var initESW = function(gslbBaseUrl) {
    //embedded_svc.settings.onlineText = '...'; (defaults to Chat with an Expert, localized)
    //embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
    //embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
-   console.log("SPOTIFY: ABOUT TO CREATE WIDGET.  LODADED DATA FROM IFRAME: " + window.ESW_LOADED_FROM_IFRAME);
+   console.log("ROOT: ABOUT TO CREATE WIDGET.  LODADED DATA FROM IFRAME: " + window.ESW_LOADED_FROM_IFRAME);
    embedded_svc.init('https://na1-blitz02.soma.salesforce.com', 'https://d.la-blitz02.soma.salesforce.com/chat', 'https://c.la-blitz02.soma.salesforce.com/content', 'https://snapins206-157442b0ff8-15a008f7854.blitz02.soma.force.com', '572D00000004E2b', '00DD00000008YnS', '573D00000004EFv', '1.0', gslbBaseUrl, '39.0', 'snappy2', 'EmbeddedServiceLiveAgent_Parent04ID000000000AkMAI_15a00aca709');
 }
 </script>
