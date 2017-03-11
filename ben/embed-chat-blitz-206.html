@@ -100,7 +100,7 @@ window.addEventListener(unloadEvt, function (event) {
       
       localChasitorData = JSON.stringify(localChasitorJSON);
       console.log("ROOT: SETTING IFRAME DATA W/POLLCOUNT: " + window.chasitorPollCount(localChasitorData));
-      if(eswSafariFix.getSafariType() === "mobile"){
+      if(eswSafariFix.getSafariType() !== "none"){
          console.log("ROOT: ABOUT TO CALL SAFARI COOKIE WORKAROUND");
          safariIphoneStore(localChasitorJSON);
       }else{
@@ -125,10 +125,12 @@ window.addEventListener(unloadEvt, function (event) {
    }
 });
 //storage loaded
-window.eswStorageLoaded = function(){
+window.addEventListener('message', function (event) {
+   // Check for specific event: 'storage_iframe_initialize'
+   if (event.data == 'storage_iframe_initialized') {
 	eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
 	var iFrameChasitorStr = eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
-	if(eswSafariFix.getSafariType() === "mobile"){
+	if(eswSafariFix.getSafariType() !== "none"){
             iFrameChasitorStr = safariIphoneRead();
 	}
 	console.log("ROOT: JUST READ CHASITOR IFRAME DATA vvvvvvvvvvvv");
@@ -159,12 +161,6 @@ window.eswStorageLoaded = function(){
 	} else { 
 		initESW('https://na1-blitz02.soma.salesforce.com');
 	}
-}
-
-window.addEventListener('message', function (event) {
-   // Check for specific event: 'storage_iframe_initialize'
-   if (event.data == 'storage_iframe_initialized') {
-	  eswStorageLoaded();
    }
 });
    
