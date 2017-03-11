@@ -105,8 +105,12 @@ window.addEventListener(unloadEvt, function (event) {
          safariIphoneStore(localChasitorJSON);
       }else{
          eswStorageIframe.storeSessionData("CHASITOR_SERIALIZED_KEY", localChasitorData);
-	 console.log("ROOT: LOCAL CHASITOR DATA IS NOW :" + localChasitorData);
-	 console.log("ROOT: IFRAME STORAGE IS NOW :" + eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY"));
+	 console.log("ROOT: LOCAL CHASITOR DATA vvvvvvvvvvvv");
+	 console.log(localChasitorJSON);
+	 console.log("ROOT: LOCAL CHASITOR DATA ^^^^^^^^^^^^");
+	 console.log("ROOT: IFRAME STORAGE vvvvvvvvvvvv");
+	 console.log(JSON.parse(eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY")));
+	 console.log("ROOT: IFRAME STORAGE ^^^^^^^^^^^^");
       }
    }else{
       if(eswStorageIframe && eswStorageIframe.removeSessionData){
@@ -129,7 +133,9 @@ window.addEventListener('message', function (event) {
       if(eswSafariFix.getSafariType() === "mobile"){
             iFrameChasitorStr = safariIphoneRead();
       }
-      console.log("ROOT: JUST READ CHASITOR IFRAME DATA: " + iFrameChasitorStr);
+      console.log("ROOT: JUST READ CHASITOR IFRAME DATA vvvvvvvvvvvv");
+      console.log(JSON.parse(iFrameChasitorStr));
+      console.log("ROOT: JUST READ CHASITOR IFRAME DATA ^^^^^^^^^^^^");
       if (iFrameChasitorStr) {
          //get data, put into local sessionStorage
          keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
