@@ -144,6 +144,7 @@ window.eswStorageLoaded = function(){
 		var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
 		var localPollCount = window.getLocalPollCount();
 		console.log("ROOT: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+		window.sessionStorage.removeItem("CHASITOR_SERIALIZED_KEY");
 		window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
 		window.ESW_LOADED_FROM_IFRAME = true;
 	}
