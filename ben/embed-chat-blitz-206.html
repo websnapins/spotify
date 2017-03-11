@@ -69,7 +69,7 @@ var onloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pageshow" : "load";
 var onPageLoad = function (event) {
    var iframe;
    iframe = document.createElement('iframe');
-   iframe.src = 'http://websnapins.com/spotify-storage-ben.html';
+   iframe.src = 'http://websnapins.com/spotify-storage-ben.html?rnd=' + Math.random();
    iframe.id = 'storage_iframe';
    iframe.style.display = 'none';
    document.body.appendChild(iframe);
