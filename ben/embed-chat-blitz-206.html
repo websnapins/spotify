@@ -126,45 +126,46 @@ window.addEventListener(unloadEvt, function (event) {
 });
 //storage loaded
 window.eswStorageLoaded = function(){
-    function (event) {
+	eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
+	var iFrameChasitorStr = eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
+	if(eswSafariFix.getSafariType() === "mobile"){
+            iFrameChasitorStr = safariIphoneRead();
+	}
+	console.log("ROOT: JUST READ CHASITOR IFRAME DATA vvvvvvvvvvvv");
+	console.log(JSON.parse(iFrameChasitorStr));
+	console.log("ROOT: JUST READ CHASITOR IFRAME DATA ^^^^^^^^^^^^");
+	if (iFrameChasitorStr) {
+		//get data, put into local sessionStorage
+		keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
+		keys.forEach(function(key) {
+			// for Safari - revert to using localStorage, otherwise sessionStorage            
+			window.sessionStorage.setItem(key, eswStorageIframe.getSessionData(key));
+		});
+		var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
+		var localPollCount = window.getLocalPollCount();
+		console.log("ROOT: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
+		window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
+		window.ESW_LOADED_FROM_IFRAME = true;
+	}
+	//this is the normal init stuff
+	if (!window.embedded_svc) { 
+		var s = document.createElement('script'); 
+		s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.js'); 
+		s.onload = function() { 
+			initESW(null); 
+		}; 
+		document.body.appendChild(s);
+	} else { 
+		initESW('https://na1-blitz02.soma.salesforce.com');
+	}
+}
+
+window.addEventListener('message', function (event) {
    // Check for specific event: 'storage_iframe_initialize'
    if (event.data == 'storage_iframe_initialized') {
-      eswStorageIframe = document.getElementById("storage_iframe").contentWindow;
-      var iFrameChasitorStr = eswStorageIframe.getSessionData("CHASITOR_SERIALIZED_KEY");
-      if(eswSafariFix.getSafariType() === "mobile"){
-            iFrameChasitorStr = safariIphoneRead();
-      }
-      console.log("ROOT: JUST READ CHASITOR IFRAME DATA vvvvvvvvvvvv");
-      console.log(JSON.parse(iFrameChasitorStr));
-      console.log("ROOT: JUST READ CHASITOR IFRAME DATA ^^^^^^^^^^^^");
-      if (iFrameChasitorStr) {
-         //get data, put into local sessionStorage
-         keys = ["ESW_MINIMIZED_WIDTH", "LA_ESW_MINIMIZED", "LA_ESW_UNREAD_NOTIFS", "LA_ESW_MINIMIZED_TEXT"];
-         keys.forEach(function(key) {
-            // for Safari - revert to using localStorage, otherwise sessionStorage            
-            window.sessionStorage.setItem(key, eswStorageIframe.getSessionData(key));
-          });
-         var iFramePollCount = window.chasitorPollCount(iFrameChasitorStr);
-         var localPollCount = window.getLocalPollCount();
-         console.log("ROOT: LOCAL POLL COUNT: " + localPollCount + ", SETTING TO IFRAME POLL COUNT: " +  iFramePollCount);
-         window.sessionStorage.setItem("CHASITOR_SERIALIZED_KEY", iFrameChasitorStr);
-         window.ESW_LOADED_FROM_IFRAME = true;
-      }
-      //this is the normal init stuff
-      if (!window.embedded_svc) { 
-         var s = document.createElement('script'); 
-         s.setAttribute('src', 'https://na1-blitz02.soma.salesforce.com/embeddedservice/1.0/esw.js'); 
-         s.onload = function() { 
-            initESW(null); 
-         }; 
-         document.body.appendChild(s);
-      } else { 
-         initESW('https://na1-blitz02.soma.salesforce.com');
-      }
+	  // eswStorageLoaded();
    }
-}
-}
-window.addEventListener('message', eswStorageLoaded);
+);
    
 window.safariIphoneStore = function(chasitorObj){
    console.log("ROOT: safariIphoneStore");
