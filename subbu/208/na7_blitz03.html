@@ -15,12 +15,21 @@
 	.embeddedServiceLiveAgentChatButton .helpButton .uiButton:focus {outline: 2px solid #0074BD}
 	@font-face {
 		font-family: 'Salesforce Sans';
-		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+		src:	url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff2') format('woff2'),
+					url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+					url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
 	}
+	#container {
+		background-color: rgba(255, 255, 255, 0.7);
+	}
+	#title {
+		margin-top: 6rem;
+	}
+	
 </style>
 </head>
 <body>
+	<div id="container">
 	<div id="title">
 		<h1 id="header">parent domain (websnapins.com)</h1>
 	</div>
@@ -89,6 +98,7 @@ Renato Sanches (top) and Portugal’s players celebrate Eder’s winning goal du
 For France, the defeat bordered on unthinkable. Les Bleus had convinced themselves that history was within their grasp at the Stade de France. On the same field where they won the 1998 World Cup, on the home soil where they hadn’t lost any of their previous 18 major-tournament matches, they felt the trophy was theirs for the taking.
 </p>
 </div>
+	</div>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/2.0/esw.min.js'></script>
 <script type='text/javascript'>
 var initESW = function(gslbBaseUrl) {
