@@ -2,21 +2,35 @@
 <!DOCTYPE HTML>
 <html>
    <head>
-   <title>DEFAULT PAGE</title>
+   <title>DEFAULT PAGE 1</title>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
 </head>
 <body>
-	<span id ="pageTitle">V1 PAGE ONE DEFAULT WIDGET</span>
+	<span id ="pageTitle">208 PAGE ONE DEFAULT WIDGET</span>
+		<a href="">Page 2</a>
 	
-	<a href="http://websnapins.com/will/V2/index.html" target="_self" >Home V2</a>
-	<a href="http://help.websnapins.com/will/V1/index.html" target="_self" >Help V1</a>
-    <a href="http://help.websnapins.com/will/V2/index.html" target="_self" >Help V2</a>
-	<a href="http://websnapins.com/will/V1/SameDomain.html" target="_self" >Page V1</a>
-	<a href="http://websnapins.com/will/V2/SameDomain.html" target="_self" >Page V2</a>
-		
+	<a href="http://websnapins.com/208/deepa/index.html" target="_self" > main V1 page </a>
+	
+ 	<span id ="menuButton"><a href="javascript:void(0)" onclick="openNav()">&#9776;</a></span>
+<div id = "sideNav" class = "sidenav">	
+	<span id ="close">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	</span>
+		<div id ="menuLinks">
+			<span id ="link1">DEFAULT WIDGET</span>
+			<span id ="link2">NO PRECHAT</span>
+			<span id ="link3">HIDDEN BUTTON</span>
+			<span id ="link4">NO WIDGET</span>
+			<span id ="link5">CUSTON BUTTON TEXT</span>
+			<span id ="link6">CUSTOM STYLING</span>
+			<span id ="link7">BUTTON 2T</span>
+			<span id ="link8">BUTTON AS A LINK</span>
+			<span id ="link9">NO PRECHAT WITH EXSTRA PRECHAT FORM DETAILS</span>
+		</div>		
+</div>
+	
 <div id="button_goes_here">
-
-<style type='text/css'>
+    <style type='text/css'>
 .embeddedServiceLiveAgentChatButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
 .embeddedServiceLiveAgentChatButton .helpButton .uiButton:focus {outline: 2px solid #005290}
 @font-face {
@@ -25,33 +39,28 @@ src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/Salesforc
 url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
 }
 </style>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/2.0/esw.js'></script>
+  <script type='text/javascript' src='https://service.force.com/lightning/lightning.out.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/1.0/esw.min.js'></script>
 <script type='text/javascript'>
 var initESW = function(gslbBaseUrl) {
 
-embedded_svc.settings.avatarImgURL = '';
-embedded_svc.settings.prechatBackgroundImgURL = '';
-embedded_svc.settings.waitingStateBackgroundImgURL = '';
-embedded_svc.settings.smallCompanyLogoImgURL = '';
-embedded_svc.settings.storageDomain = 'websnapins.com';
-	embedded_svc.settings.devMode = true;
+embedded_svc.settings.avatarImgURL = 'avatar.png';
+embedded_svc.settings.prechatBackgroundImgURL = 'Prechat_image.png';
+embedded_svc.settings.waitingStateBackgroundImgURL = 'waitingStateImage.png';
+embedded_svc.settings.smallCompanyLogoImgURL = 'smallCompanyLogoImg.png';
 
+
+embedded_svc.settings.devMode = true;
 embedded_svc.settings.displayHelpButton = true; //Or false
-//embedded_svc.settings.defaultMinimizedText = '...'; (defaults to Chat with an Expert, localized)
-//embedded_svc.settings.offlineText = '...'; (defaults to Agent Offline, localized)
-//embedded_svc.settings.onlineLoadingText = '...'; (defaults to Loading, localized)
-embedded_svc.init('https://na1-blitz04.soma.salesforce.com', 
-'https://d.la-blitz04.soma.salesforce.com/chat', 
-'https://c.la-blitz04.soma.salesforce.com/content', 
-'https://justin208blitz-15a965ca584.blitz04.soma.force.com/laSite', 
-'572D00000004EEL', '00DD00000008XYi', '573D00000004ETx', '1.0', 
-gslbBaseUrl, '41.0', 'justin_s_deployment', 
-'EmbeddedServiceLiveAgent_Parent04ID00000004CCXMA2_15966ce8000'); }; 
-if (!window.embedded_svc) { var s = document.createElement('script'); 
-s.setAttribute('src', 
-'https://na1-blitz04.soma.salesforce.com/embeddedservice/1.0/esw.min.js'); 
-s.onload = function() { initESW(null); }; document.body.appendChild(s);} 
-else { initESW('https://na1-blitz04.soma.salesforce.com'); }</script>
+
+embedded_svc.init('http://williamcha-ltm.internal.salesforce.com:6109', 
+	'http://williamcha-ltm.internal.salesforce.com:8096/chat', 'http://williamcha-ltm.internal.salesforce.com:8095/content', 'http://nwk00dxx0000001ggw.williamcha-ltm.t.force.com:6109/', '572xx0000000001', '00Dxx0000001gGw', '573xx0000000001', '2.0', gslbBaseUrl, '40.0', 'SampleSnap', 'EmbeddedServiceLiveAgent_Parent04Ixx0000000001EAA_15a9174be43'); }; 
+	if (!window.embedded_svc) { 
+		var s = document.createElement('script'); 
+		s.setAttribute('src', 'http://williamcha-ltm.internal.salesforce.com:6109/embeddedservice/2.0/esw.min.js'); 
+		s.onload = function() { initESW(null); }; document.body.appendChild(s);} 
+	else { initESW('http://williamcha-ltm.internal.salesforce.com:6109'); }
+	</script>
 
 	<div id="text">
 	<span id ="article1"><h2>SAFE LISTENING</h2>
