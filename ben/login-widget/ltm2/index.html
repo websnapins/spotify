@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="salesforce-community" content="http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2">
+    <meta name="salesforce-client-id" content="3MVG9AOp4kbriZOLt64v7T585yc995ua0fr_jY9tLwQQW4inrz93ZDw6ERcW23._FSIfGz3y1P_gzV4.hvnRA">
+    <meta name="salesforce-redirect-uri" content="https://git.soma.salesforce.com/pages/bdrasin/web/loginWidget/callback.html">
+	<meta name="salesforce-mode" content="inline">
+	<meta name="salesforce-target" content="#salesforce-login">
+    <meta name="salesforce-login-handler" content="onLogin">
+    <meta name="salesforce-logout-handler" content="onLogout">
+	<link href="http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />  
+    <script src="http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
+	<script>
+	function onLogin(identity) {
+		
+		var targetDiv = document.querySelector(SFIDWidget.config.target);	
+		var img = document.createElement('img'); 
+	 	img.src = identity.photos.thumbnail; 
+		img.className = "sfid-avatar";
+	
+		var username = document.createElement('span'); 
+		username.innerHTML = identity.username;
+		username.className = "sfid-avatar-name";
+	
+		var iddiv = document.createElement('div'); 
+	 	iddiv.id = "sfid-identity";
+		iddiv.appendChild(img);		
+		iddiv.appendChild(username);		
+	
+		targetDiv.innerHTML = '';
+		targetDiv.appendChild(iddiv);	
+	}
+	
+	function onLogout() {
+		SFIDWidget.init();
+	}
+	
+	</script>
+	
+	
+</head>	
+<body>
+	<div id="salesforce-login" data-login-event="onLogin"></div>
+</body>
+</html>
