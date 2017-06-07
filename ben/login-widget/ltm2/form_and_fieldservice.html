@@ -5,15 +5,9 @@
 	<script>
 		function doFrontDoor(){
 			debugger;
-			var xhr = new XMLHttpRequest();
+			var iframeEl = document.getElementById('sfid_xdomain'):
 			var target = 'http://example.com';
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == XMLHttpRequest.DONE) {
-					alert('done');
-				}
-			}
-			xhr.open('GET', target, true);
-			xhr.send(null);
+			iframeEl.src=target';
 		}
 	</script>
 </head>
