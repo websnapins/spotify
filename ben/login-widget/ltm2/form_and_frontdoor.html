@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+</script>
+</head>	
+<body>
+	<div id="salesforce-login">
+  <form action="http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login" method="post" target="sfid_xdomain">
+    <p>
+      <input type="text" name="username">
+    <p>
+      <input type="password" name="password" value="123456">
+    <p>
+      <input type="hidden" name="startURL" value="/services/oauth2/authorize?response_type=token&client_id=3MVG9AOp4kbriZOLt64v7T585yc995ua0fr_jY9tLwQQW4inrz93ZDw6ERcW23._FSIfGz3y1P_gzV4.hvnRA&redirect_uri=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2Fcallback.html&state=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2F">
+    <p>
+      <input type="submit" value="Log In">
+    <p>
+  </form>
+  </div>
+  <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;"></iframe>
+  <a href="http://www.yahoo.com">frontdoor</a>
+</body>
+</html>
