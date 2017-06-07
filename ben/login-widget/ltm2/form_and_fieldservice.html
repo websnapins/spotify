@@ -2,6 +2,18 @@
 <html>
    <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+	<script>
+		function doFrontDoor(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+					alert('done');
+				}
+			}
+			xhr.open('GET', 'http://example.com', true);
+			xhr.send(null);
+		}
+	</script>
 </head>
 <body>
   <p align="center"><font color ="red">PAGE ONE</font></p>
@@ -22,7 +34,7 @@
   <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;"></iframe>
   </div>
 <p>
-	  <a href="http://www.yahoo.com">frontdoor</a>
+	  <a href="" onclick="doFrontDoor()">frontdoor</a>
 	<p>
 <div id="button_goes_here">
 </div>
