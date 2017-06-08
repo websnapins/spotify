@@ -18,8 +18,7 @@
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', 'http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login', true);
 			xhr.onload = function () {
-				debugger;
-    				console.log(xhr.responseText);
+				doFrontDoor(JSON.parse(xhr.response).result);
 			};
 			xhr.send(data);
 		}
