@@ -3,7 +3,7 @@
    <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
 	<script>
-		function doFrontDoor(url){
+		window.doFrontDoor = function doFrontDoor(url){
 			debugger;
 			var iframeEl = document.getElementById('sfid_xdomain');
 			iframeEl.src=url;
