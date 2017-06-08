@@ -2,45 +2,14 @@
 <html>
    <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
-	<script>
-		window.doFrontDoor = function doFrontDoor(url){
-			debugger;
-			var iframeEl = document.getElementById('sfid_xdomain');
-			iframeEl.src=url;
-		}
-		
-		window.doLogin = function doLogin(){
-			debugger;
-			var data = new FormData();
-			data.append('username', 'bdrasin@salesforce.com');
-			data.append('password', '123456');
-			data.append('startURL', '/services/oauth2/authorize?response_type=token&client_id=3MVG9AOp4kbriZOLt64v7T585yc995ua0fr_jY9tLwQQW4inrz93ZDw6ERcW23._FSIfGz3y1P_gzV4.hvnRA&redirect_uri=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2Fcallback.html&state=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2F');
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login', true);
-			xhr.onload = function () {
-				doFrontDoor(JSON.parse(xhr.response).result);
-			};
-			xhr.send(data);
-		}
-	</script>
 </head>
 <body>
   <p align="center"><font color ="red">PAGE ONE</font></p>
   <p align="center"><font color = "red"><a href="igor204bl1_p2.html">Link to PAGE TWO</font></p></a>
 
 	<div id="salesforce-login">
-  <form action="http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login" method="post" id="loginForm" target="sfid_xdomain">
-    <p>
-      <input type="text" id="username" name="username" value="bdrasin@salesforce.com">
-    <p>
-      <input type="password" id="password" name="password" value="123456">
-    <p>
-      <input type="hidden" name="startURL" value="/services/oauth2/authorize?response_type=token&client_id=3MVG9AOp4kbriZOLt64v7T585yc995ua0fr_jY9tLwQQW4inrz93ZDw6ERcW23._FSIfGz3y1P_gzV4.hvnRA&redirect_uri=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2Fcallback.html&state=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2F">
-    <p>
-      <input type="submit" value="Log In">
-    <p>
-  </form>
-  <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;"></iframe>
+
+  <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;" src="./loginForm.html"></iframe>
   </div>
 <p>
 	<p>
