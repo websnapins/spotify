@@ -3,11 +3,10 @@
    <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
 	<script>
-		function doFrontDoor(){
+		function doFrontDoor(url){
 			debugger;
 			var iframeEl = document.getElementById('sfid_xdomain');
-			var target = 'http://example.com';
-			iframeEl.src=target;
+			iframeEl.src=url;
 		}
 	</script>
 </head>
@@ -30,7 +29,6 @@
   <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;"></iframe>
   </div>
 <p>
-	<button onclick="doFrontDoor()">frontdoor</button>
 	<p>
 <div id="button_goes_here">
 </div>
