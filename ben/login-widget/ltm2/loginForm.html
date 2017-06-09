@@ -2,16 +2,13 @@
   <head>
   <script>
 		window.doFrontDoor = function doFrontDoor(url){
-			debugger;
 			document.location=url;
 		}
 		
-		window.doLogin = function doLogin(){
-			debugger;
+		window.doLogin = function doLogin(userName, password){
 			var data = new FormData();
-			data.append('username', 'bdrasin@salesforce.com');
-			data.append('password', '123456');
-			//data.append('startURL', '/services/oauth2/authorize?response_type=token&client_id=3MVG9AOp4kbriZOLt64v7T585yc995ua0fr_jY9tLwQQW4inrz93ZDw6ERcW23._FSIfGz3y1P_gzV4.hvnRA&redirect_uri=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2Fcallback.html&state=http%3A%2F%2Fwebsnapins.com%2Fben%2Flogin-widget%2Fltm2%2F');
+			data.append('username', userName);
+			data.append('password', password);
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', 'http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login', true);
 			xhr.onload = function () {
