@@ -2,13 +2,21 @@
 <html>
    <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+   <script>
+	   window.addEventListener("message", function(message) {
+		   var payload = message.data;
+		   if(payload.method === "setCSRFToken"){
+			   $A.clientService.$_token$=payload.token;
+		   }
+	   });
+	   </script>
 </head>
 <body>
   <p align="center"><font color ="red">PAGE ONE</font></p>
   <p align="center"><font color = "red"><a href="igor204bl1_p2.html">Link to PAGE TWO</font></p></a>
 
 	<div id="salesforce-login">
-
+		
   <iframe id="sfid_xdomain" name="sfid_xdomain" style="display:none;" src="./loginForm.html"></iframe>
   </div>
 <p>
