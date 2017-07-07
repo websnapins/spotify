@@ -10,7 +10,7 @@
 			data.append('username', userName);
 			data.append('password', password);
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login', true);
+			xhr.open('POST', 'https://bdrasin-ltm-comm.localhost.soma.force.com:6109/snappynappy2/servlet/servlet.loginwidgetcontroller?type=login', true);
 			xhr.onload = function () {
 				doFrontDoor(JSON.parse(xhr.response).result);
 			};
