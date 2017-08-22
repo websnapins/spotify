@@ -1,0 +1,109 @@
+HTTrack3.49-2 launched on Tue, 22 Aug 2017 12:28:21 at https://nest.com
+(httrack -r2 -%e0 https://nest.com )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+12:28:23	Warning: 	Note: due to https://nest.com remote robots.txt rules, links beginning with these path will be forbidden: */-apps/, */-fail-whale/, */-utilites/, */learn-more/, */browser-info/, */legal/compliance/, */widget/utility/, */fonts/, */harming-humans/, */ignoring-human-orders/, */harm-to-self/ (see in the options to disable this)
+12:29:14	Warning: 	HTML file (38767 bytes) retransferred due to lack of cache: nest.com/support/
+12:30:02	Warning: 	Note: due to nest.com remote robots.txt rules, links beginning with these path will be forbidden: */-apps/, */-fail-whale/, */-utilites/, */learn-more/, */browser-info/, */legal/compliance/, */widget/utility/, */fonts/, */harming-humans/, */ignoring-human-orders/, */harm-to-self/ (see in the options to disable this)
+12:30:02	Warning: 	Moved Permanently for nest.com/widget/in-your-home/
+12:30:02	Warning: 	File has moved from nest.com/widget/in-your-home/ to https://nest.com/eu/widget/in-your-home/
+12:30:02	Warning: 	Moved Permanently for nest.com/widget/troubleshooting/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/widget/troubleshooting/ and https://nest.com/widget/troubleshooting/
+12:30:02	Warning: 	File has moved from nest.com/widget/troubleshooting/ to https://nest.com/widget/troubleshooting/
+12:30:02	Warning: 	Moved Permanently for nest.com/widget/status/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/widget/status/ and https://nest.com/widget/status/
+12:30:02	Warning: 	File has moved from nest.com/widget/status/ to https://nest.com/widget/status/
+12:30:02	Warning: 	Moved Permanently for nest.com/coming-soon/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/coming-soon/ and https://nest.com/coming-soon/
+12:30:02	Warning: 	File has moved from nest.com/coming-soon/ to https://nest.com/coming-soon/
+12:30:02	Warning: 	Moved Permanently for nest.com/modal/be-the-first/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/modal/be-the-first/ and https://nest.com/modal/be-the-first/
+12:30:02	Warning: 	File has moved from nest.com/modal/be-the-first/ to https://nest.com/modal/be-the-first/
+12:30:02	Warning: 	Moved Permanently for nest.com/modal/be-the-first-wwn/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/modal/be-the-first-wwn/ and https://nest.com/modal/be-the-first-wwn/
+12:30:02	Warning: 	File has moved from nest.com/modal/be-the-first-wwn/ to https://nest.com/modal/be-the-first-wwn/
+12:30:02	Warning: 	Moved Permanently for nest.com/modal/be-the-first-announce/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/modal/be-the-first-announce/ and https://nest.com/modal/be-the-first-announce/
+12:30:02	Warning: 	File has moved from nest.com/modal/be-the-first-announce/ to https://nest.com/modal/be-the-first-announce/
+12:30:02	Warning: 	Moved Permanently for nest.com/thermostat/saving-energy/
+12:30:02	Warning: 	File has moved from nest.com/thermostat/saving-energy/ to https://nest.com/thermostat/real-savings/
+12:30:02	Warning: 	Moved Permanently for nest.com/support/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/support/ and https://nest.com/support/
+12:30:02	Warning: 	File has moved from nest.com/support/ to https://nest.com/support/
+12:30:02	Warning: 	Moved Permanently for nest.com/support/article/Learn-more-about-Sound-Check/
+12:30:02	Warning: 	File has moved from nest.com/support/article/Learn-more-about-Sound-Check/ to http://nest.com/support/article/Learn-more-about-Sound-Check
+12:30:02	Error: 	"Method Not Allowed" (405) at link https://nest.com/salesforce/api/v3/handraiser/subscribe (from https://nest.com/)
+12:30:02	Warning: 	Moved Permanently for nest.com/camera/meet-nest-cam-iq/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/camera/meet-nest-cam-iq/ and https://nest.com/camera/meet-nest-cam-iq/
+12:30:02	Warning: 	File has moved from nest.com/camera/meet-nest-cam-iq/ to https://nest.com/camera/meet-nest-cam-iq/
+12:30:02	Warning: 	Moved Permanently for nest.com/thermostat/meet-nest-thermostat/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/thermostat/meet-nest-thermostat/ and https://nest.com/thermostat/meet-nest-thermostat/
+12:30:02	Warning: 	File has moved from nest.com/thermostat/meet-nest-thermostat/ to https://nest.com/thermostat/meet-nest-thermostat/
+12:30:02	Warning: 	Moved Permanently for nest.com/camera/meet-nest-cam-outdoor/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/camera/meet-nest-cam-outdoor/ and https://nest.com/camera/meet-nest-cam-outdoor/
+12:30:02	Warning: 	File has moved from nest.com/camera/meet-nest-cam-outdoor/ to https://nest.com/camera/meet-nest-cam-outdoor/
+12:30:02	Warning: 	Moved Permanently for nest.com/smoke-co-alarm/meet-nest-protect/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/smoke-co-alarm/meet-nest-protect/ and https://nest.com/smoke-co-alarm/meet-nest-protect/
+12:30:02	Warning: 	File has moved from nest.com/smoke-co-alarm/meet-nest-protect/ to https://nest.com/smoke-co-alarm/meet-nest-protect/
+12:30:02	Warning: 	Moved Permanently for nest.com/rebates-and-rewards/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/rebates-and-rewards/ and https://nest.com/rebates-and-rewards/
+12:30:02	Warning: 	File has moved from nest.com/rebates-and-rewards/ to https://nest.com/rebates-and-rewards/
+12:30:02	Warning: 	Moved Permanently for nest.com/nest-pro-installation/?from-footer=true
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/nest-pro-installation/?from-footer=true and https://nest.com/nest-pro-installation/?from-footer=true
+12:30:02	Warning: 	File has moved from nest.com/nest-pro-installation/?from-footer=true to https://nest.com/nest-pro-installation/?from-footer=true
+12:30:02	Warning: 	Moved Permanently for nest.com/works-with-nest/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/works-with-nest/ and https://nest.com/works-with-nest/
+12:30:02	Warning: 	File has moved from nest.com/works-with-nest/ to https://nest.com/works-with-nest/
+12:30:02	Warning: 	Moved Permanently for nest.com/where-to-buy/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/where-to-buy/ and https://nest.com/where-to-buy/
+12:30:02	Warning: 	File has moved from nest.com/where-to-buy/ to https://nest.com/where-to-buy/
+12:30:02	Warning: 	Moved Permanently for nest.com/about/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/about/ and https://nest.com/about/
+12:30:02	Warning: 	File has moved from nest.com/about/ to https://nest.com/about/
+12:30:02	Warning: 	Moved Permanently for nest.com/blog/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/blog/ and https://nest.com/blog/
+12:30:02	Warning: 	File has moved from nest.com/blog/ to https://nest.com/blog/
+12:30:02	Warning: 	Moved Permanently for nest.com/responsibility/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/responsibility/ and https://nest.com/responsibility/
+12:30:02	Warning: 	File has moved from nest.com/responsibility/ to https://nest.com/responsibility/
+12:30:02	Warning: 	Moved Temporarily for nest.com/careers/
+12:30:02	Warning: 	File has moved from nest.com/careers/ to http://nest.com/careers/life-at-nest/
+12:30:02	Warning: 	Moved Permanently for nest.com/press/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/press/ and https://nest.com/press/
+12:30:02	Warning: 	File has moved from nest.com/press/ to https://nest.com/press/
+12:30:02	Warning: 	Moved Permanently for nest.com/video/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/video/ and https://nest.com/video/
+12:30:02	Warning: 	File has moved from nest.com/video/ to https://nest.com/video/
+12:30:02	Warning: 	Moved Permanently for nest.com/developer/
+12:30:02	Warning: 	File has moved from nest.com/developer/ to https://developer.nest.com/
+12:30:02	Warning: 	Moved Permanently for nest.com/energy-partners/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/energy-partners/ and https://nest.com/energy-partners/
+12:30:02	Warning: 	File has moved from nest.com/energy-partners/ to https://nest.com/energy-partners/
+12:30:02	Warning: 	Moved Permanently for nest.com/insurance-partners/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/insurance-partners/ and https://nest.com/insurance-partners/
+12:30:02	Warning: 	File has moved from nest.com/insurance-partners/ to https://nest.com/insurance-partners/
+12:30:02	Warning: 	Moved Permanently for nest.com/nest-for-business/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/nest-for-business/ and https://nest.com/nest-for-business/
+12:30:02	Warning: 	File has moved from nest.com/nest-for-business/ to https://nest.com/nest-for-business/
+12:30:02	Warning: 	Moved Permanently for nest.com/choose-your-country/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/choose-your-country/ and https://nest.com/choose-your-country/
+12:30:02	Warning: 	File has moved from nest.com/choose-your-country/ to https://nest.com/choose-your-country/
+12:30:02	Warning: 	Moved Permanently for nest.com/legal/privacy-policy-for-nest-web-sites/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/legal/privacy-policy-for-nest-web-sites/ and https://nest.com/legal/privacy-policy-for-nest-web-sites/
+12:30:02	Warning: 	File has moved from nest.com/legal/privacy-policy-for-nest-web-sites/ to https://nest.com/legal/privacy-policy-for-nest-web-sites/
+12:30:02	Warning: 	Moved Permanently for nest.com/privacy/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/privacy/ and https://nest.com/privacy/
+12:30:02	Warning: 	File has moved from nest.com/privacy/ to https://nest.com/privacy/
+12:30:02	Warning: 	Moved Permanently for nest.com/privacy/data/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/privacy/data/ and https://nest.com/privacy/data/
+12:30:02	Warning: 	File has moved from nest.com/privacy/data/ to https://nest.com/privacy/data/
+12:30:02	Warning: 	Moved Permanently for nest.com/letter-from-the-ceo/
+12:30:02	Warning: 	Redirected link is identical because of 'URL Hack' option: nest.com/letter-from-the-ceo/ and https://nest.com/letter-from-the-ceo/
+12:30:02	Warning: 	File has moved from nest.com/letter-from-the-ceo/ to https://nest.com/letter-from-the-ceo/
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 41 seconds : 93 links scanned, 57 files written (3620323 bytes overall), 58 files updated [2124326 bytes received at 21032 bytes/sec], 2299803 bytes transferred using HTTP compression in 33 files, ratio 33%, 5.8 requests per connection
+(1 errors, 97 warnings, 0 messages)

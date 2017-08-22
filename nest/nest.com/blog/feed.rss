@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/styles/rss.xsl"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Nest Blog</title>
+    <description>Read the Nest blog to get news and insights about the connected home, thoughtful technology and smart design for your&amp;nbsp;home.</description>
+    <copyright>2017</copyright>
+    <link>https://nest.com</link>
+    <atom:link href="https://nest.com" rel='self' type='application/rss+xml' />
+    <pubDate>Mon Aug 21 2017 22:11:04 GMT+0000 (UTC)</pubDate>
+    <lastBuildDate>Mon Aug 21 2017 22:11:04 GMT+0000 (UTC)</lastBuildDate>
+    <language>en</language>
+    <docs>http://cyber.law.harvard.edu/rss/</docs>
+    <generator>see https://nest.com/humans.txt</generator>
+    <image>
+      <url>https://nest.com/images/social/rss_icon.png</url>
+      <title>Nest Blog</title>
+      <link>https://nest.com</link>
+      <width>114</width>
+      <height>114</height>
+      <description>Read the Nest blog to get news and insights about the connected home, thoughtful technology and smart design for your&amp;nbsp;home.</description>
+    </image>
+    <item>
+      <title>Solar eclipse, meet the Nest Thermostat.</title>
+      <link>https://nest.com/blog/2017/08/10/solar-eclipse-meet-the-nest-thermostat/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/08/10/solar-eclipse-meet-the-nest-thermostat/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Energy</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/08/10/solar-eclipse-meet-the-nest-thermostat/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Ben Bixby</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/08/10/solar-eclipse-meet-the-nest-thermostat/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-08-10/hero.jpg" alt="On August 21, for the first time in 99 years, US residents from coast to coast will experience a total solar eclipse."></a></center><p>On August 21, for the first time in 99 years, US residents from coast to coast will experience a total solar eclipse. You’ve probably been hearing about how to watch safely, where and when you can view the eclipse, and how eclipses work. But you may not have heard about the impact the eclipse will have on our energy system.</p>
+<figure>
+  <iframe width="560" height="315" src="//www.youtube.com/embed/2xKvVZj9QOY?theme=dark&fs=1&modestbranding=1&vq=hd1080&shoinfo=0&rel=0" frameborder="0" allowfullscreen><a href="https://www.youtube.com/embed/2xKvVZj9QOY?theme=dark&fs=1&modestbranding=1&vq=hd1080&shoinfo=0&rel=0">Solar eclipse, meet the Nest Thermostat.</a></iframe>
+</figure>
+
+<p>With more than 100 million solar panels installed in the US, generating enough electricity for over 8.7 million homes, the sun has become an important source of electric power. But during the eclipse, solar energy production will be reduced. In fact, Bloomberg <a href="https://www.bloomberg.com/news/articles/2017-07-14/a-solar-eclipse-could-wipe-out-9-000-megawatts-of-power-supplies">estimates</a> that reduction could be as large as 9,000 MW, the same amount of power in about 4 billion AA batteries.</p>
+<p>At Nest, we think of these high-demand times on the energy grid as <a href="/blog/2013/07/18/our-first-rush-hour-rewards-results/">rush hours</a>. We all know how frustrating rush hour traffic can be. A trip that should take 10 minutes takes an hour. It’s inefficient, it’s wasteful, and it’s no fun when everyone wants to get to the same place at once.</p>
+<p>The same thing can happen with the electric grid when there’s particularly high demand for energy, like on very hot summer days. Many people need additional power at the same time. The draw on the grid increases significantly and sometimes requires extra power plants to come online to meet that need, often relying on fossil fuels.</p>
+<p>That’s why we created our Rush Hour Rewards program in 2013. The idea was simple: by partnering with utilities, we could help customers use less energy when everyone else is using more. By pre-cooling or automatically changing the temperature in your home by just a few degrees, your Nest Thermostat can help reduce energy use during these rush hours while still keeping you comfortable. And in the four years since the program began, hundreds of thousands of Nest Thermostat owners have joined the Rush Hour Rewards movement across the country.</p>
+<p>Utilities love Rush Hour Rewards because it helps balance out energy supply and demand, which saves money and reduces carbon emissions. Customers love it because they’re rewarded for using less energy when it’s needed most.</p>
+<p>The upcoming eclipse represents an opportunity for a special energy rush hour. Instead of being caused by high demand, this rush hour will result from a temporary reduction in the clean energy supply. During the eclipse, as less light reaches solar panels across the US, solar energy production will drop, meaning more power plants may have to be fired up to cover the shortfall for just a brief time.</p>
+<p>So, we’re encouraging people across the US to help offset this drop in energy production by pre-cooling their homes before the eclipse. If you don’t own a Nest thermostat, you can manually adjust the temperature by one or two degrees during the eclipse. If you own a Nest Thermostat that’s eligible to participate*, we’ve made it <a href="/support/article/Nest-Thermostat-eclipse-August-21">easy</a>. Here’s what to expect:</p>
+<ul>
+<li>Look for a special message on your eligible Nest Thermostat a couple days before the eclipse. It’s just one press to join in.</li>
+<li>If you join, a few hours before the eclipse hits your area, your Nest Thermostat may automatically pre-cool your home so that you can save energy during the eclipse. After the eclipse, your thermostat will go back to its regular schedule.</li>
+<li>Your Nest Thermostat won’t let your home get too warm. You’re always in control and can change the temperature at any time.</li>
+</ul>
+<p><img src="/images/blog/images/2017-08-10/hero-dark.jpg" alt="It&#39;s an eclipse! Count me in"></p>
+<p>Together, we can meaningfully reduce our energy demand during the eclipse. So on August 21, don’t forget your eye protection. And don’t forget to join the Nest Solar Eclipse Rush Hour to help reduce our impact on the grid during this rare event.</p>
+<p>*<a href="/support/article/Nest-Thermostat-eclipse-August-21">Find out if you’re eligible to participate.</a></p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Ways to celebrate day of the dads.</title>
+      <link>https://nest.com/blog/2017/06/15/ways-to-celebrate-day-of-the-dads/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/06/15/ways-to-celebrate-day-of-the-dads/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/06/15/ways-to-celebrate-day-of-the-dads/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Doug Sweeny</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/06/15/ways-to-celebrate-day-of-the-dads/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-06-15/hero.jpg" alt="Dads do so much to make home a place that we love. That’s why every Father’s Day we take the time to show them our gratitude and love."></a></center><p>Dads do so much to make home a place that we love. That’s why every Father’s Day we take the time to show them our gratitude and love. From the guy who seemingly has it all to the one who wants nothing, we’re here to help you find the perfect way to show appreciation for all that he does.</p>
+<p>This year, whether you want to break out from the norm or stick with a solid go-to, the Nest team has loads of ideas to celebrate the father figure(s) in your life.</p>
+<h2 id="for-the-dad-who-likes-to-be-dialed-up-and-dialed-in-">For the dad who likes to be dialed up and dialed in…</h2>
+<p><img src="/images/blog/images/2017-06-15/01.jpg" alt="For the dad who likes to be dialed up and dialed in…"></p>
+<ol>
+<li>While the <a href="https://store.nest.com/product/thermostat?selectedVariantId=T3007ES">Nest Thermostat</a> is there for dads to control the heat inside the house, Libby thinks you should pair it with the <a href="https://www.withings.com/us/en/products/thermo">Withings Thermo</a> so he can get the full temperature tracking experience. </li>
+<li>For the dad who wants to be the one-man coffee stand like Rob, check out the <a href="https://www.spinn.com/">Spinn coffee maker</a>.</li>
+<li>Jesse must be sharing brainwaves with Rob. He says Dad deserves the <a href="https://embertech.com/">Ember coffee mug</a> to keep the fuel for his fire burning at the perfect temp.</li>
+<li>Ana knows how to turn up the volume on her thanks by giving Dad a <a href="https://madeby.google.com/home/">Google Home speaker</a>.</li>
+<li>Lindsey and Anton are making a <a href="https://beeline.co/">Beeline</a> to the top of the favorites list with this simplified bike GPS. Hand it over to the cycling dad in your life, and watch him hit the road to happiness with easy navigation.</li>
+<li>And for the dad who wants to stay on top of what’s happening at home, get $50 off when you buy both <a href="https://store.nest.com/fathers-day-bundle">Nest Cam Indoor and Nest Cam Outdoor</a>, now through June 18.</li>
+</ol>
+<h2 id="for-the-dad-looking-to-break-free-from-the-norm-">For the dad looking to break free from the norm…</h2>
+<p><img src="/images/blog/images/2017-06-15/02.jpg" alt="For the dad looking to break free from the norm…"></p>
+<ol>
+<li>A business suit you can surf in? Jonathan gets it. Check out <a href="http://www.tbwa.com/quiksilver-and-tbwahakuhodo">the wetsuit</a> of any surfer dad’s dreams.</li>
+<li>Betsy knows the <a href="https://www.arduino.cc/en/Main/ArduinoStarterKit">Arduino Starter Kit</a> is the best way for nerdy dads to get hands on and creative with 15 fun projects that can turn your dad into an astronaut, fortune teller or code hacker.</li>
+<li>Tommy’s family better hook him up with some guitar lessons – or one of these <a href="https://appadvice.com/appguides/show/learning-guitar">apps</a> so he can teach himself. Who doesn’t want to perfect their air guitar skills?</li>
+<li>Mark is also picking up on the music vibes, asking to be gifted with <a href="https://uturnaudio.com/products/orbit-plus-turntable">a new turntable</a> for his old vinyl records. Rock on, guys.</li>
+</ol>
+<h2 id="for-the-dad-who-s-ever-clothing-conscious-">For the dad who’s ever clothing conscious…</h2>
+<p><img src="/images/blog/images/2017-06-15/03.jpg" alt="For the dad who’s ever clothing conscious…"></p>
+<ol>
+<li>Jayne’s here to let you know that <a href="https://www.etsy.com/ca/shop/ScatterbrainTies">a good tie</a> is never a bad idea.</li>
+<li>When Lindsey’s dad is done biking, she knows he’s going to want to slip his feet into something classic and comfortable. Enter these famous-for-the-right-reasons <a href="https://www.llbean.com/llb/shop/70640?feat=503380-GN3&amp;page=men-s-wicked-good-moc-boots&amp;csp=f">L.L. Bean slippers</a>.</li>
+<li>Zach is confident that <a href="https://www.allbirds.com/products/mens-wool-loungers?variant=42215905031">Allbirds</a> of a feather should flock together. If you agree, snag a pair for the dad in your life to keep his shoe game fresh.</li>
+<li>Jane knows that a dad on the go doesn’t mean he has to sacrifice his sense of style. That’s why she’s a fan of the <a href="https://www.aersf.com/">Aer bags</a>.</li>
+</ol>
+<h2 id="for-the-dad-who-wants-to-be-handier-than-the-next-guy-">For the dad who wants to be handier than the next guy…</h2>
+<p><img src="/images/blog/images/2017-06-15/04.jpg" alt="For the dad who wants to be handier than the next guy…"></p>
+<ol>
+<li>Michele’s husband knows how to mix up his pickup. This year he asked for a <a href="http://www.4wheelparts.com/eSearch.aspx?Ntk=primary&amp;Ntt=Smittybilt+XRC+9K+GEN2+Winch">Smittybilt winch</a> to keep his truck on track.</li>
+<li>You never knew your dad needed a Roomba for his lawn, did you? Luckily, Brian’s got your back with the <a href="https://www.amazon.com/dp/B00SJEUFF4/">WORX Landroid Robotic Lawn Mower</a>.</li>
+<li>Tavin’s got the best tip for keeping any dad’s garage organized and clutter-free with the <a href="http://www.racorstoragesolutions.com/(X(1)S(yxmfrfhe1vv5ihvd4q1sdkgh))/p/detail/pbh-1r?AspxAutoDetectCookieSupport=1">Racor Bike Lift</a>. </li>
+<li>The Tavin Tips continue with the best way to help your dad be hands-free – the <a href="https://pearlauto.com/phone-mount">Pearl Magnetic Phone Mount</a>.</li>
+<li>Hopefully your dad is skilled enough not to set off any fires. But just in case, make sure you’ve got a <a href="https://store.nest.com/product/smoke-co-alarm?selectedVariantId=S3000BWES">Nest Protect smoke and CO alarm</a> close by.</li>
+</ol>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>The security camera that outsmarts other security cameras.</title>
+      <link>https://nest.com/blog/2017/05/31/the-security-camera-that-outsmarts-other-security-cameras/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/05/31/the-security-camera-that-outsmarts-other-security-cameras/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/05/31/the-security-camera-that-outsmarts-other-security-cameras/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Maxime Veron</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/05/31/the-security-camera-that-outsmarts-other-security-cameras/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-05-31/hero.jpg" alt="Sometimes to take a step forward, you have to start from scratch. Two years ago, we set out to create the ultimate indoor security camera – one that was smarter, sharper and more beautiful than anything we’d seen before."></a></center><p>Sometimes to take a step forward, you have to start from scratch. Two years ago, we set out to create the ultimate indoor security camera – one that was smarter, sharper and more beautiful than anything we’d seen before. </p>
+<p>Meet Nest Cam IQ. We built it from the ground up with completely new hardware. Everything – from the lens to the hinge to the microphones – is state of the art. And when the hardware is this advanced, all the software and services can go to the next level. </p>
+<p><img src="/images/blog/images/2017-05-31/iphone.jpg" alt="And when the hardware is this advanced, all the software and services can go to the next level."></p>
+<h2 id="an-eye-for-faces">An eye for faces</h2>
+<p>Because it sees better, Nest Cam IQ can think better. It has the processing power to tell a person from a thing. So you get person alerts right out of the box. (Nest Cam Indoor needs help from the cloud to do that.) With Nest Aware, Nest Cam IQ can apply face recognition technology to keep track of familiar faces, and even help you spot strangers.<sup>1</sup> So your camera can tell you more than whether or not it saw a person – it can tell you it saw Fred.</p>
+<h2 id="this-is-a-job-for-supersight">This is a job for Supersight</h2>
+<p>With video, image quality is so much more than pixel count. It’s about processing, encoding, pixel size, frame rate and more. What good is an 8-million-pixel picture if it overwhelms your bandwidth?</p>
+<p>Nest Cam IQ has a 4K sensor and wide 130° view to capture as much as possible. Then it turns that raw data into extra-clear, seamless video – and two ways to watch it. We call it Supersight.</p>
+<p>Supersight starts with HDR, combining staggered 4K images into one beautifully balanced 1080p HD picture that won’t choke your connection. Then the video is encrypted and its bit rate adaptively adjusted. </p>
+<p>And now comes the main magic trick: the close-up tracking shot. When Nest Cam IQ spots a person, Supersight can automatically zoom in and follow him walking across a room, while still keeping the full 130° picture in view.</p>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/GCxQbYLe6ng?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>Want to keep a closer eye on a specific area? You can digitally zoom in up to 12x and enhance the video to a crisp 1080p HD. And you can still see clearly thanks to its 4K sensor. </p>
+<h2 id="talk-and-listen-goes-hd">Talk and Listen goes HD</h2>
+<p>With a high-end speaker and three-microphone array, Nest Cam IQ speaks louder and listens clearer. It’s got noise suppression and echo cancellation. And coming later this year, it’ll be full duplex, so you can easily communicate with family and pets like you’re having a conversation over the phone. Or grab an intruder’s attention from across the room.</p>
+<h2 id="one-last-thing-intelligent-audio-alerts">One last thing: intelligent audio alerts</h2>
+<p>With Nest Aware, Nest Cam IQ will also send intelligent audio alerts. It can notify you when Nest Cam hears the sound of a dog or a person’s voice. So if you get a dog barking alert, you can see if Fido is onto something, or just driving the neighbors crazy. </p>
+<p>The day we launched the Nest Learning Thermostat in 2011, it changed the game instantly. Nobody had seen anything like it before. Nest Cam has been different. There was plenty of competition when it launched, but we still believed it was the best security camera on the market. And we’ve made incremental improvements along the way – thoughtful changes like Sightline and three-hour snapshot history that keep raising the bar for intelligent cameras. But Nest Cam IQ doesn’t raise the bar. Like the Nest Thermostat, it’s changed the game.</p>
+<p><small><sup>1</sup>Familiar face alerts require a Nest Aware subscription and are not available on devices used in Illinois.</small></p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>we &lt;span&gt;heart&lt;/span&gt; home</title>
+      <link>https://nest.com/blog/2017/04/13/we-heart-home/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/04/13/we-heart-home/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Energy</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/04/13/we-heart-home/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Matt Rogers</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/04/13/we-heart-home/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-04-13/hero.jpg" alt="For us, home isn’t just an address where we raise our families. It’s the world we inhabit, and it’s our only one."></a></center><p>For us, home isn’t just an address where we raise our families. It’s the world we inhabit, and it’s our only one. </p>
+<p>As the late Carl Sagan noted in his book <em>Pale Blue Dot</em>, “On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.&quot;</p>
+<p>So it’s up to us to take care of Earth, for all the generations to come.</p>
+<p>That’s why we made the Nest Learning Thermostat in the first place – to help people save energy. And to do our part to help our only home.</p>
+<p>When we were researching thermostats, we were surprised to learn that they control half of a home’s energy bill. So a thermostat’s potential impact is enormous. Since its launch in 2011, the Nest Thermostat has saved over 12 billion kWh of energy. That’s enough to power New York City for 81 days.</p>
+<p>That’s pretty impressive, but we know we can do better. We have to do better. The future of this place we call home depends on finding ways to save more energy and reduce carbon emissions.</p>
+<p>In honor of Earth Day, we want to help more people save energy with a <a href="https://store.nest.com/product/thermostat/">Nest Thermostat</a>.</p>
+<p>Reversing decades of global warming is a huge challenge. But we believe that together, we can change climate change.</p>
+<p><small>Energy savings are an estimate, not a guarantee that any individual user will save energy.</small></p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Hola, Mexico.</title>
+      <link>https://nest.com/blog/2017/04/04/hola-mexico/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/04/04/hola-mexico/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/04/04/hola-mexico/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Matt Rogers</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/04/04/hola-mexico/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-04-04/hero.jpg" alt="You know what’s amazing? People love Nest so much, they’ll buy our products even if they have to figure out a way to get them."></a></center><p>You know what’s amazing? People love Nest so much, they’ll buy our products even if they have to figure out a way to get them. Like fly to another country. Or get a friend to ship them anything Nest. That’s because until this year Nest was only available in seven countries. Since January, Nest has expanded to <a href="/at/">Austria</a>, <a href="/de/">Germany</a>, <a href="/it/">Italy</a> and <a href="/es/">Spain</a>. And starting today, Nest Cam will be available to our next-door neighbor, Mexico.</p>
+<p>That means millions more homes can become Nest homes. If you live in Mexico, you can buy Nest Cam online at Amazon, Best Buy, Liverpool, Palacio de Hierro or Walmart.com.mx. Then you can check in on your casa from anywhere with the Nest app. You can sign up for Nest Aware services - intelligent phone alerts and video storage - so you’ll know when something happens at home. And it’s all in Spanish, from setting up Nest Cam to using the Nest app to getting support.</p>
+<p>Lights, locks, and other products can work with Nest Cam. And you don’t have to do a thing. Like when you’re not home, Philips hue or LIFX lights turn on automatically so it seems like you are. Look for the Works with Nest logo on products at local retail stores or find out more at <a href="https://workswith.nest.com/">workswith.nest.com</a>. </p>
+<p>We’re excited for Nest Cam to help keep even more homes and families safe in Mexico. And we’ll continue to bring Nest products to new countries. Because we believe the world is one big neighborhood.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>The Nestie Awards, Year Two</title>
+      <link>https://nest.com/blog/2017/03/08/the-nestie-awards-year-two/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/03/08/the-nestie-awards-year-two/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/03/08/the-nestie-awards-year-two/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Doug Sweeny</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/03/08/the-nestie-awards-year-two/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-03-08/hero_new.jpg" alt="The Academy Awards was just a warm-up. Now onto the real show."></a></center><p>The Academy Awards was just a warm-up. Now onto the real show. Introducing the winners of our second annual Nestie Awards. Thank you to all those who submitted clips. We saw beautiful icicle timelapses, haunted blankets, and as always, a man getting hit by a ball. </p>
+<p>After much consideration, we present the winners of the 2017 Nestie Awards.</p>
+<h2 id="best-picture-gluck-gluck-land-small-we-double-checked-the-envelope-don-t-worry-small-">Best Picture: Gluck Gluck Land <small>(We double-checked the envelope, don’t worry.)</small></h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/VTv6BhQnu_c?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>&quot;I would like to thank our two cranes, Sandra and Hill, for their great performances. I could not have done it without them!&quot; – Tom H.</p>
+<h2 id="best-stunt-priority-mail">Best Stunt: Priority Mail</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/5yjNe6a571U?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<h2 id="best-choreography-dirty-dog-dancing">Best Choreography: Dirty Dog Dancing</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/GukAJr481Xc?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<h2 id="best-kiss-50-shades-of-grrr">Best Kiss: 50 Shades of Grrr</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/k3cQX-dazmg?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>“I would like to thank the local wildlife in Philo, California, for their many performances we always have to choose from to enjoy on our Nest Cam.” &ndash;&#8288;&nbsp;Chris&nbsp;K.</p>
+<h2 id="best-visual-effects-dad-vader">Best Visual Effects: Dad Vader</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/IyFYPhDGDJQ?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>“On behalf of my son and I, I’d like to thank my wife for buying us lightsabers, and Nest for running such a fun and awesome contest. We are truly thrilled to have won this award.” – Michael &amp; Mason M.</p>
+<h2 id="best-dog-in-a-lead-role-pawshank-redemption">Best Dog in a Lead Role: Pawshank Redemption</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/oNdoufvuoJ8?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>“Thanks for the awesome Nestie Award! Gemma likes the trophy so much, she can’t stop licking it! Hope to capture more funny adventures with our pups.” &ndash;&#8288;&nbsp;Lee M.</p>
+<h2 id="best-breakthrough-performance-foot-loose">Best Breakthrough Performance: Foot Loose</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/at42NJYcnps?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>&quot;I hope everyone enjoyed our video and thank you for the Nestie Award for Best Breakthrough Performance. Our kids also hope you enjoyed this glimpse of their dad being an idiot. Something they see on a regular basis.&quot; – Ashley M.</p>
+<h2 id="best-fall-ice-rage">Best Fall: Ice Rage</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/d47q7xqanxY?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>“I&#39;d like to thank Nest, my tile guy for failing to warn me about the slip hazard, and Huacatay for packing my lunch well so I didn&#39;t end up wearing black beans and chicken!” – Tom B.</p>
+<h2 id="best-supporting-deer-when-harry-meets-lion">Best Supporting Deer: When Harry Meets Lion</h2>
+<figure style="padding-bottom:0.5em;">
+  <iframe width="557" height="315" src="//www.youtube.com/embed/efbRlzZTx5w?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+<p>Want to watch the rest of the nominees? You can find them here: <a href="https://nest.com/video/category/the-2017-nestie-awards/">https://nest.com/video/category/the-2017-nestie-awards/</a></p>
+<p>You know what they say: There’s always next year. But there’s also always this year. Keep on submitting your #caughtonNestCam clips <a href="https://www.nest.com/submit-video">here</a>.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Extra security for your Nest Account.</title>
+      <link>https://nest.com/blog/2017/03/07/extra-security-for-your-nest-account/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/03/07/extra-security-for-your-nest-account/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Technology</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/03/07/extra-security-for-your-nest-account/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Matt Rogers</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/03/07/extra-security-for-your-nest-account/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-03-07/hero.jpg" alt="So today we’re adding a new layer of security with the introduction of two-factor authentication."></a></center><p>We all know data security is a moving target. Technology keeps advancing, but so do the people who want to break into your email, your credit card or any other account they can get their hands on. But your home is your safe haven, where private information should stay private. So today we’re adding a new layer of security with the introduction of two-factor authentication.</p>
+<p>You may have seen or used two-factor authentication before, probably to get into your email or bank account. It’s simple but very effective – even if someone figures out your password, they still need to actually get their hands on your phone to get into your account.</p>
+<p><img src="/images/blog/images/2017-03-07/ui_us.jpg" alt="So today we’re adding a new layer of security with the introduction of two-factor authentication."></p>
+<p>Here’s how it works: the first time you sign into your Nest Account after activating two-factor authentication, you’ll type in your email and password as always, but then you’ll get a text with a verification code. Enter the code and you’re set.</p>
+<p>To turn on two-factor authentication, go to the Nest app, tap the menu icon on the top left, then go to the category Account Security. You’ll see an option there to activate “2-step verification.” After you’ve turned it on, you’ll need to sign in again. It takes a minute or two for our customers, but for hackers working from computers all over the world, things get a whole lot harder.</p>
+<p>This isn’t the first time we’ve updated security measures across all our products. We’re constantly tweaking and adjusting how we protect your data, as new technologies become available or we learn about new threats. Because all Nest products are connected to Wi-Fi, those updates are sent directly to Nest Thermostats, Nest Protect smoke alarms and Nest Cam security cameras. Keeping your data safe is hugely important to us. And we’re going to keep working to protect it.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>The Nest Thermostat earns an ENERGY STAR&lt;sup&gt;®&lt;/sup&gt;.</title>
+      <link>https://nest.com/blog/2017/02/28/the-nest-thermostat-earns-an-energy-star/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/02/28/the-nest-thermostat-earns-an-energy-star/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Energy</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/02/28/the-nest-thermostat-earns-an-energy-star/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Ben Bixby</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/02/28/the-nest-thermostat-earns-an-energy-star/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-02-28/hero.jpg" alt="Today, the Nest Learning Thermostat received an ENERGY STAR<sup>®</sup> from the EPA."></a></center><p>Today, the Nest Learning Thermostat received an ENERGY STAR<sup>®</sup> from the EPA. In fact, it is the <strong>first</strong> thermostat in America with an ENERGY STAR. After rigorous testing, the EPA has confirmed what we’ve been saying all along: the Nest Thermostat saves energy. </p>
+<p>In 2009, the EPA took away the ENERGY STAR from all programmable thermostats. You can only get an ENERGY STAR if the EPA is confident your product is really energy efficient. But the EPA wasn’t confident in programmable thermostats. They didn’t seem to provide significant energy savings. They were too <a href="https://nest.com/blog/2015/07/09/new-report-nobody-understands-programmable-thermostats/">complicated</a>, and most people didn’t use them effectively. You can’t force people to program their thermostats to save energy. But the whole equation changes if thermostats can learn to do it themselves. </p>
+<p>Independent studies have shown that the Nest Thermostat has saved people an average of 10% to 12% on heating bills and 15% on cooling bills. Based on typical energy costs, we’ve estimated average savings of $131 to $145 a year. In under two years, it can pay for itself.</p>
+<p>We know that our thermostat helps people save energy, and now the EPA ENERGY STAR program wants everyone to know it too.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Better notifications from Nest Cam.</title>
+      <link>https://nest.com/blog/2017/02/14/better-notifications-from-nest-cam/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/02/14/better-notifications-from-nest-cam/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Technology</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/02/14/better-notifications-from-nest-cam/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Maxime Veron</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/02/14/better-notifications-from-nest-cam/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-02-14/hero.jpg" alt="Delivering useful mobile notifications is one of the most important things Nest products can do, so we’re always working to cut down on unwanted alerts and make the ones you do get more helpful."></a></center><p>Delivering useful mobile notifications is one of the most important things Nest products can do, so we’re always working to cut down on unwanted alerts and make the ones you do get more helpful. Today we’re introducing a new version of the Nest app that makes Nest Cam notifications better.</p>
+<p>For starters, because doors are one of the most important areas in the home to keep an eye on, we’re introducing automatic door detection for Nest Cam Indoor and Nest Cam Outdoor as part of <a href="/support/article/What-do-I-get-with-Nest-Aware-for-Nest-Cam">Nest Aware</a> (sold separately). As we roll out this feature over the next few weeks, Nest Aware will learn to recognize the doors in your home, automatically create <a href="/support/article/What-are-Activity-Zones-and-how-do-I-create-them">Activity Zones</a> around them, and send you a notification when there’s motion there. Nest Aware subscribers have always been able to manually draw Activity Zones around areas they want to keep an eye on. By recognizing patterns over time, our sensors and deep learning algorithms let us make door detection an automated feature. It looks like this:</p>
+<p><img src="/images/blog/images/2017-02-14/us/1.jpg" alt="By recognizing patterns over time, our sensors and deep learning algorithms let us make door detection an automated feature. It looks like this"></p>
+<p>And when you get an alert from Nest Cam, there’s a thumbnail image that shows you what’s going on at a glance. Nest Aware subscribers using Android 7 or iOS 10 can even see an animated preview of the Nest Cam video clip – without having to open the app.</p>
+<p>We’re also improving the alerts that Nest Cam owners get from Nest Protect. Now, if Nest Protect warns you of smoke or dangerous levels of carbon monoxide, you’ll automatically see live video from all your Nest Cams. It’s just another way Nest products work better together.</p>
+<p><img src="/images/blog/images/2017-02-14/us/2.jpg" alt="And when you get an alert from Nest Cam, there’s a thumbnail image that shows you what’s going on at a glance."></p>
+<p>There’s a new feature for Android users, too: app shortcuts. Press and hold the Nest app icon to open a specific Nest product, or drag and drop shortcuts to your Android desktop. Either way, you get right to what you need without as many taps.</p>
+<p><img src="/images/blog/images/2017-02-14/us/3.jpg" alt="There’s a new feature for Android users, too: app shortcuts."></p>
+<p>Finally, we’re making it easier to find what you’re looking for in your Nest Aware video history, without a lot of scrolling. Jump right to a day in Sightline just by tapping the date. And get the information you need even faster.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Now we’re speaking Italian, German and Spanish.</title>
+      <link>https://nest.com/blog/2017/01/16/we-now-speak-italian-german-and-spanish/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2017/01/16/we-now-speak-italian-german-and-spanish/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2017/01/16/we-now-speak-italian-german-and-spanish/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Lionel Paillet</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2017/01/16/we-now-speak-italian-german-and-spanish/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2017-01-16/hero.jpg" alt="So people are racking up frequent flyer miles to track them down."></a></center><p>There’s a big demand for our products around the world. In fact, the Nest Learning Thermostat, Nest Protect and Nest Cam are installed in more than 190 countries. The only hiccup is that right now, they’re available for purchase in just seven countries. So people are racking up frequent flyer miles to track them down.</p>
+<p>But for folks in <a href="/at">Austria</a>, <a href="/de">Germany</a>, <a href="/it">Italy</a> and <a href="/es">Spain</a>, there’s good news. Starting February 15, getting your hands on Nest products that speak your language will be as simple as walking around the corner or ordering online. Even better news: You can pre-order starting today. Check out each country’s new nest.com home page for details.</p>
+<p>Now that we’re in four more countries, twice as many European homes have the chance to become Nest homes. We also plan to make our products available through even more energy, insurance and telco partners, as well as enlist the help of thousands of Nest Pro installers. So getting and installing Nest products, and connecting them to Works with Nest products, will be simple.</p>
+<p>As global demand continues to grow, we’ll continue to expand to more countries. So stay tuned. Chances are we’ll be appearing near you soon.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>2016 Nest holiday gift guide.</title>
+      <link>https://nest.com/blog/2016/12/08/2016-nest-holiday-gift-guide/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/12/08/2016-nest-holiday-gift-guide/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/12/08/2016-nest-holiday-gift-guide/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Doug Sweeny</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/12/08/2016-nest-holiday-gift-guide/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-12-08/hero.jpg" alt="Herein lies the accumulated wisdom of all Nest employees. We asked the entire company what they wanted to give or get this year, and this is what we came up with."></a></center><p>Herein lies the accumulated wisdom of all Nest employees. We asked the entire company what they wanted to give or get this year, and this is what we came up with. And if Nest can figure out how to make a thermostat sexy, a smoke alarm lovable and a security camera clever, then we can figure out what you should give your mom for Christmas. Or your cousin for Hanukkah. Or your friend for helping you move.</p>
+<p>Want more options? We do this every year.</p>
+<p><a href="https://nest.com/blog/2016/06/09/nests-fathers-day-gift-guide/">Here’s the gift guide we did for Father’s Day.</a></p>
+<p><a href="https://nest.com/blog/2015/12/15/the-2015-nest-company-gift-guide/">Here’s last year’s holiday gift list.</a></p>
+<p>And here are gift guides from <a href="https://nest.com/blog/2014/12/09/2014-nest-company-gift-guide/">2014</a>, <a href="https://nest.com/blog/2013/12/10/gifts-for-geeks-geeklets-and-everyone-else/">2013</a>, <a href="https://nest.com/blog/2012/12/11/nest-gift-guide-2012/">2012</a> and <a href="https://nest.com/blog/2011/12/20/nests-holiday-wish-list/">2011</a>.</p>
+<h2 id="foodie-gifts-">Foodie gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/1.jpg" alt="Foodie gifts."></p>
+<ol>
+<li>Maxime wants a <a href="https://thermomix.com/">Thermomix</a> that can weigh, chop, grind, knead, cook and steam your food.</li>
+<li>Sloo nominated one of our dueling sous vide machines, the <a href="https://www.nomiku.com/">Nomiku</a>. He uses his all the time for making cheese and kefir and boiling perfect eggs.</li>
+<li>Maarten thinks any proper foodie would want <a href="http://flordesaldestrenc.com/en/">Flor de Sal d’Es Trenc</a>, sun-dried sea salt hand-harvested from Mallorca.</li>
+<li>The second sous vide suggestion comes from Brian, who likes the <a href="https://www.amazon.com/dp/B00UKPBXM4/">Anova Bluetooth Precision Cooker</a>.</li>
+<li>Penny wants to make her own jerky (I didn’t ask why) and would love to do it with this <a href="http://www.williams-sonoma.com/products/excalibur-9-tray-digital-controller-dehydrator/">Excalibur dehydrator</a>.</li>
+<li>Sloo suggests some <a href="https://bluebottlecoffee.com/perfectlyground">Blue Bottle Perfectly Ground coffee</a> for the lazy, yet picky, coffee aficionado.</li>
+<li>Jacqueline knows what people really want: chocolate. Specifically, <a href="https://www.senormurphy.com/store/detail/single-flavor_boxes/chile_pistachio_bark">Chile Pistachio Bark</a>.</li>
+</ol>
+<h2 id="sporty-gifts-">Sporty gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/2.jpg" alt="Sporty gifts."></p>
+<ol>
+<li>Christina wants the <a href="https://misfit.com/products/misfit-phase/">Misfit Phase</a> watch that tracks steps, distance, calories, and sleep quality.</li>
+<li>All Kevin wants is a <a href="http://www.santacruzbicycles.com/en-US/stigmata">Santa Cruz Stigmata</a> performance bike.</li>
+<li>Tucker wants a <a href="https://buy.garmin.com/en-US/US/into-sports/cycling/varia-rearview-radar/prod518151.html">Garmin Varia Rearview Radar</a> to warn him of cars coming up from behind.</li>
+<li>Sean would love a pair of <a href="http://www.oakley.com/en/product/W0OO9333PZRD">Oakley Radar Pace sunglasses</a> with their built-in sensors and real-time voice activated coaching system.</li>
+<li>Louise would love a <a href="https://boostedboards.com/">Boosted Board</a> electric skateboard.</li>
+<li>Whereas Seungho wants the <a href="https://www.vanmoof.com/en_us/bikes/electrified-s-straight">Vanmoof Electrified S electric bike</a>.</li>
+</ol>
+<h2 id="smart-home-gifts-">Smart home gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/3.jpg" alt="Smart home gifts."></p>
+<ol>
+<li>Lindsey would love a <a href="http://www.sony.com/electronics/tv/t/televisions">4K television</a> with Android TV built in.</li>
+<li>Ali wants to get a <a href="https://store.nest.com/works-with-nest/WNGOGA3A0041">Google Home</a> so she can turn up her thermostat or turn on the TV just by saying “Ok, Google.”</li>
+<li>Aubrey knows that an oven isn’t exactly most people’s idea of a holiday gift, but she still wants a <a href="https://workswith.nest.com/company/jennair/jennair">Jenn-Air connected wall oven</a> that can alert your phone if you forget to turn it off. She’s also highly tempted by the rest of these <a href="https://workswith.nest.com/collection/appliances-we-love">connected appliances</a>.</li>
+<li>Michelle wants the <a href="https://store.nest.com/works-with-nest/WNRA16ZULWB">Rachio Smart Sprinkler Controller</a> that connects to your phone (and your Nest Protect smoke and CO alarm).</li>
+<li>David would kill for a <a href="https://www.amazon.com/ChargePoint-Home-Electric-Vehicle-Charger/dp/B00YJFHG72">ChargePoint Home Electric Vehicle Charger</a> that also connects to Nest.</li>
+<li>Angela is giving out <a href="https://hello.is/">Hello Sense sleep trackers</a> to all her friends and family.</li>
+<li>Greg loves being able to turn anything that plugs into his <a href="https://store.nest.com/works-with-nest/WNWEF7C060">Wemo switch</a> on and off from his phone and thinks you will too.</li>
+<li>Dina loves her <a href="http://www.chamberlain.com/garage-door-openers">Chamberlain garage door opener</a> and suggests everyone get one. It lets her open the garage door from anywhere to let people in and out of the house.</li>
+</ol>
+<h2 id="stylish-gifts-">Stylish gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/4.jpg" alt="Stylish gifts. "></p>
+<ol>
+<li>Kezia is betting her friends and family will like this minimal <a href="https://www.amazon.com/gp/product/B00N0ZT9KE/ref=s9_dcacsd_bhz_bw_c_x_1">Yamazaki accessory tree</a>.</li>
+<li>Lizzie’s fallen in love with these super comfortable <a href="https://www.allbirds.com/products/womens-wool-runners?variant=29693050247">Wool Runners</a>.</li>
+<li>Adrian is hoping his Indiegogo-funded Everyday Backpack will be ready by Christmas.</li>
+<li>Chris loves these <a href="https://doubleeleven.co/collections/jeans">Double Eleven jeans</a> that use reclaimed material to minimize their carbon footprint without skimping on quality.</li>
+<li>For a thoughtful, reasonable winter gift, Kristen suggests these <a href="http://shop.nordstrom.com/s/ugg-woolrich-wool-blend-tech-gloves/4424745?origin=category-personalizedsort&amp;fashioncolor=BROWN%20MULTI">Ugg wool gloves</a> that you can wear while using your phone.</li>
+<li>For a fantastic, less reasonable winter gift, Kristen suggests a <a href="https://www.amazon.com/dp/B01DNC4LDS/ref=twister_B01DNC4IUO?_encoding=UTF8&amp;psc=1">mermaid blanket</a>.</li>
+</ol>
+<h2 id="home-gifts-">Home gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/5.jpg" alt="Home gifts."></p>
+<ol>
+<li>Elaine thinks everyone who watches TV on their iPad will love this <a href="http://www.uncommongoods.com/product/cardboard-ipad-tv-stand">cardboard iPad TV stand</a>.</li>
+<li>Kathleen has her eye on this <a href="https://store.moma.org/museum/moma/ProductDisplay_Craftworker-Cabinet_10451_10001_209198_-1_26715_11501_209215">Craftworker Cabinet</a>.</li>
+<li>Vicky loves the look of this <a href="https://www.etsy.com/listing/169914162/timber-circular-shadow-box-display?ref=shop_home_active_5">circular plywood shelf</a>.</li>
+<li>Michelle is giving out framed prints, like <a href="https://www.popchartlab.com/collections/prints-alcohol/products/the-matrix-of-whiskey-mixology">this one</a> explaining whiskey cocktails. And <a href="https://www.popchartlab.com/collections/prints-movies-tv/products/the-connected-characters-of-seinfeld">this one</a> showing how all the characters in Seinfeld connect.</li>
+<li>Adeleyah hopes someone will give her this <a href="http://www.ikea.com/gb/en/products/indoor-gardening/indoor-growing-cultivators/krydda-v%C3%A4xer-grow-kit-w-15-pots-1-tier-spr-59158687/">indoor gardening kit</a> from Ikea.</li>
+<li>Laura suggests giving the <a href="https://auraframes.com/">Aura digital picture frame</a> that automatically displays the best photos from your phone.</li>
+<li>Jen thinks the best gift for home is a little extra room, so she’s giving herself a <a href="https://www.studio-shed.com/">Studio Shed</a> for the backyard.</li>
+<li>Vicky loves Willowvane’s <a href="https://www.willowvane.com/">one-of-a-kind plates and cups</a>.</li>
+</ol>
+<h2 id="experience-gifts-">Experience gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/6.jpg" alt="Experience gifts."></p>
+<ol>
+<li>Rivka thinks everyone already has enough stuff, so she’s giving out <a href="https://www.tisbest.org/">TisBest charity gift cards</a> that people can give to the charity of their choice.</li>
+<li>Lauren is giving her friends and family <a href="https://www.23andme.com/">23andMe genetic testing kits</a> so they can learn more about themselves and where they come from.</li>
+<li>EJ would love a subscription to <a href="https://www.thebouqs.com/en/subscription-packages?id_product=559">the Bouqs</a>, which will deliver fresh flowers to her door every month.</li>
+<li>EJ is also hoping someone gives her a subscription to <a href="http://bookroo.com/">Bookroo</a> so she can get regular curated deliveries of children’s books for her kid.</li>
+<li>Lauren loves the idea of giving the gift of you – in this case, 3D printed models of yourself from <a href="https://www.doob3d.com/">Doob</a>.</li>
+</ol>
+<h2 id="our-favorite-gifts-">Our favorite gifts.</h2>
+<p><img src="/images/blog/images/2016-12-08/7.jpg" alt="Our favorite gifts."></p>
+<ol>
+<li>Give the <a href="https://store.nest.com/product/outdoor-security-camera">Nest Cam Outdoor security camera</a> this year. It stands watch 24/7, rain or shine. And with a free trial of Nest Aware, it can even send a special alert when it sees a person.</li>
+<li>Or give the one you love a <a href="https://store.nest.com/product/thermostat/">Nest Learning Thermostat</a>. It can connect to their phone and help save energy by learning their schedule and turning itself down when they’re away.</li>
+<li>Give the gift of plug-in-and-go security. You can set up the <a href="https://store.nest.com/product/security/camera/">Nest Cam Indoor security camera</a> in minutes, and it can stream live to your phone and alert you if something happens.</li>
+<li>The <a href="https://store.nest.com/product/smoke-co-alarm/">Nest Protect smoke and CO alarm</a> is perfect if your friends and family have torn their old smoke detector off the ceiling this year or threaten to every time they hear a low-battery chirp. Nest Protect alerts your phone if there’s smoke or carbon monoxide when you’re away, and if you’re home, you can quiet down false alarms from the Nest app.</li>
+</ol>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Quick PSA: Protect your packages.</title>
+      <link>https://nest.com/blog/2016/11/28/quick-psa-protect-your-packages/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/11/28/quick-psa-protect-your-packages/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/11/28/quick-psa-protect-your-packages/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Doug Sweeny</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/11/28/quick-psa-protect-your-packages/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-11-28/hero.jpg" alt="Every year, there’s a wave of package thefts between Black Friday and Christmas."></a></center><p>Every year, there’s a wave of package thefts between Black Friday and Christmas. Luckily this year, Nest Cam Outdoor will be ready and waiting. With Nest Aware and our new mobile clip sharing, you can spot a package thief and share the evidence with the police in seconds.</p>
+<p>Package thieves better beware.</p>
+<figure class="video">
+  <iframe width="100%" height="293" src="//www.youtube.com/embed/MMz_WmWBu9I?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>’Tis the season to share clips.</title>
+      <link>https://nest.com/blog/2016/11/17/tis-the-season-to-share-clips/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/11/17/tis-the-season-to-share-clips/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/11/17/tis-the-season-to-share-clips/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Maxime Veron</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/11/17/tis-the-season-to-share-clips/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-11-17/hero.jpg" alt="Celebrations. Decorations. Ambitious kitchen undertakings. The holiday months are made of memories. With a Nest Aware subscription, you can capture all of them. And now you can share them right from your phone."></a></center><p>Celebrations. Decorations. Ambitious kitchen undertakings. The holiday months are made of memories. With a Nest Aware subscription, you can capture all of them. And now you can share them right from your phone.</p>
+<p>It’s your new holiday card.</p>
+<p><strong>1. Create an instaclip.</strong></p>
+<style>
+.no-touchevents iframe {
+  display:none;
+}
+.no-touchevents .social-media-links iframe {
+  display:block;
+}
+.no-touchevents video {
+  display:block;
+}
+.touchevents iframe {
+  display:block;
+}
+.touchevents figure.video {
+  width: 100%;
+}
+.touchevents video {
+  display:none;
+}
+figure.video {
+  position: relative;
+  width: 557px;
+}
+
+figure.video:after {
+  content:'';
+  right:0;
+  bottom:0;
+  top:0;
+  width: 1px;
+  background: #fff;
+  position: absolute;
+}
+
+</style>
+
+<figure class="video">
+  <iframe width="100%" height="293" src="//www.youtube.com/embed/V2hENKvo8OA?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+  <video id="video-1" src="/videos/blog/kitchen.mp4" loop autoplay style="width:100%;"></video>
+</figure>
+
+<p>When you tap the clip icon, Nest Cam automatically generates an “instaclip” of the event. Our algorithms look for the beginning and end of the action and make the clip for you.</p>
+<p><strong>2. Press and hold to make a custom clip.</strong></p>
+<figure class="video">
+  <iframe width="100%" height="293" src="//www.youtube.com/embed/wsMnrSS46zE?theme=dark&fs=1&modestbranding=1&vq=hd1080&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+  <video id="video-1" src="/videos/blog/dining_room.mp4" loop autoplay style="width:100%;"></video>
+</figure>
+
+<p>You can also choose where your clip starts and ends. Just press and hold the clip icon for as long as you want the clip to last.</p>
+<p>Once you’ve made a clip, you can share it in one of two ways: create a link to the video, or save the file directly to your camera roll. From there you can easily share it on social media or send it in an email. Show off your fancy dinner. Text Mom the kids’ reaction to her present. Or send a new kind of holiday card.</p>
+<p>That’s not the only thing that’s new. Android phone users have always gotten a snapshot with their activity alerts so they could instantly see if they needed to check their cameras. Now iPhone users get snapshot alerts too. And with Nest Aware, they’ll get a short video which they can watch within the notification. So you can get a person alert, press and hold to watch a video of who’s there, then <a href="https://nest.com/support/article/How-do-I-create-a-video-clip-from-my-Nest-Aware-Video-History">go into the app to instantly make a clip</a>.</p>
+<p><img src="/images/blog/images/2016-11-17/android-tv.jpg" alt="Starting today, your camera feeds are also available on your Apple or Android TV."></p>
+<p>Starting today, your camera feeds are also available on your Android TV, with Apple TV coming soon. So next time you’re deep in a Netflix marathon, you can see who’s at the door without having to get off the couch. Toggle between your live feeds and even scrub back through your video history. It’s reality TV you actually care about.</p>
+<p>We hope these new features will help you share your holidays with your loved ones. And we hope you share those moments <a href="https://nest.com/submit-video/">with us</a>, too. If you do, you may win a free year of Nest Aware for 2017.<sup>*</sup></p>
+<p><small>*Terms apply. See <a href="https://nest.com/legal/nest-aware-promo-official-rules/">contest rules</a> for details.</small></p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Connect with your appliances.</title>
+      <link>https://nest.com/blog/2016/11/03/connect-with-your-appliances/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/11/03/connect-with-your-appliances/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/11/03/connect-with-your-appliances/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Greg Hu</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/11/03/connect-with-your-appliances/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-11-03/hero.jpg" alt="Nest works with just about everything. And we’re now working with home products you probably never realized you could stay connected to."></a></center><p>Nest works with just about everything. And we’re now working with home products you probably never realized you could stay connected to.</p>
+<p>Like your dishwasher. Or oven. Or hot water heater.</p>
+<p>Which is great news because they use the most energy in your home and can cause the most damage if left unattended.</p>
+<p>Check out some of the new products that have joined <a href="http://nest.com/wwn">Works with Nest</a> and are helping to build safer, more thoughtful homes.</p>
+<p><img src="/images/blog/images/2016-11-03/grid.jpg" alt="Check out some of the new products that have joined Works with Nest and are helping to build safer, more thoughtful homes."></p>
+<p>#<a href="https://workswith.nest.com/company/whirlpool-corporation/whirlpool">Whirlpool</a>
+Nest can automatically tell your dishwasher to start when you’ve left, while your washer keeps your clothes fresh until you return. When you’re home, your washer, dryer and dishwasher can all run in Quiet Mode so you’re not bothered by noise. And all appliances including your refrigerator, can shift energy use to less expensive times.</p>
+<p>#<a href="https://workswith.nest.com/company/jennair/jennair">Jenn-Air</a>
+If you forget your oven or stove is on and Nest senses you’re not home, you can get a notification with an option to turn them off.</p>
+<p>#<a href="https://workswith.nest.com/company/rheem-manufacturing/rheem">Rheem</a>
+When you’re away, your Econet-compatible electric and gas water heaters can turn themselves down. When Nest notices you’re home, they can turn themselves back up. And if Nest Protect senses smoke or carbon monoxide, your heater can shut itself off.</p>
+<p>#<a href="https://workswith.nest.com/company/hayward-pool-products/hayward-omnilogic">Hayward</a>
+During an energy rush hour, your Nest Thermostat can tell non-essential pool appliances like your pump, cleaner and heater to turn off, while essential activities such as chemical balancing and filtering stay on. And it can tell your pool cleaner to turn off when you get home.</p>
+<p>#<a href="https://workswith.nest.com/company/samsung-electronics/samsung-smart-home">Samsung</a>
+If Nest notices you’re gone, it can tell your Powerbot vacuum to turn on so it starts cleaning while you’re out. When you come home, it can go back to its charging station.</p>
+<p>#<a href="https://workswith.nest.com/company/home-connect/home-connect">Home Connect</a>
+If Nest notices you’ve left your house and your oven is still on, Home Connect can send you a notification with an option to turn it off. And when you’ve been away for a longer period of time, your refrigerator can ask you if you want it to go into eco mode. Also, if Nest Protect senses smoke or carbon monoxide, Home Connect can warn you and shut off your enabled home appliances to prevent them from being damaged.</p>
+<p>Want to see more appliances that work with Nest? Take a look at some of our favorites we’ve collected for you <a href="https://workswith.nest.com/collection/appliances-we-love">here</a>.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Nest turns five.</title>
+      <link>https://nest.com/blog/2016/10/25/nest-turns-five/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/10/25/nest-turns-five/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Company</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/10/25/nest-turns-five/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Matt Rogers</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/10/25/nest-turns-five/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-10-25/hero_main.jpg" alt="Five years ago today, I was at the office. I’d slept at the office, actually."></a></center><p>Five years ago today, I was at the office. I’d slept at the office, actually. A bunch of us had. We’d been working for a year straight building the world’s first learning thermostat. And on October 25, 2011, it was going to become real.</p>
+<p>We crammed into a conference room and waited.</p>
+<p><img src="/images/blog/images/2016-10-25/1.jpg" alt="We crammed into a conference room and waited."></p>
+<p>We didn’t know what the reaction would be. We didn’t know if Nest would be a success. We didn’t know if we’d ever get to do more than make this one thermostat.</p>
+<p>And when it actually happened – the email went out, nest.com went live, the press started publishing – it turned out that people loved this thing that we’d all made together.</p>
+<p><img src="/images/blog/images/2016-10-25/2.jpg" alt="That’s us watching news coverage on launch day."></p>
+<p>That’s us watching news coverage on launch day.</p>
+<p><img src="/images/blog/images/2016-10-25/3.jpg" alt="And here’s the party we had later that night."></p>
+<p><img src="/images/blog/images/2016-10-25/4.jpg" alt="And here’s the party we had later that night."></p>
+<p>And here’s the party we had later that night.</p>
+<p>It was one of the most exciting days of my life. And since that moment, it hasn’t let up. This place has contained almost all my favorite people and most of my favorite memories.</p>
+<p>Nest is special. And today, on the fifth anniversary of our first launch, I wanted to show you what we do here. Some of the stuff you only experience if you work inside these four walls.</p>
+<p><img src="/images/blog/images/2016-10-25/5.jpg" alt="Here are some very early designs for the first generation Nest Learning Thermostat."></p>
+<p>Here are some very early designs for the first generation Nest Learning Thermostat. Of course, back then we didn’t know how much we’d need to cram inside each thermostat yet.</p>
+<p>It was a long time until we got to launch day. There was a lot of this:</p>
+<p><img src="/images/blog/images/2016-10-25/6.jpg" alt="There was a lot of this."></p>
+<p>And this.</p>
+<p><img src="/images/blog/images/2016-10-25/7.jpg" alt="And this."></p>
+<p>After that came two more generations of Nest Learning Thermostats for the US, then two more for Europe.</p>
+<p>And that’s not even mentioning the Nest Protect smoke and carbon monoxide alarm. Here’s us deciding exactly what shade of white it should be:</p>
+<p><img src="/images/blog/images/2016-10-25/8.jpg" alt="Here’s us deciding exactly what shade of white it should be:"></p>
+<p>What – you can’t tell the difference?</p>
+<p>After we settled that, we had to test it. And where better to test than in a conference room?</p>
+<p><img src="/images/blog/images/2016-10-25/9.jpg" alt="And where better to test than in a conference room?"></p>
+<p>After a while, this is what the ceiling in the office looked like. Woe to the person who burned anything in the mini-kitchen.</p>
+<p><img src="/images/blog/images/2016-10-25/10.jpg" alt="Woe to the person who burned anything in the mini-kitchen."></p>
+<p>Of course this was followed by incredibly rigorous testing in a <a href="https://nest.com/blog/2015/07/16/how-we-tested-our-new-nest-protect/">UL facility</a>. And then it was followed by the next version of Nest Protect. And that was quickly followed by Nest Cam.</p>
+<p>By the time we launched our first security camera, we were in a fancy new office and had hired a lot more people. But launch day still felt familiar. A whole lot of people who had worked very, very hard, sitting in a room being very, very quiet until the moment when they could be very, very loud.</p>
+<p><img src="/images/blog/images/2016-10-25/11.jpg" alt="Every time we launch, everyone in the company who worked on a product lines up to sign a poster of it."></p>
+<p>Every time we launch, everyone in the company who worked on a product lines up to sign a poster of it. We know it takes a village to make something great. This is the village that made Nest Cam:</p>
+<p><img src="/images/blog/images/2016-10-25/12.jpg" alt="I save every one of these posters."></p>
+<p>I save every one of these posters. They’re a permanent memory of how hard we worked.</p>
+<p>But this company isn’t just about work. It’s about people. And lemon bars.</p>
+<p><img src="/images/blog/images/2016-10-25/13.jpg" alt="It’s about people. And lemon bars."></p>
+<p>And balloons.</p>
+<p><img src="/images/blog/images/2016-10-25/14.jpg" alt="And balloons."></p>
+<p>And cooking way too much meat.</p>
+<p><img src="/images/blog/images/2016-10-25/15.jpg" alt="And cooking way too much meat."></p>
+<p>And perfecting our office cocktails.</p>
+<p><img src="/images/blog/images/2016-10-25/16.jpg" alt="And perfecting our office cocktails."></p>
+<p>And making the next generation of Nesters.</p>
+<p><img src="/images/blog/images/2016-10-25/17.jpg" alt="And making the next generation of Nesters."></p>
+<p>Happy birthday, Nest. Here’s to the next five years.</p>
+]]>
+      </description>
+    </item>
+    <item>
+      <title>Say hello to Eco Temperatures.</title>
+      <link>https://nest.com/blog/2016/10/17/say-hello-to-eco-temperatures/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</link>
+      <comments>https://nest.com/blog/2016/10/17/say-hello-to-eco-temperatures/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost#comments</comments>
+      <pubDate>Invalid Date</pubDate>
+      <category>Energy</category>
+      <guid isPermaLink="false">https://nest.com/blog/2016/10/17/say-hello-to-eco-temperatures/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost</guid>
+      <dc:creator>Maxime Veron</dc:creator>
+      <description>
+        <![CDATA[<center><a href="https://nest.com/blog/2016/10/17/say-hello-to-eco-temperatures/?referrer%3Drss%26utm_campaign%3Drss-feed%26utm_source%3Dnest-blog%26utm_medium%3Dweb%26utm_content%3Dblogpost"><img src="https://nest.com/images/blog/images/2016-10-17/hero_eco-temperatures-US.jpg" alt="Today we’re introducing something new for the Nest Learning Thermostat called Eco&nbsp;Temperatures."></a></center><p>Today we’re introducing something new for the Nest Learning Thermostat called <a href="https://nest.com/support/article/Learn-how-Eco-Temperatures-work-on-the-Nest-Thermostat">Eco&nbsp;Temperatures</a>. It will take the place of Away temperatures and give you another option to help save energy, even when you’re home.</p>
+<p>Your Nest Thermostat will still turn itself down after you leave. But now, it will say “Eco” instead of “Auto-Away” on the display.</p>
+<p>Nest Thermostat owners love Auto-Away because it helps save energy when everyone’s out. In fact, some people love it so much that they’ve been manually setting their thermostats to Away when they’re home, too. And that can confuse even the most thoughtful of homes.</p>
+<p>Setting your thermostat to Away while you’re home means other Nest or Works with Nest products also switch to Away mode. So your Nest Cam could turn on or your lights could turn off, even though you’re home. Because Eco&nbsp;Temperatures are separate from Away mode, you can use them without affecting the other products in your home. Just select Eco&nbsp;Temperatures on your thermostat or in the Nest app.</p>
+<p>Nest will still set your home to Away automatically when you&#39;re gone, switch your thermostat to Eco&nbsp;Temperatures and enable your other Nest and Works with Nest products to do the right thing.</p>
+<p>Your Nest Thermostat’s software will update automatically within two weeks. To set Eco&nbsp;Temperatures from your phone, update your Nest app.</p>
+<p>And Works with Nest developers, you can build features that support Eco&nbsp;Temperatures starting today.</p>
+]]>
+      </description>
+    </item>
+  </channel>
+</rss>

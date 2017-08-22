@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+12:27:59	378/378	U--M--	200	updated ('OK')	text/plain	etag:%2259799837-17a%22	https://nest.com/robots.txt		(from )
+12:28:00	37394/37394	---M-Z	200	added ('OK')	text/html	date:Tue,%2022%20Aug%202017%2019:27:59%20GMT	https://nest.com/support/	nest.com/support/index.html	(from )
