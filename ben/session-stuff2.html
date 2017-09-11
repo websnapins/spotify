@@ -1,0 +1,182 @@
+<html>
+<head>
+<script>
+document.domain="websnapins.com";
+var domainIframe;
+  
+//browser detection
+var eswSafariFix = {}
+eswSafariFix['getSafariType'] = function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if(userAgent.indexOf("chrome") === -1 && userAgent.indexOf("safari") !== -1) {
+            if(userAgent.indexOf("mobile") === -1) {
+                return "desktop";
+            } else {
+                return "mobile";
+            }
+        }
+        
+        return "none";
+    };
+    // Account for Safari cache quirks.
+    window.addEventListener("pageshow", function() {
+        if(eswSafariFix.getSafariType() === "desktop" && event.persisted) window.location.reload();
+    }, false);
+  
+var nonDomainIframe;
+var unloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pagehide" : "beforeunload";
+var onloadEvt = eswSafariFix.getSafariType() !== 'none' ? "pageshow" : "load";    
+  
+window.addEventListener("popstate", function() {
+        if(eswSafariFix.getSafariType() === "mobile") document.location.reload();
+    }, false);
+  
+  function createCookie(name,value,minutes) {
+    var expires = "";
+    if (minutes) {
+      var date = new Date();
+      date.setTime(date.getTime() + (minutes*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/;domain=" + document.domain + ";";
+  }
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+  
+  function eraseCookie(name) {
+    createCookie(name,"",-1);
+  }
+//page load
+window.addEventListener(onloadEvt, function(){
+  domainIframe=document.getElementById("domainIframe").contentWindow;  
+  nonDomainIframe=document.getElementById("nonDomainIframe").contentWindow;
+});
+//storage loaded
+window.addEventListener('message', function (event) {
+   domainIframe=document.getElementById("domainIframe").contentWindow;  
+   nonDomainIframe=document.getElementById("nonDomainIframe").contentWindow;
+   // Check for specific event: 'storage_iframe_initialize'
+   if (event.data == 'storage_iframe_initialized') {
+     eswSetInput("pageCookie1", readCookie("pageCookie1"));
+     eswSetInput("pageCookie2", readCookie("pageCookie2"));
+     eswSetInput("pageSession1", sessionStorage.getItem("pageSession1"));
+     eswSetInput("pageSession2", sessionStorage.getItem("pageSession2"));
+     eswSetInput("pageLocal1", localStorage.getItem("pageLocal1"));
+     eswSetInput("pageLocal2", localStorage.getItem("pageLocal2"));
+     
+     eswSetInput("dIframeCookie1", domainIframe.readCookie("dIframeCookie1"));
+     eswSetInput("dIframeCookie2", domainIframe.readCookie("dIframeCookie2"));
+     eswSetInput("dIframeSession1", domainIframe.sessionStorage.getItem("dIframeSession1"));
+     eswSetInput("dIframeSession2", domainIframe.sessionStorage.getItem("dIframeSession2"));
+     eswSetInput("dIframeLocal1", domainIframe.localStorage.getItem("dIframeLocal1"));
+     eswSetInput("dIframeLocal2", domainIframe.localStorage.getItem("dIframeLocal2"));
+     
+     nonDomainIframe.postMessage({ method : "readCookie", key: "ndIframeCookie1", target: "Cookie1"}, "*");
+     nonDomainIframe.postMessage({ method : "readCookie", key: "ndIframeCookie1", target: "Cookie2"}, "*");
+     nonDomainIframe.postMessage({ method : "getSession", key: "ndIframeSession1", target: "Session1"}, "*");
+     nonDomainIframe.postMessage({ method : "getSession", key: "ndIframeSession2", target: "Session2"}, "*");
+     nonDomainIframe.postMessage({ method : "getLocal", key: "ndIframeLocal1", target: "Local1"}, "*");
+     nonDomainIframe.postMessage({ method : "getLocal", key: "ndIframeLocal2", target: "Local2"}, "*");
+   }else{
+     var payload = event.data;
+     switch(payload.method) {
+       case 'cookieDataCallback' :
+         eswSetInput("ndIframe" + payload.target, payload.data);
+         break;
+       case 'sessionDataCallback' :
+         eswSetInput("ndIframe" + payload.target, payload.data);
+         break;
+       case 'localDataCallback' :
+         eswSetInput("ndIframe" + payload.target, payload.data);
+         break;
+     }
+   }
+});
+//page unload
+window.addEventListener(unloadEvt, function (event) {
+  createCookie("pageCookie1", eswGetInput("pageCookie1"));
+  createCookie("pageCookie2", eswGetInput("pageCookie2"));
+  sessionStorage.setItem("pageSession1", eswGetInput("pageSession1"));
+  sessionStorage.setItem("pageSession2", eswGetInput("pageSession2"));
+  localStorage.setItem("pageLocal1", eswGetInput("pageLocal1"));
+  localStorage.setItem("pageLocal2", eswGetInput("pageLocal2"));
+  
+  domainIframe.createCookie("dIframeCookie1", eswGetInput("dIframeCookie1"));
+  domainIframe.createCookie("dIframeCookie2", eswGetInput("dIframeCookie2"));
+  domainIframe.sessionStorage.setItem("dIframeSession1", eswGetInput("dIframeSession1"));
+  domainIframe.sessionStorage.setItem("dIframeSession2", eswGetInput("dIframeSession2"));
+  domainIframe.localStorage.setItem("dIframeLocal1", eswGetInput("dIframeLocal1"));
+  domainIframe.localStorage.setItem("dIframeLocal2", eswGetInput("dIframeLocal2"));
+});
+  
+//store in non-domain iframe
+window.eswStoreInNonDomainIframe = function(){
+  nonDomainIframe.postMessage({ method : "createCookie", key: "ndIframeCookie1", value : document.getElementById("ndIframeCookie1").value},"*");
+  nonDomainIframe.postMessage({ method : "createCookie", key: "ndIframeCookie2", value :  document.getElementById("ndIframeCookie2").value},"*");
+  nonDomainIframe.postMessage({ method : "storeSession", key: "ndIframeSession1", value : document.getElementById("ndIframeSession1").value},"*");
+  nonDomainIframe.postMessage({ method : "storeSession", key: "ndIframeSession2", value :  document.getElementById("ndIframeSession2").value},"*");
+  nonDomainIframe.postMessage({ method : "storeLocal", key: "ndIframeLocal1", value : document.getElementById("ndIframeLocal1").value},"*");
+  nonDomainIframe.postMessage({ method : "storeLocal",key: "ndIframeLocal2", value : document.getElementById("ndIframeLocal2").value},"*");
+}
+  
+window.eswSetInput = function(elemId, val){
+  document.getElementById(elemId).value = val;
+}
+  
+window.eswGetInput = function(elemId){
+  return document.getElementById(elemId).value;
+}
+ </script>
+</head>
+<body>
+<iframe style="display:none" id="domainIframe" src="http://www.websnapins.com/spotify-storage-ben.html"></iframe>
+<iframe style="display:none" id="nonDomainIframe" src="http://bendra.github.io/lightning/spotify-storage-ben.html"></iframe>
+  <b>SET VALUES TO:</b><input id="newVal" value="2"/><button type="button" onclick="setAlVals()">Do it</button>
+<p>
+Page Cookie 1:<input id="pageCookie1"/>
+<p>
+Page Cookie 2:<input id="pageCookie2"/>
+<p>
+Page Session 1:<input id="pageSession1"/>
+<p>
+Page Session 2:<input id="pageSession2"/>
+<p>
+Page Local 1:<input id="pageLocal1"/>
+<p>
+Page Local 2:<input id="pageLocal2"/>
+<p>
+Domain Iframe Cookie 1:<input id="dIframeCookie1"/>
+<p>
+Domain Iframe Cookie 2:<input id="dIframeCookie2"/>
+<p>
+Domain Iframe Session 1:<input id="dIframeSession1"/>
+<p>
+Domain Iframe Session 2:<input id="dIframeSession2"/>
+<p>
+Domain Iframe Local 1:<input id="dIframeLocal1"/>
+<p>
+Domain Iframe Local 2:<input id="dIframeLocal2"/>
+<p>
+Non Domain Iframe Cookie 1:<input id="ndIframeCookie1"/>
+<p>
+Non Domain Iframe Cookie 2:<input id="ndIframeCookie2"/>
+<p>
+Non Domain Iframe Session 1:<input id="ndIframeSession1"/>
+<p>
+Non Domain Iframe Session 2:<input id="ndIframeSession2"/>
+<p>
+Non Domain Iframe Local 1:<input id="ndIframeLocal1"/>
+<p>
+Non Domain Iframe Local 2:<input id="ndIframeLocal2"/>
+<p>
+  <b>STORE NON DOMAIN IFRAME VALUES:</b><button type="button" onclick="eswStoreInNonDomainIframe()">Do it</button>
+</body>
+</html>
