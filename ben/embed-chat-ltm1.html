@@ -21,7 +21,7 @@
 	}
 </style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/4.0/esw.min.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/4.0/esw.js'></script>
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
 embedded_svc.settings.displayHelpButton = true; //Or false
@@ -47,7 +47,7 @@ embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 embedded_svc.settings.entryFeature = 'LiveAgent';
 //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 
-embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-15fe0525ddf.localhost.soma.force.com:6109/napili', gslbBaseURL, '00Dxx0000000002', 'b', { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', deploymentId: '572xx000000000B', buttonId: '573xx000000000B', baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000VEAQ_15fe0a6192b'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/4.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
+embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-15fe0525ddf.localhost.soma.force.com:6109/napili', gslbBaseURL, '00Dxx0000000002', 'b', { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', deploymentId: '572xx000000000B', buttonId: '573xx000000000B', baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000VEAQ_15fe0a6192b'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/4.0/esw.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
    </script>
    
    
