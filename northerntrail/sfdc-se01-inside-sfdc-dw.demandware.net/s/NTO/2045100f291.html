@@ -1209,8 +1209,6 @@ try {
 <script src="http://sfdc-se01-inside-sfdc-dw.demandware.net/on/demandware.static/Sites-NTO-Site/-/default/v1481137102801/lib/jquery/jquery.validate.min.js" type="text/javascript"></script>
 <script src="http://sfdc-se01-inside-sfdc-dw.demandware.net/on/demandware.static/Sites-NTO-Site/-/default/v1481137102801/lib/jquery/jquery.zoom.min.js" ></script>
 
-<script src="https://ntoretailforce.my.salesforce.com/lightning/lightning.out.js"></script>
-
 <script type="text/javascript">
 
 (function(){
@@ -1284,34 +1282,47 @@ dw.applepay = {"action":{"cancel":"https:\/\/sfdc-se01-inside-sfdc-dw.demandware
 	
 <!-- ESW Stuff-->
 <div id="button_goes_here"> </div>
+
 <style type='text/css'>
-.embeddedServiceLiveAgentChatButton .helpButton .uiButton { background-color: #6CCDF0; font-family: "Salesforce Sans", sans-serif; }
-.embeddedServiceLiveAgentChatButton .helpButton .uiButton:focus {outline: 1px solid #005290}
-@font-face {
-font-family: 'Salesforce Sans';
-src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
-}
-</style>
-<script type='text/javascript' src='https://gs0.salesforce.com/embeddedservice/2.0/esw.min.js'></script>
-<script type='text/javascript'>
-var initESW = function(gslbBaseUrl) {
+		.embeddedServiceHelpButton .helpButton .uiButton { background-color: #6CCDF0; font-family: "Salesforce Sans", sans-serif; }
+		.embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #6CCDF0; }
+		@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+		}
+	</style>
 
-embedded_svc.settings.avatarImgURL = '../nto-agent-avatar.png';
-embedded_svc.settings.prechatBackgroundImgURL = '../nto-prechat.png';
-embedded_svc.settings.waitingStateBackgroundImgURL = '../nto-waiting-avatars.png';
-embedded_svc.settings.smallCompanyLogoImgURL = '../nto-small-logo.png';
 
-embedded_svc.settings.displayHelpButton = true; //Or false
-embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+	<script type='text/javascript' src='https://service.force.com/embeddedservice/4.0/esw.min.js'></script>
+	<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+	embedded_svc.settings.displayHelpButton = true; //Or false
+	embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+	
+	//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+	//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+	
+	//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+	//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+	
+	// Settings for Live Agent
+	embedded_svc.settings.avatarImgURL = 'nto-agent-avatar.png';
+	embedded_svc.settings.prechatBackgroundImgURL = 'nto-prechat.png';
+	embedded_svc.settings.waitingStateBackgroundImgURL = 'nto-waiting-avatars.png';
+	embedded_svc.settings.smallCompanyLogoImgURL = 'nto-small-logo.png';
+	//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+	// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+	//Returns a valid button ID.
+	//};
+	
+	embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+	embedded_svc.settings.entryFeature = 'LiveAgent';
+	//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+	
+	embedded_svc.init('https://gs0.salesforce.com', 'https://kgarg-gs0.secure.force.com', gslbBaseURL, '00DB0000000IUUN', 'Kanan_212_Deployment', { baseLiveAgentContentURL: 'https://c.gla3-phx.gus.salesforce.com/content', deploymentId: '572B00000004XuU', buttonId: '573B00000000qpD', baseLiveAgentURL: 'https://d.gla3-phx.gus.salesforce.com/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IB00000004CseMAE_1605b5c352d'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://gs0.salesforce.com/embeddedservice/4.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }</script>
 
-//embedded_svc.settings.defaultMinimizedText = '...'; (Defaults to Chat with an Expert)
-//embedded_svc.settings.offlineText = '...'; (Defaults to Agent Offline)
-//embedded_svc.settings.onlineLoadingText = '...'; (Defaults to Loading)
 
-//embedded_svc.settings.storageDomain = 'yourdomain.com'; (Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-embedded_svc.init('https://gs0.salesforce.com', 'https://d.la.gus.salesforce.com/chat', 'https://c.la.gus.salesforce.com/content', 'https://kgarg-gs0.secure.force.com', '572B00000004XuU', '00DB0000000IUUN', '573B00000004j7u', '2.0', gslbBaseUrl, '40.0', 'Kanan_208_Deployment', 'EmbeddedServiceLiveAgent_Parent04IB0000000005BMAQ_15ba7071ef3'); }; if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://gs0.salesforce.com/embeddedservice/2.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s);} else { initESW('https://gs0.salesforce.com'); }</script>
 </body>
 
 <!-- Mirrored from sfdc-se01-inside-sfdc-dw.demandware.net/s/NTO/2045100.html?cgid=womens-jackets by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2017 00:22:11 GMT -->
