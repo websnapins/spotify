@@ -1,6 +1,6 @@
 (function() {
-	var BASE_CORE_URL = "https://na1-blitz04.soma.salesforce.com";
-	var COMMUNITY_ENDPOINT_URL = "https://justincommunitessubdomain-15-15c3c79d62b.blitz04.soma.force.com/napili081517";
+	var BASE_CORE_URL = "https://bdrasin-ltm1.internal.salesforce.com:6101";
+	var COMMUNITY_ENDPOINT_URL = "https://snapins-16125c68b7c.localhost.soma.force.com:6101/snappynappi";
 	var oauthToken;
 
 	embedded_svc = {
