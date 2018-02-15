@@ -33,11 +33,7 @@ embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-// Settings for Live Agent
-embedded_svc.settings.avatarImgURL = '';
-embedded_svc.settings.prechatBackgroundImgURL = '';
-embedded_svc.settings.waitingStateBackgroundImgURL = '';
-embedded_svc.settings.smallCompanyLogoImgURL = '';
+
 //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 //Returns a valid button ID.
@@ -49,9 +45,8 @@ embedded_svc.settings.smallCompanyLogoImgURL = '';
 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 embedded_svc.settings.entryFeature = 'LiveAgent';
 
-embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-1610c004e4e.localhost.soma.force.com:6109/napione', gslbBaseURL, '00Dxx00000000Qd', 'b', { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', deploymentId: '572xx000000005B', buttonId: '573xx000000000z', baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000BEAQ_1610d0369ba'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
-	</script>
-   
+embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-1619bab161f.localhost.soma.force.com:6109/napili', gslbBaseURL, '00Dxx00000000FB', 'b', { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', deploymentId: '572xx000000000B', buttonId: '573xx000000000B', baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000VEAQ_1619bae5c31'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }</script>	
+	
    </body>
 </html>
     <style>
