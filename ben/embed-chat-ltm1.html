@@ -49,7 +49,29 @@ embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 embedded_svc.settings.entryFeature = 'LiveAgent';
 
-embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-1619bab161f.localhost.soma.force.com:6109/napili', gslbBaseURL, '00Dxx00000000FB', 'b', { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', deploymentId: '572xx000000000B', buttonId: '573xx000000000B', baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000VEAQ_1619bae5c31'}); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }</script>	
+embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 
+		  'http://snapins-1619bab161f.localhost.soma.force.com:6109/napili', 
+		  gslbBaseURL, '00Dxx00000000FB', 
+		  'b', 
+		  { baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content', 
+		    deploymentId: '572xx000000000B', 
+		    buttonId: '573xx000000000B', 
+		    baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat', 
+		    eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx000000000VEAQ_1619bae5c31'
+		  }); 
+};if (!window.embedded_svc) 
+	{ var s = document.createElement('script'); 
+	  s.setAttribute('src', 
+ 	  'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'); 
+	   s.onload = function() { 
+		    initESW(null);
+		   		   $A.set("my-private-thing", "my-private-value");
+
+	   }; document.body.appendChild(s); } else 
+{ initESW('https://service.force.com'); 
+  $A.set("my-private-thing", "my-private-value");
+
+}</script>	
 	
    </body>
 </html>
