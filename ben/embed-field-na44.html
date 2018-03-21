@@ -117,6 +117,16 @@
 	}
 </style>
 
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
+	.embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #005290; }
+	@font-face {
+	font-family: 'Salesforce Sans';
+	src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+	url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+	}
+</style>
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
@@ -130,31 +140,22 @@ embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 // Settings for Field Service
-embedded_svc.settings.fieldServiceConfirmationCardImgURL = '';
-embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOIQ.bWDcamJKczAK0oo93S28SyvjBQbBYa2UDG11C6mQ132Z5IarBZ3XgoitkFzZ.yX5s6a';
-embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-ltm1.html';
-embedded_svc.settings.loginTargetQuerySelector = '#login';
-embedded_svc.settings.fieldServiceStartLabel = 'Launch!';
-//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-// Sets chats to route to the first available user or button in the array
-//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-embedded_svc.settings.devMode = 'true';
+embedded_svc.settings.loginClientId = '';
+embedded_svc.settings.loginRedirectURL = '';
+embedded_svc.settings.loginTargetQuerySelector = '';
+embedded_svc.settings.authenticationStartLabel = '';
+
 embedded_svc.settings.enabledFeatures = ['FieldService'];
 embedded_svc.settings.entryFeature = 'FieldService';
-embedded_svc.settings.useCustomAuthentication = false;
 
-embedded_svc.init('https://bdrasin-ltm1.internal.salesforce.com:6101', 'https://snapins-subdomain-16195784487.localhost.soma.force.com:6101/snapinscomm1', gslbBaseURL, '00Dxx0000000001', 'FS_214_Deployment_One', { });
-};
-	if (!window.embedded_svc) { 
-		var s = document.createElement('script'); 
-		s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.js');
-		s.onload = function() { 
-			initESW(null); 
-		}; 
-		document.body.appendChild(s); 
-	} else { 
-		initESW('https://service.force.com'); 
-	}
+embedded_svc.settings.useCustomAuthentication = false;
+embedded_svc.settings.loginClientId = '3MVG9qKMKuRGRcbu9MYja_6.pFjSa4yCswwb_15VGUQj2ttL.tQq94EUD4hv1BKbOJ597mtetGwiqdbAxCMkX';
+embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-na44.html';
+embedded_svc.settings.loginTargetQuerySelector = '#login';
+embedded_svc.settings.fieldServiceStartLabel = 'Launch!';
+
+embedded_svc.init('https://na44.stmfa.stm.salesforce.com', 'https://snapins-subdomain-161923d1a21.stmfa.stm.force.com/snapinscomm2', gslbBaseURL, '00DRM0000005r6L', 'FS_214_Sprint_Reviews', { }); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://na44.stmfa.stm.salesforce.com/embeddedservice/5.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
+		
 </script>
 		
 	</body>
