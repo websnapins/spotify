@@ -104,8 +104,6 @@
 				<a class="footer-column-link">Jobs</a>
 			</div>
 		</div>
-
-
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
 	.embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #005290; }
@@ -116,7 +114,7 @@
 	}
 </style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
 embedded_svc.settings.displayHelpButton = true; //Or false
@@ -129,22 +127,17 @@ embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 // Settings for Field Service
-embedded_svc.settings.fieldServiceConfirmationCardImgURL = '';
-embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOIQ.bWDcamJKR.6_a4BzkX9IDDxxUzbnRFkF30X46CugVXHWEHi4WRx7240UP4UhILh8kSg';
+embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOIts6JJqT10cumTSVzZaEguaYfCgqijfatAyGVu9axfs5Orc.0s0XzzfdJwijlCGW5DVqFA';
 embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-214-ltm1.html';
 embedded_svc.settings.loginTargetQuerySelector = '#login';
 embedded_svc.settings.fieldServiceStartLabel = 'Launch!';
-//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-// Sets chats to route to the first available user or button in the array
-//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-embedded_svc.settings.devMode = 'true';
 
 embedded_svc.settings.enabledFeatures = ['FieldService'];
 embedded_svc.settings.entryFeature = 'FieldService';
 
 embedded_svc.settings.useCustomAuthentication = false;
 
-embedded_svc.init('https://bdrasin-ltm1.internal.salesforce.com:6101', 'https://snapins-subdomain-1628c456490.localhost.soma.force.com:6101/snapinscomm1', gslbBaseURL, '00Dxx0000000001', 'FS_214_Deployment_One', { }); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }</script>
-
+embedded_svc.init('http://bdrasin-ltm1.internal.salesforce.com:6109', 'http://snapins-subdomain-162cca4697d.localhost.soma.force.com:6109/snapinscomm1', gslbBaseURL, '00Dxx000000001x', 'FS_214_Deployment_One', { }); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
+		</script>
 	</body>
 </html>
