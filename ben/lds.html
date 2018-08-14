@@ -3,8 +3,16 @@
 <div id="target"></div>
 <script src="https://service.force.com/lightning/lightning.out.js"></script>
 <script language="javascript">
-$Lightning.use('c:TestLDS.app', function(){
-  $Lightning.createCompontnt('C:TestLDS.cmp', { 'recordId':'001RM000003VgUcYAK'}, 'target'},
-}, 'https://snapins-subdomain-161923d1a21.stmfa.stm.force.com/snapinscomm2', undefined, {});
+$Lightning.use('c:TestLDS.app', 
+               function(){
+  $Lightning.createCompontnt(
+    'C:TestLDS.cmp', 
+    { 'recordId':'001RM000003VgUcYAK'}, 
+    'target'
+  ),
+}, 
+  'https://snapins-subdomain-161923d1a21.stmfa.stm.force.com/snapinscomm2', 
+    undefined, 
+    {});
 </script>
 </html>
