@@ -14,13 +14,19 @@
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
-		font-family: "Georgia", sans-serif;
+		font-family: "Salesforce Sans", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #005290;
 	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -32,15 +38,23 @@
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-		embedded_svc.settings.enabledFeatures = [];
-		embedded_svc.settings.entryFeature = '';
+		// Settings for Field Service
+		embedded_svc.settings.loginClientId = '';
+		embedded_svc.settings.loginRedirectURL = '';
+		embedded_svc.settings.loginTargetQuerySelector = '';
+		embedded_svc.settings.authenticationStartLabel = '';
+
+		embedded_svc.settings.enabledFeatures = ['FieldService'];
+		embedded_svc.settings.entryFeature = 'FieldService';
+
+		embedded_svc.settings.useCustomAuthentication = false;
 
 		embedded_svc.init(
 			'http://bdrasin-wsl.internal.salesforce.com:6109',
 			'http://snapins-subdomain-161923d1a2-165fd5c4000.localhost.soma.force.com:6109/community3',
 			gslbBaseURL,
 			'00Dxx0000006Il5',
-			'FS2',
+			'FS3',
 			{
 				
 			}
@@ -57,7 +71,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>	
+</script>
 	
 
 	</body>
