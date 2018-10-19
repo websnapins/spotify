@@ -36,7 +36,7 @@
 	}
 </style>
 
-<!-- <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script> -->
+<!-- <script type='text/javascript' src='http://jmacmillin-wsm3.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js'></script> -->
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -63,19 +63,18 @@
 		// Debug
 		embedded_svc.settings.devMode = true;
 
-// 		replace with desktop, another deployment!
-		embedded_svc.init(
-			'https://na44.stmfb.stm.salesforce.com',
-			'https://snapins-1600942b294.stmfb.stm.force.com/napili',
+ 		embedded_svc.init(
+			'http://jmacmillin-wsm3.internal.salesforce.com:6109',
+			'http://communities.localhost.soma.force.com:6109/napiliOct152018',
 			gslbBaseURL,
-			'00DRM0000005jYI',
+			'00Dxx0000006Gz1',
 			'justin2',
 			{
-				baseLiveAgentContentURL: 'https://c.la2-stmfb1-0-prd.stmfb.stm.salesforceliveagent.com/content',
-				deploymentId: '572RM0000004EQN',
-				buttonId: '573RM0000004DDR',
-				baseLiveAgentURL: 'https://d.la2-stmfb1-0-prd.stmfb.stm.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM00000000Zn2AI_1668dabb0f9',
+				baseLiveAgentContentURL: 'http://jmacmillin-wsm3.internal.salesforce.com:8095/content',
+				deploymentId: '572xx0000004C92',
+				buttonId: '573xx0000004CFU',
+				baseLiveAgentURL: 'http://jmacmillin-wsm3.internal.salesforce.com:8096/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004GmeEAE_1668e4902d6',
 				isOfflineSupportEnabled: false
 			}
 		);
@@ -83,15 +82,15 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-// 		s.setAttribute('src', 'https://na44.stmfb.stm.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.setAttribute('src', 'https://na44.stmfb.stm.salesforce.com/embeddedservice/5.0/esw.js');
+// 		s.setAttribute('src', 'http://jmacmillin-wsm3.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'http://jmacmillin-wsm3.internal.salesforce.com:6109/embeddedservice/5.0/esw.js');
 		s.onload = function() {
 			initESW(null);
 		};
 		document.body.appendChild(s);
 	} else {
 // 		initESW('https://service.force.com');
-		initESW('https://na44.stmfb.stm.salesforce.com');
+		initESW('http://jmacmillin-wsm3.internal.salesforce.com:6109');
 	}
 </script>
 
