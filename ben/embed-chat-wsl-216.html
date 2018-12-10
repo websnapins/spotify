@@ -7,7 +7,6 @@
   <p align="center"><font color ="red">PAGE ONE</font></p>
   <p align="center"><font color = "red"><a href="igor204bl1_p2.html">Link to PAGE TWO</font></p></a>
 
-<div id="login"><button class="fieldServiceStart" disabled>Let's Try It</button></div>
 
 <div id="button_goes_here">
 </div>
@@ -15,53 +14,34 @@
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
-		font-family: "Salesforce Sans", sans-serif;
+		font-family: "Georgia", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #005290;
 	}
-	@font-face {
-		font-family: 'Salesforce Sans';
-		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
-	}
 </style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-		// Settings for Field Service
-		embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOL0_Dxx_qoKvMQWrOgly6nQkTDwALWE61JpuPf11wo_iBj334mNApPMCCeUg62qgZvWYvBn';
-		embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-wsl-216.html';
-		embedded_svc.settings.loginTargetQuerySelector = '#login';
-		embedded_svc.settings.authenticationStartLabel = 'Launch!';
-
-		embedded_svc.settings.enabledFeatures = ['FieldService'];
-		embedded_svc.settings.entryFeature = 'FieldService';
-
-		embedded_svc.settings.useCustomAuthentication = false;
-
+		embedded_svc.settings.enabledFeatures = [];
+		embedded_svc.settings.entryFeature = '';
 		embedded_svc.init(
 			'http://bdrasin-wsl.internal.salesforce.com:6109',
 			'http://snapins-subdomain-161923d1a2-165fd5c4000.localhost.soma.force.com:6109/community3',
 			gslbBaseURL,
 			'00Dxx0000006Il5',
-			'FS3',
+			'FS2',
 			{
 				
 			}
 		);
 	};
-
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'http://bdrasin-wsl.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
@@ -72,7 +52,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>
+</script>	
 	
 
 	</body>
