@@ -1,0 +1,19 @@
+<html>
+<body>
+<div id=lightningLocator"></div>
+<script src="http://mydomaintest.lightning.localhost.soma.force.com:6109/lightning/lightning.out.js"></script>
+
+<script>
+$Lightning.use("c:testVertNavApp",
+  function() { 
+    $Lightning.createComponent(
+      "c:testVertNav",
+      "lightningLocator",
+      function(){}
+      );
+     },
+     "http://mydomaintest.lightning.localhost.soma.force.com:6109"
+     );
+</script>
+</body>
+</html>
