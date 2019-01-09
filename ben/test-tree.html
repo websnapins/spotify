@@ -1,0 +1,18 @@
+<html>
+<body>
+<div id=lightningLocator"></div>
+<script src="https://bensteam.lightning.stmfa.stm.force.com/lightning/lightning.out.js"></script>
+<script>
+$Lightning.use("c:MyTreeApp",
+  function() { 
+    $Lightning.createComponent(
+      "c:MyTree",
+      "lightningLocator",
+      function(){}
+      );
+     },
+     "https://snapins-subdomain-161923d1a21.stmfa.stm.force.com/snapinscomm1"
+     );
+</script>
+</body>
+</html>
