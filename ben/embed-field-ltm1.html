@@ -120,7 +120,7 @@ var initESW = function(gslbBaseURL) {
 embedded_svc.settings.displayHelpButton = true; //Or false
 embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 //embedded_svc.settings.flexipageAptHome = 'snap3';
-embedded_svc.settings.flexipageAptHome='support__AppointmentHome';
+//embedded_svc.settings.flexipageAptHome='support__AppointmentHome';
 
 //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
@@ -139,7 +139,20 @@ embedded_svc.settings.entryFeature = 'FieldService';
 
 embedded_svc.settings.useCustomAuthentication = false;
 
-embedded_svc.init('https://bdrasin-ltm1.internal.salesforce.com:6101', 'https://snapins-subdomain-161923d1a2-1639518bf16.localhost.soma.force.com:6101/snapinscomm1', gslbBaseURL, '00Dxx00000000SH', 'FS_214_Deployment_One', { }); };if (!window.embedded_svc) { var s = document.createElement('script'); s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.js'); s.onload = function() { initESW(null); }; document.body.appendChild(s); } else { initESW('https://service.force.com'); }
+embedded_svc.init('https://bdrasin-ltm1.internal.salesforce.com:6101',
+		  'https://snapins-subdomain-161923d1a2-1639518bf16.localhost.soma.force.com:6101/snapinscomm1', 
+		  gslbBaseURL, 
+		  '00Dxx00000000SH', 
+		  'FS_214_Deployment_One', { }); 
+	};
+	if (!window.embedded_svc) {
+		var s = document.createElement('script'); 
+		s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.js'); 
+		s.onload = function() { 
+			initESW(null); 
+		}; 
+		document.body.appendChild(s); 
+	} else { initESW('https://service.force.com'); }
 		</script>
 		
 		
