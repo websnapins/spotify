@@ -136,14 +136,14 @@
 		embedded_svc.settings.entryFeature = 'FieldService';
 
 		embedded_svc.settings.useCustomAuthentication = false;
-		embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOKIlsaNpLOhfFIUHVFU71fEwJTT7d6I4yowspMkC2xIhwMShsT72LxmOjL1x3ZzyBpyD.Nf';
-		embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-ltm1-scheduler.html';
-		embedded_svc.settings.loginTargetQuerySelector = '#login';
-		embedded_svc.settings.authenticationStartLabel = 'Launch!';
+		embedded_svc.settings.loginClientId = '';
+		embedded_svc.settings.loginRedirectURL = '';
+		embedded_svc.settings.loginTargetQuerySelector = '';
+		embedded_svc.settings.authenticationStartLabel = '';
 
 		embedded_svc.init(
 			'http://bdrasin-ltm1.internal.salesforce.com:6109',
-			'http://fsc-snapin-168c53944f2.localhost.soma.force.com:6109/',
+			'http://fsc-snapin-168c53944f2.localhost.soma.force.com:6109/snappy1',
 			gslbBaseURL,
 			'00Dxx0000006Ir9',
 			'FSC_Snapin',
@@ -163,8 +163,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>
-		
+</script>			
 		
 	</body>
 </html>
