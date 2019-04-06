@@ -120,7 +120,6 @@
 	}
 </style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -144,8 +143,8 @@
 		embedded_svc.settings.authenticationStartLabel = 'Launch!';
 
 		embedded_svc.init(
-			'http://bdrasin-ltm1.internal.salesforce.com:6109',
-			'http://snapins-subdomain-161923d1a2-169ef8c1595.localhost.soma.force.com:6109/fscommunity',
+			'https://bdrasin-ltm1.internal.salesforce.com:6101',
+			'https://snapins-subdomain-161923d1a2-169ef8c1595.localhost.soma.force.com:6101/fscommunity',
 			gslbBaseURL,
 			'00Dxx0000006Ghn',
 			'FS',
@@ -157,7 +156,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
