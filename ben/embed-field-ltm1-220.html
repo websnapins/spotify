@@ -106,60 +106,66 @@
 		</div>
 
 <style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
-	.embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #005290; }
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Salesforce Sans", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
 	@font-face {
-	font-family: 'Salesforce Sans';
-	src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-	url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+		font-family: 'Salesforce Sans';
+		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
 	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-var initESW = function(gslbBaseURL) {
-embedded_svc.settings.displayHelpButton = true; //Or false
-embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-//embedded_svc.settings.flexipageAptHome = 'snap3';
-embedded_svc.settings.flexipageAptHome='support__AppointmentHome';
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-// Settings for Field Service
-embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOJCo9xqFL48R4vJ6R.GCfmG86mviJ99eJN9YAXXb8o29ihtkrE0Y4VGtyl8DUTFDFbNQgde';
-embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-ltm1.html';
-embedded_svc.settings.loginTargetQuerySelector = '#login';
-embedded_svc.settings.authenticationStartLabel = 'Launch!';
-//embedded_svc.settings.devMode = 'true';
-embedded_svc.settings.enabledFeatures = ['FieldService'];
-embedded_svc.settings.entryFeature = 'FieldService';
+		// Settings for Field Service
 
-embedded_svc.settings.useCustomAuthentication = false;
+		embedded_svc.settings.enabledFeatures = ['FieldService'];
+		embedded_svc.settings.entryFeature = 'FieldService';
+
+		embedded_svc.settings.useCustomAuthentication = false;
+		embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOJ5adA9Tn6T5p0WeGzb7uLSCK7Eq_WfjwIOdc6sWrxicRBdzhbBzX66GPR295_Zmus_6Amk';
+		embedded_svc.settings.loginRedirectURL = 'https://websnapins.com/ben/callback-ltm1.html';
+		embedded_svc.settings.loginTargetQuerySelector = '#login';
+		embedded_svc.settings.authenticationStartLabel = 'Launch!';
 
 		embedded_svc.init(
-			'https://bdrasin-ltm1.internal.salesforce.com:6101',
-			'https://fs1community.localhost.soma.force.com:6101/snappy1',
+			'http://bdrasin-ltm1.internal.salesforce.com:6109',
+			'http://snapins-subdomain-161923d1a2-169ef8c1595.localhost.soma.force.com:6109/fscommunity',
 			gslbBaseURL,
-			'00Dxx0000006GKh',
-			'snap1',
+			'00Dxx0000006Ghn',
+			'FS',
 			{
 				
 			}
 		);
 	};
+
 	if (!window.embedded_svc) {
-		var s = document.createElement('script'); 
-		s.setAttribute('src', 'https://bdrasin-ltm1.internal.salesforce.com:6101/embeddedservice/5.0/esw.js'); 
-		s.onload = function() { 
-			initESW(null); 
-		}; 
-		document.body.appendChild(s); 
-	} else { initESW('https://service.force.com'); }
-		</script>
-		
+		var s = document.createElement('script');
+		s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
 		
 	</body>
 </html>
