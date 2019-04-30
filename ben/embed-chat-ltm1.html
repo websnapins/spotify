@@ -14,14 +14,15 @@
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #A70BA5;
-		font-family: "Comic Sans MS", sans-serif;
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #A70BA5;
+		outline: 1px solid #005290;
 	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -33,7 +34,7 @@
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-		// Settings for Live Agent
+		// Settings for Chat
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			// Returns a valid button ID.
@@ -47,16 +48,16 @@
 
 		embedded_svc.init(
 			'http://bdrasin-ltm1.internal.salesforce.com:6109',
-			'http://snapins-15fc6fb04c9-162baf43fa6.localhost.soma.force.com:6109/napili',
+			'http://nwk00dxx0000006hcr.localhost.soma.force.com:6109/snappy1',
 			gslbBaseURL,
-			'00Dxx00000000Pf',
-			'oh_mylanta',
+			'00Dxx0000006HCR',
+			'snap1',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content',
-				deploymentId: '572xx0000000001',
-				buttonId: '573xx0000000001',
+				deploymentId: '572xx0000004CCG',
+				buttonId: '573xx0000004CCG',
 				baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000000001EAA_15ec5bd2971',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004CFUEA2_16a56b475c8',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -72,7 +73,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>	
+</script>
 	
 	
    </body>
