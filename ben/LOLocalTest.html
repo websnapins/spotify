@@ -1,0 +1,18 @@
+<html>
+<body>
+<div id=lightningLocator"></div>
+<script src="http://dev.lightning.localhost.soma.force.com:6109/lightning/lightning.out.js"></script>
+<script>
+$Lightning.use("c:lightningOutTest",
+  function() { 
+    $Lightning.createComponent(
+      "c:buttonTest",
+      "lightningLocator",
+      function(){}
+      );
+     },
+     "http://messagingcomm.localhost.soma.force.com:6109/snap1"
+     );
+</script>
+</body>
+</html>
