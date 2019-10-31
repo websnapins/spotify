@@ -23260,7 +23260,7 @@ var HeaderFooterMLT = {
 <p>Manufacturers offer camera lenses with varying capabilities and at multiple price points. Sigma, for example, has an Art series for high-end units and a Sport series with telephoto capabilities.</p>
 <br>
 <h3>What Are Specialty Lenses?</h3>
-<p>These units are suitable for less common mirrorless cameras, or those that distort images in creative ways. In this category, you'll find <a href="https://www.bhphotovideo.com/c/buy/Rangefinder-Camera-Lenses/ci/8423/N/4288584243">rangefinder lenses</a>. Rangefinder cameras are retro mirrorless systems that predate SLRs and DSLRs. Their standout feature is a rotating focusing ring for bringing objects into sharp focus. Lenses for these cameras have designs that accommodate this range-finding mechanism.</p>
+<p>These units are suitable for less common mirrorless cameras, or those that distort images in creative ways. In this category, you'll findÂ <a href="https://www.bhphotovideo.com/c/buy/Rangefinder-Camera-Lenses/ci/8423/N/4288584243">rangefinder lenses</a>. Rangefinder cameras are retro mirrorless systems that predate SLRs and DSLRs. Their standout feature is a rotating focusing ring for bringing objects into sharp focus. Lenses for these cameras have designs that accommodate this range-finding mechanism.</p>
 <p>To add some creative touches to your shots, consider getting <a href="https://www.bhphotovideo.com/c/buy/Special-Effects-Lenses/ci/11751/N/4288584249 " title="special effects lenses">special effects lenses</a>. The most popular examples are tilt-shift styles. They add optical distortion to shots to make images look symmetrical and pleasing to the eyes. Others let you adjust focus to add bokeh effects.</p>
 <br>
 <h3>Can I Use Any Mirrorless Camera Lens with My Mirrorless Camera?</h3>
@@ -24028,6 +24028,75 @@ window.SS && SS.Require(function () {
     SS.Debug.trackJSErrors();
 });
 </script>
+
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Salesforce Sans", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+	}
+</style>
+
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+		embedded_svc.settings.devMode = true;
+
+		embedded_svc.init(
+			'http://bdrasin-wsl4.internal.salesforce.com:6109',
+			'http://eswblitz-16d6967b850.localhost.soma.force.com:6109/site1',
+			gslbBaseURL,
+			'00Dxx0000006Iq3',
+			'omni_1',
+			{
+				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
+				deploymentId: '572xx0000004C92',
+				buttonId: '573xx0000004C92',
+				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/5.0/esw.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('http://bdrasin-wsl4.internal.salesforce.com:6109');
+	}
+</script>
+
 </body>
 
 <!-- Mirrored from www.bhphotovideo.com/c/buy/Mirrorless-Camera-Lenses/ci/17912/N/4196380428 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Oct 2019 22:15:09 GMT -->
