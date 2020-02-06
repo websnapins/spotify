@@ -1,0 +1,14 @@
+<html>
+<head>
+<script src="https://user4site.stmfb.stm.force.com/lightning/lightning.out.js"></script>
+</head>
+<body>
+<div id="targetDiv">
+</div>
+<script>
+$Lightning.use("c:testLOApp", function(){
+  $Lightning.createComponent("c:testLOCmp", {}, "#targetDiv");
+}, "https://user4site.stmfb.stm.force.com/");
+</script>
+</body>
+</html>
