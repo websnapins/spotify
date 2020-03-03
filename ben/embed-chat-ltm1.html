@@ -10,18 +10,22 @@
 
 <div id="button_goes_here">
 </div>
-
-
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
-		font-family: "Arial", sans-serif;
+		font-family: "Salesforce Sans", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #005290;
 	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+		url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -46,17 +50,17 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'http://bdrasin-ltm1.internal.salesforce.com:6109',
-			'http://nwk00dxx0000006hcr.localhost.soma.force.com:6109/snappy1',
+			'http://bdrasin-ltm.internal.salesforce.com:6109',
+			'http://tiffanytso-1709e80b5a2.dev.localhost.soma.force.com:6109/',
 			gslbBaseURL,
-			'00Dxx0000006HCR',
-			'snap1',
+			'00Dxx0000006GKh',
+			'Omni_QueueBased',
 			{
-				baseLiveAgentContentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8095/content',
-				deploymentId: '572xx0000004CCG',
-				buttonId: '573xx0000004CCG',
-				baseLiveAgentURL: 'http://bdrasin-ltm1.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004CFUEA2_16a56b475c8',
+				baseLiveAgentContentURL: 'http://bdrasin-ltm.internal.salesforce.com:8095/content',
+				deploymentId: '572xx0000004C93',
+				buttonId: '573xx0000004C93',
+				baseLiveAgentURL: 'http://bdrasin-ltm.internal.salesforce.com:8096/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004DeU2AU_168dad58d5f',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -64,7 +68,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-ltm1.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'http://bdrasin-ltm.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
@@ -73,8 +77,6 @@
 		initESW('https://service.force.com');
 	}
 </script>
-	
-	
    </body>
 </html>
     <style>
