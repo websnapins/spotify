@@ -10,16 +10,6 @@
 <div id="button_goes_here">
 </div>
 
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-</style>
-
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -48,13 +38,13 @@
 			'http://eswblitz-170b667f7a6.dev.localhost.soma.force.com:6109/site1',
 			gslbBaseURL,
 			'00Dxx0000006Gl1',
-			'skill_1',
+			'omni_1',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
 				deploymentId: '572xx0000004C92',
-				buttonId: '573xx0000004C93',
+				buttonId: '573xx0000004C92',
 				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv62AE_16c4e046cae',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -70,8 +60,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>	
-	
+</script>
 
    </body>
 </html>
