@@ -14,15 +14,21 @@
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
-		font-family: "Arial", sans-serif;
+		font-family: "Salesforce Sans", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #005290;
 	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+		url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-		var initESW = function(gslbBaseURL) {
+	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
@@ -43,25 +49,19 @@
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-			
+
 		embedded_svc.init(
 			'https://na44.stmfa.stm.salesforce.com',
-			'https://snapins-15fc6fb04c9-16428ee4-16635bfddec.stmfa.stm.force.com',
-			'https://eswdomain-168c401b18f.stmfa.stm.force.com',
+			'https://tiffanytso-1702153bb98-17215a0db6f.stmfa.stm.force.com',
 			gslbBaseURL,
-			'00DRM0000006VRZ',
-			'oh_mylanta',
-			'00DRM0000007ZWs',
-			'LA',
+			'00DRM000000GuIz',
+			'LA_SkillsBased',
 			{
 				baseLiveAgentContentURL: 'https://c.la2-stmfa1-0-prd.stmfa.stm.salesforceliveagent.com/content',
-				deploymentId: '572RM00000004GI',
-				buttonId: '573RM00000004af',
-				deploymentId: '572RM00000005Sd',
-				buttonId: '573RM00000005re',
+				deploymentId: '572RM0000000Cv3',
+				buttonId: '573RM0000000DTB',
 				baseLiveAgentURL: 'https://d.la2-stmfa1-0-prd.stmfa.stm.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000000001EAA_15ec5bd2971',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004HjoEAE_1685e0ba10a',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dee2AE_168df736d40',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -78,8 +78,7 @@
 		initESW('https://service.force.com');
 	}
 </script>
-	
-	
+
    </body>
 </html>
     <style>
