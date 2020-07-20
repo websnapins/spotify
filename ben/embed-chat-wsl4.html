@@ -10,6 +10,17 @@
 <div id="button_goes_here">
 </div>
 
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #000000;
+		font-family: "Hello", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #000000;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -30,30 +41,29 @@
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
-		embedded_svc.settings.devMode=true;
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
 			'http://bdrasin-wsl4.internal.salesforce.com:6109',
-			'http://eswblitz-16d6967b850.dev.localhost.soma.force.com:6109/site1',
+			'http://eswtiffany-171ec582c80.dev.localhost.soma.force.com:6109/esw',
 			gslbBaseURL,
-			'00Dxx0000006Iq3',
-			'omni_1',
+			'00Dxx0000006GeZ',
+			'OmniBot_QueueBased',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
-				deploymentId: '572xx0000004C92',
-				buttonId: '573xx0000004C92',
+				deploymentId: '572xx0000004C93',
+				buttonId: '573xx0000004C94',
 				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
-				isOfflineSupportEnabled: true
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004DiB2AU_169972825e2',
+				isOfflineSupportEnabled: false
 			}
 		);
 	};
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/5.0/esw.js');
+		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
@@ -61,7 +71,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-	</script>
+</script>
    </body>
 </html>
     <style>
