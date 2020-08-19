@@ -13,16 +13,11 @@
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Salesforce Sans", sans-serif;
+		background-color: #000000;
+		font-family: "Hello", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-	@font-face {
-		font-family: 'Salesforce Sans';
-		src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-		url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+		outline: 1px solid #000000;
 	}
 </style>
 
@@ -52,17 +47,17 @@
 
 		embedded_svc.init(
 			'https://na44.stmfc.stm.salesforce.com',
-			'https://tiffanytso-16ddd2e50db.stmfc.stm.force.com',
+			'https://eswtiffany-174083f47f8.stmfc.stm.force.com/esw',
 			gslbBaseURL,
-			'00DRM00000062xK',
-			'LA_SkillsBased',
+			'00DRM00000065I8',
+			'OmniBot_QueueBased',
 			{
 				baseLiveAgentContentURL: 'https://c.la2-stmfc1-0-prd.stmfc.stm.salesforceliveagent.com/content',
-				deploymentId: '572RM0000004D2Q',
-				buttonId: '573RM0000004D3s',
+				deploymentId: '572RM00000002Nj',
+				buttonId: '573RM00000002Rq',
 				baseLiveAgentURL: 'https://d.la2-stmfc1-0-prd.stmfc.stm.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dee2AE_168df736d40',
-				isOfflineSupportEnabled: true
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004DiB2AU_169972825e2',
+				isOfflineSupportEnabled: false
 			}
 		);
 	};
