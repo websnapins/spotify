@@ -3,16 +3,16 @@
 <div id="lightningLocator"></div>
 <script src="http://dev.lightning.localhost.soma.force.com:6109/lightning/lightning.out.js"></script>
 <script>
-$Lightning.use("c:lightningOutTest",
+$Lightning.use("c:LOTestApp",
   function() { 
     $Lightning.createComponent(
-      "c:buttonTest",
+      "c:myAppComponent",
       {},
       "lightningLocator",
       function(){}
       );
      },
-     "http://messagingcomm.localhost.soma.force.com:6109/snap1"
+     "http://eswblitz-16d6967b850.dev.localhost.soma.force.com:6109/site"
      );
 </script>
 </body>
