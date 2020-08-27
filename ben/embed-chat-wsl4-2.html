@@ -108,17 +108,17 @@
 				embedded_svc.settings.entryFeature = 'LiveAgent';
 		
 		embedded_svc.init(
-			'http://bdrasin-wsl4.internal.salesforce.com:6109',
-			'http://eswblitz-16d6967b850.dev.localhost.soma.force.com:6109/site1',
+			'http://messagingdomain.localhost.internal.salesforce.com:6109',
+			'http://messagingcom.dev.localhost.soma.force.com:6109/custsvc1',
 			gslbBaseURL,
 			'00Dxx0000006Iq3',
-			'omni_1',
+			'skill_1',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
 				deploymentId: '572xx0000004C92',
-				buttonId: '573xx0000004C92',
+				buttonId: '573xx0000004C93',
 				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv62AE_16c4e046cae',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -126,7 +126,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'http://messagingdomain.localhost.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
@@ -134,6 +134,9 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+				
+				
+				
 		</script>
 		<!-- Embedded Service Code Snippet -->
 	</body>
