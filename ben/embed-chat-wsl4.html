@@ -12,14 +12,15 @@
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #3B9464;
-		font-family: "Georgia", sans-serif;
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #3B9464;
+		outline: 1px solid #005290;
 	}
 </style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -44,17 +45,17 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'http://bdrasin-wsl4.internal.salesforce.com:6109',
-			'http://eswblitz-16d6967b850.dev.localhost.soma.force.com:6109/site1',
+			'http://benco00.localhost.internal.salesforce.com:6109',
+			'http://chatsite.dev.localhost.soma.force.com:6109/site1',
 			gslbBaseURL,
-			'00Dxx0000006Iq3',
+			'00Dxx0000006UmN',
 			'omni_1',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
-				deploymentId: '572xx0000004C92',
-				buttonId: '573xx0000004C92',
+				deploymentId: '572xx0000004EPM',
+				buttonId: '573xx0000004EPM',
 				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004FdAEAU_17446df5972',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -62,7 +63,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'http://benco00.localhost.internal.salesforce.com:6109/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
