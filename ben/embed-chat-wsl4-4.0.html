@@ -5,12 +5,10 @@
 </head>
 <body>
   <p align="center"><font color ="red">PAGE ONE</font></p>
-  <p align="center"><font color = "red"><a href="igor204bl1_p2.html">Link to PAGE TWO</font></p></a>
-
+  <p align="center"><font color = "red"><a href="embed-chat-wsl4-2.html">Link to PAGE TWO</font></p></a>
 
 <div id="button_goes_here">
 </div>
-
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -26,6 +24,7 @@
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.devMode= true;
 
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
@@ -42,23 +41,21 @@
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
-		embedded_svc.settings.devMode = true;
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-		embedded_svc.settings.__synchronous_decrement_tab = true;
 
 		embedded_svc.init(
-			'http://bdrasin-wsl4.internal.salesforce.com:6109',
-			'http://eswblitz-16d6967b850.dev.localhost.soma.force.com:6109/site1',
+			'http://benco00.localhost.internal.salesforce.com:6109',
+			'http://eswmessagingchat-1758a328499.dev.localhost.soma.force.com:6109/chatcommunity',
 			gslbBaseURL,
-			'00Dxx0000006Iq3',
-			'omni_1',
+			'00Dxx0000006GSl',
+			'Chat',
 			{
 				baseLiveAgentContentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8095/content',
-				deploymentId: '572xx0000004C92',
-				buttonId: '573xx0000004C92',
+				deploymentId: '572xx0000004CCG',
+				buttonId: '573xx0000004CCG',
 				baseLiveAgentURL: 'http://bdrasin-wsl4.internal.salesforce.com:8096/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04Ixx0000004C92EAE_1743cd61ebc',
 				isOfflineSupportEnabled: true
 			}
 		);
@@ -66,7 +63,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'http://bdrasin-wsl4.internal.salesforce.com:6109/embeddedservice/4.0/esw.js');
+		s.setAttribute('src', 'http://benco00.localhost.internal.salesforce.com:6109/embeddedservice/4.0/esw.js');
 		s.onload = function() {
 			initESW(null);
 		};
@@ -75,7 +72,7 @@
 		initESW('https://service.force.com');
 	}
 </script>
-
+	
    </body>
 </html>
     <style>
@@ -91,3 +88,6 @@
             
       }
     </style>
+
+
+
