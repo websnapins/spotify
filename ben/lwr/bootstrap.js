@@ -604,7 +604,7 @@
 			iFrameConfig.inAppEndpointUrl = embeddedservice_bootstrap.settings.inAppEndpointUrl || undefined;
 
 			iFrame.src = embeddedservice_bootstrap.settings.embeddedServiceConfig.siteUrl
-				+ "/embeddedService/embeddedService.app?configuration="
+				+ "?configuration="
 				+ encodeURIComponent(JSON.stringify(iFrameConfig));
 
 			iFrame.title = "Chat with an Agent";
