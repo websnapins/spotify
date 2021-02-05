@@ -10,7 +10,18 @@
 	var s = document.createElement('script');
 	s.setAttribute('src', 'http://benco1.lightning.localhost.soma.force.com:6109/embeddedservice/asyncclient/bootstrap.js');
 	s.onload = function() {
-		embeddedservice_bootstrap.settings.platformKey = "EmbeddedMessaging:062e5c32-3ef6-4745-93e0-74c6b5dc9b8e"
+		embeddedservice_bootstrap.settings.platformKey = "EmbeddedMessaging:f80dba1e-3cb6-45fb-af11-c6b077d66457"
+		embeddedservice_bootstrap.settings.devMode= true;
+		embeddedservice_bootstrap.settings.embeddedServiceConfig = {
+			"siteUrl" : "http://bdrasin-wsl4.internal.salesforce.com:8096/chat",
+			"branding" : {
+				"height" : "554",
+				"width" : "334"
+			},
+			"orgId" : "00DRM000000MOSn"
+		};
+		
+		
 		embeddedservice_bootstrap.init( "00Dxx0000006GZD", 
 					       	"Chat", 
 					        "http://bdrasin-wsl4.internal.salesforce.com:8096/chat", 
