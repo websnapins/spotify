@@ -9,13 +9,15 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.language
 
 			embeddedservice_bootstrap.init(
 				'00DRM000000MOSn',
 				'InAppMessaging',
-				'	https://benco11.my.localhost.sfdcdev.site.com:6101/custsvc1',
+				'https://benco11.my.localhost.sfdcdev.site.com:6101/custsvc1',
 				{
-					scrt2URL: 'https://benco1.my.stmfa.stm.salesforce-scrt.com'
+					scrt2URL: 'https://benco1.my.stmfa.stm.salesforce-scrt.com',
+					siteUrl: 'https://benco11.my.localhost.sfdcdev.site.com:6101/custsvc1'
 				}
 			);
 		} catch (err) {
