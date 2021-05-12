@@ -720,7 +720,7 @@
 			const iframe = document.createElement("iframe");
 
 //			iframe.src = getSiteUrl() + "/embeddedService/embeddedService.app";
-			iframe.src = "https://eswmessagingchat-175482fb00f-175d82b2ab2.stmfa.stm.force.com/lwcbyo1"
+			iframe.src = "https://eswmessagingchat-175482fb00f-175d82b2ab2.stmfa.stm.force.com/lwcbyo1/"
 
 			iframe.title = "Chat with an Agent";
 			iframe.className = IFRAME_NAME;
