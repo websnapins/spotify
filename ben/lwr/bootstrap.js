@@ -526,8 +526,7 @@
 			let link = document.createElement("link");
 
 			let baseURL = urlToLoadFrom ? urlToLoadFrom : GSLB_BASE_URL;
-
-			link.href = "https://benco11.my.localhost.sfdcdev.site.com:6101/custsvc1" + "/embeddedservice/asyncclient/bootstrap" + (embeddedservice_bootstrap.settings.devMode ? "" : ".min") + ".css";
+			link.href = baseURL + "/embeddedservice/asyncclient/bootstrap" + (embeddedservice_bootstrap.settings.devMode ? "" : ".min") + ".css";
 			link.type = "text/css";
 			link.rel = "stylesheet";
 
