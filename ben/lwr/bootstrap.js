@@ -478,7 +478,7 @@
 								}));
 							break;
 						case APP_LOADED_EVENT_NAME:
-							handleAfterAppLoad();
+						//	handleAfterAppLoad();
 							break;
 						case APP_MINIMIZE_EVENT_NAME:
 							embeddedservice_bootstrap.minimizeIframe(frame, e.data.data);
