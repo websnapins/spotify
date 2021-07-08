@@ -574,7 +574,7 @@
 		let siteUrl = undefined;
 
 		try {
-			siteUrl = 'https://eswmessagingchat-175482fb00f-175d82b2ab2.stmfa.stm.force.com';
+			siteUrl = "https://benco11.my.localhost.sfdcdev.site.com:6101";
 		} catch(err) {
 			error("Error getting Site URL: " + err);
 		}
