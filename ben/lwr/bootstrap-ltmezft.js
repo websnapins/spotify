@@ -720,7 +720,7 @@
 			const iframe = document.createElement("iframe");
 
 
-			iframe.src = "https://benco11.my.localhost.sfdcdev.site.com:6101/byolwr4"
+			iframe.src = "https://benco11.my.localhost.sfdcdev.site.com:6101/byolwr4?lwc.mode=dev"
 
 			iframe.title = "Chat with an Agent";
 			iframe.className = IFRAME_NAME;
