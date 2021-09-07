@@ -807,7 +807,7 @@
 			warning("Embedded Messaging static button not available for post-app-load updates.");
 		} else {
 			// Reset the Conversation button once the aura application is loaded in the iframe. Ifame/Chat window is rendered on top of FAB.
-			iconContainer.removeChild(loadingSpinner);
+			//iconContainer.removeChild(loadingSpinner);
 			chatIcon.style.display = "block";
 			button.disabled = false;
 			button.classList.remove(CONVERSATION_BUTTON_LOADING_CLASS);
