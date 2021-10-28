@@ -723,7 +723,7 @@
 //			iframe.src = "https://eswmessagingchat-175482fb00f-175d82b2ab2.stmfa.stm.force.com/lwcbyo1/"
 //			iframe.src = "https://eswmessagingchat-175482fb00f-175d82b2ab2.stmfa.stm.force.com/byolwr3?lwc.mode=dev";
 //			iframe.src = "https://benco11.my.localhost.sfdcdev.site.com:6101/byolwr4"
-			iframe.src = "https://testlwrexperience.stmfa.stm.force.com/eswlwr3"
+			iframe.src = "https://testlwrexperience.stmfa.stm.force.com/eswlwr3?lwc.mode=dev"
 
 			iframe.title = "Chat with an Agent";
 			iframe.className = IFRAME_NAME;
