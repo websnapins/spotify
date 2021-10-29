@@ -574,7 +574,7 @@
 		let siteUrl = undefined;
 
 		try {
-			siteUrl = "https://benco11.my.localhost.sfdcdev.site.com:6101";
+			siteUrl = "https://benco.my.localhost.sfdcdev.site.com:6101/eswlwr1";
 		} catch(err) {
 			error("Error getting Site URL: " + err);
 		}
@@ -720,7 +720,7 @@
 			const iframe = document.createElement("iframe");
 
 
-			iframe.src = "https://benco11.my.localhost.sfdcdev.site.com:6101/byolwr4?lwc.mode=dev"
+			iframe.src = "https://benco.my.localhost.sfdcdev.site.com:6101/eswlwr1?lwc.mode=dev"
 
 			iframe.title = "Chat with an Agent";
 			iframe.className = IFRAME_NAME;
