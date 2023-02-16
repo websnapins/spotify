@@ -6,15 +6,15 @@
       let localVal = sessionStorage.getItem("test_storageVal");
       
       //output values to console
-      console.log("sessionVal: " + sessionVal);
-      console.log("localVal: " + localVal);
+      console.log("websnapins sessionVal: " + sessionVal);
+      console.log("websnapins localVal: " + localVal);
       
       //add function to update the values
       function updateVals(){
         sessionVal = document.getElementById("sessionVal").value;
         localVal = document.getElementById("localVal").value;
-        console.log("updating sessionVal to " + sessionVal);
-        console.log("updating localVal to " + localVal);
+        console.log("websnapins updating sessionVal to " + sessionVal);
+        console.log("websnapins updating localVal to " + localVal);
         
         sessionStorage.setItem("test_storageVal", sessionVal);
         localStorage.setItem("test_storageVal", localVal);
@@ -22,9 +22,11 @@
       
       //add handler to show the values
       window.addEventListener("load", (event) => {
-        console.log("setting values on page load");
+        console.log("websnapins setting values on page load");
         document.getElementById("sessionVal").value = sessionVal;
         document.getElementById("localVal").value = localVal;
+
+        document.getElementById("updateBtn").addEventListener("click", updateVals);
       });
     </script>
   </head>
@@ -34,6 +36,6 @@
     <p>
     Local: <input id="localVal" name="localVal"</input>
     <p>
-      <button type="button" onclick="updateVals" value="update" style="height: 30px; width: 100px;"></button>
+      <button type="button" id="updateBtn" value="updateBtn" style="height: 30px; width: 100px;"></button>
   </body>
 </html>
