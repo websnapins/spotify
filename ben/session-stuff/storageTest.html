@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script>
+      //read values from session storage/local storage
+      let sessionVal = sessionStorage.getItem("test_storageVal");
+      let localVal = sessionStorage.getItem("test_storageVal");
+      
+      //output values to console
+      console.log("sessionVal: " + sessionVal);
+      console.log("localVal: " + localVal);
+      
+      //add function to update the values
+      function updateVals(){
+        sessionVal = document.getElementById("sessionVal").value;
+        localVal = document.getElementById("localVal").value;
+        console.log("updating sessionVal to " + sessionVal);
+        console.log("updating localVal to " + localVal);
+        
+        sessionStorage.setItem("test_storageVal", sessionVal);
+        localStorage.setItem("test_storageVal", localVal);
+      });
+      sessionVal = document.getElementById("sessionVal").value;
+      localVal = document.getElementById
+      
+      //add handler to show the values
+      window.addEventListener("load", (event) => {
+        console.log("setting values on page load");
+        document.getElementById("sessionVal").value = sessionVal;
+        document.getElementById("localVal").value = localVal;
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+    Session: <input id="sessionVal" name="sessionVal"></input>
+    <p>
+    Local: <input id="localVal" name="localVal"</input>
+    <p>
+      <button type="button" onclick="updateVals"></button>
+  </body>
+</html>
