@@ -1,19 +1,20 @@
 <html>
   <head>
     <script language="javascript">
-      function prefetchAFile() {
+      function prefetchAFile(file) {
         const head = document.querySelector("HEAD");
         const linkEl = document.createElement("link");
         linkEl.rel="prefetch";
-        linkEl.href="2.html"
+        linkEl.href=file
         head.appendChild(linkEl);
       }
       window.addEventListener("message", function(e) {
-        prefetchAFile();
+        prefetchAFile("2.html");
       });
     </script>
   </head>
   <body>
     <H1>I'm in an iframe</H1>
+    <button onclick="prefetchAFile("2.html")">Click me afterwards</button>
   </body>
 </html>
